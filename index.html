@@ -1,0 +1,2464 @@
+<!DOCTYPE html>
+<html
+    lang="en"
+    x-data="portfolio()"
+    :class="{ 'dark': darkMode }"
+    class="scroll-smooth">
+
+<head>
+
+    <!-- ========================================= -->
+    <!-- Meta -->
+    <!-- ========================================= -->
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Backend Developer Portfolio of Maeed Ahammed. NestJS, ExpressJS, MongoDB, PostgreSQL, ASP.NET MVC, REST APIs, Software Engineering.">
+
+    <meta
+        name="keywords"
+        content="Backend Developer,NestJS,ExpressJS,MongoDB,Software Engineer,Portfolio">
+
+    <meta
+        name="author"
+        content="Maeed Ahammed">
+
+    <!-- Open Graph -->
+
+    <meta
+        property="og:title"
+        content="Maeed Ahammed | Backend Developer">
+
+    <meta
+        property="og:description"
+        content="Backend Developer specializing in scalable REST APIs and modern backend architecture.">
+
+    <meta
+        property="og:type"
+        content="website">
+
+    <title>
+        Maeed Ahammed | Backend Developer
+    </title>
+
+    <!-- ========================================= -->
+    <!-- Tailwind -->
+    <!-- ========================================= -->
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+
+        tailwind.config = {
+
+            darkMode: 'class',
+
+            theme: {
+
+                extend: {
+
+                    colors: {
+
+                        primary: '#FF6B2B',
+
+                        dark: '#09090B',
+
+                        grayText: '#71717A'
+
+                    },
+
+                    fontFamily: {
+
+                        heading: ['PT Sans', 'sans-serif'],
+
+                        body: ['DM Sans', 'sans-serif']
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    </script>
+
+    <!-- ========================================= -->
+    <!-- Fonts -->
+    <!-- ========================================= -->
+
+    <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=DM+Sans:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Alpine -->
+
+    <script defer
+        src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <!-- ========================================= -->
+    <!-- Custom CSS -->
+    <!-- ========================================= -->
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        html{
+            font-family:'DM Sans',sans-serif;
+        }
+
+        body{
+
+            background:white;
+
+            color:#111827;
+
+            transition:.35s;
+
+        }
+        
+@keyframes float{
+
+0%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-12px);
+
+}
+
+100%{
+
+transform:translateY(0);
+
+}
+
+}
+
+.float{
+
+animation:float 5s ease infinite;
+
+}
+
+        h1,h2,h3,h4{
+
+            font-family:'PT Sans',sans-serif;
+
+        }
+
+        body::before{
+
+            content:'';
+
+            position:fixed;
+
+            inset:0;
+
+            pointer-events:none;
+
+            opacity:.05;
+
+            background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+
+        }
+
+        ::-webkit-scrollbar{
+
+            width:6px;
+
+        }
+
+
+        .reveal {
+    opacity: 0;
+    transform: translateY(60px);
+    transition: all 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+        ::-webkit-scrollbar-thumb{
+
+            background:#FF6B2B;
+
+            border-radius:100px;
+
+        }
+
+        .glass{
+
+            backdrop-filter:blur(18px);
+
+            background:rgba(255,255,255,.75);
+
+        }
+
+        .dark .glass{
+
+            background:rgba(10,10,10,.75);
+
+        }
+
+        .hero-gradient{
+
+            position:absolute;
+
+            width:600px;
+
+            height:600px;
+
+            border-radius:100%;
+
+            filter:blur(120px);
+
+            background:#FF6B2B20;
+
+        }
+
+        .btn-primary{
+
+            transition:.3s;
+
+        }
+
+        .btn-primary:hover{
+
+            transform:translateY(-3px);
+
+        }
+
+        .card-hover {
+    transition: all .35s ease;
+}
+
+.card-hover:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 45px rgba(0,0,0,.12);
+}
+
+.btn-primary {
+    transition: all .3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px) scale(1.03);
+}
+
+    </style>
+
+</head>
+
+<body
+   x-data="portfolio()"
+    class="bg-white dark:bg-dark text-gray-900 dark:text-white">
+
+<!-- ===================================================== -->
+<!-- LOADER -->
+<!-- ===================================================== -->
+
+<div
+    id="loader"
+    class="fixed inset-0 bg-white dark:bg-dark z-[99999] flex flex-col items-center justify-center transition-opacity duration-700">
+
+    <div
+        class="w-20 h-20 border-[6px] border-primary border-t-transparent rounded-full animate-spin">
+    </div>
+
+    <h2 class="mt-8 text-2xl font-bold font-heading">
+        Loading Portfolio...
+    </h2>
+
+</div>
+
+<!-- ========================================= -->
+<!-- CURSOR GLOW -->
+<!-- ========================================= -->
+
+    <div
+        id="cursorGlow"
+        class="fixed w-72 h-72 rounded-full pointer-events-none z-0 blur-3xl opacity-20"
+        style="
+            background:#FF6B2B;
+            left:-150px;
+            top:-150px;">
+    </div>
+
+
+<!-- ========================================= -->
+<!-- SCROLL PROGRESS -->
+<!-- ========================================= -->
+
+<div
+    id="progressBar"
+    class="fixed top-0 left-0 h-1 bg-primary z-[9999]"
+    style="width:0%">
+</div>
+
+class="bg-white dark:bg-dark text-gray-900 dark:text-white">
+
+<!-- ========================= -->
+<!-- NAVBAR -->
+<!-- ========================= -->
+
+<header
+class="fixed top-0 left-0 right-0 z-50 glass border-b border-zinc-200 dark:border-zinc-800">
+
+<div class="max-w-7xl mx-auto">
+
+<nav class="flex justify-between items-center h-20 px-6">
+
+<a
+href="#"
+class="text-2xl font-bold font-heading">
+
+Maeed<span class="text-primary">.</span>
+
+</a>
+
+<!-- Desktop -->
+
+<ul class="hidden lg:flex gap-10 text-sm">
+
+<li><a href="#about">About</a></li>
+
+<li><a href="#skills">Skills</a></li>
+
+<li><a href="#experience">Experience</a></li>
+
+<li><a href="#projects">Projects</a></li>
+
+<li><a href="#contact">Contact</a></li>
+
+</ul>
+
+<div class="flex gap-3 items-center">
+
+<button
+@click="darkMode=!darkMode"
+class="w-10 h-10 rounded-full border">
+
+🌙
+
+</button>
+
+<a
+href="#contact"
+class="bg-primary px-5 py-2 rounded-full text-white btn-primary">
+
+Hire Me
+
+</a>
+
+<button
+class="lg:hidden"
+@click="mobileMenu=!mobileMenu">
+
+☰
+
+</button>
+
+</div>
+
+</nav>
+
+</div>
+
+<!-- Mobile -->
+
+<div
+    x-show="mobileMenu"
+    x-transition:enter="transition ease-out duration-300"
+    x-transition:enter-start="opacity-0 -translate-y-5"
+    x-transition:enter-end="opacity-100 translate-y-0"
+    x-transition:leave="transition ease-in duration-200"
+    x-transition:leave-start="opacity-100 translate-y-0"
+    x-transition:leave-end="opacity-0 -translate-y-5"
+class="lg:hidden bg-white dark:bg-zinc-900">
+
+<ul class="flex flex-col p-6 gap-6">
+
+<li><a href="#about">About</a></li>
+
+<li><a href="#skills">Skills</a></li>
+
+<li><a href="#experience">Experience</a></li>
+
+<li><a href="#projects">Projects</a></li>
+
+<li><a href="#contact">Contact</a></li>
+
+</ul>
+
+</div>
+
+</header>
+
+<!-- ========================= -->
+<!-- HERO -->
+<!-- ========================= -->
+
+<section 
+    id="home"
+    class="reveal min-h-screen flex items-center relative overflow-hidden">
+
+
+<div
+class="absolute -top-40 -left-32
+w-[500px]
+h-[500px]
+rounded-full
+bg-primary/10
+blur-[140px]">
+</div>
+
+<div
+class="absolute
+bottom-0
+right-0
+w-[400px]
+h-[400px]
+rounded-full
+bg-orange-300/10
+blur-[120px]">
+</div>
+
+    <div class="hero-gradient top-0 left-0"></div>
+
+<div class="hero-gradient bottom-0 right-0"></div>
+
+<div
+class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
+
+<!-- LEFT -->
+
+<div>
+
+<p
+class="uppercase tracking-[6px] text-primary font-semibold mb-5">
+
+<span id="typingText"></span>
+
+</p>
+
+<h1
+class="text-5xl lg:text-7xl font-heading font-bold leading-tight mb-8">
+
+Hi,
+
+I'm
+
+<span class="text-primary">
+
+Maeed Ahammed
+
+</span>
+
+</h1>
+
+<p
+class="text-lg text-grayText leading-9 max-w-xl">
+
+I build scalable backend systems,
+REST APIs, authentication systems,
+and database-driven web applications
+using modern technologies including
+NestJS, ExpressJS, MongoDB,
+PostgreSQL, ASP.NET MVC,
+and Docker.
+
+</p>
+
+<div class="flex flex-wrap gap-5 mt-12">
+
+<a
+href="#projects"
+class="bg-primary text-white px-8 py-4 rounded-full btn-primary">
+
+View Projects
+
+</a>
+
+<a
+href="./assets/resume/Maeed_Ahammed_Resume.pdf"
+class="border px-8 py-4 rounded-full">
+
+Download Resume
+
+</a>
+
+</div>
+
+<div
+class="grid grid-cols-3 gap-10 mt-20">
+
+<div>
+
+<h2 class="text-4xl font-bold text-primary">
+
+01
+
+</h2>
+
+<p class="mt-3 text-grayText">
+
+Backend Internship
+
+</p>
+
+</div>
+
+<div>
+
+<h2
+    class="text-4xl font-bold text-primary">
+    4
+
+</h2>
+
+<p class="mt-3 text-grayText">
+
+Major Projects
+
+</p>
+
+</div>
+
+<div>
+
+<h2 class="text-4xl font-bold text-primary">
+
+3.78
+
+</h2>
+
+<p class="mt-3 text-grayText">
+
+CGPA
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- RIGHT -->
+
+<!-- Right Side -->
+<div class="relative flex justify-center">
+
+    <!-- Floating Badge -->
+    <div
+        class="absolute top-10 -left-8 bg-white dark:bg-zinc-900 px-5 py-3 rounded-full shadow-xl">
+
+        NestJS
+
+    </div>
+
+    <!-- Floating Badge -->
+    <div
+        class="absolute bottom-20 -right-10 bg-white dark:bg-zinc-900 px-5 py-3 rounded-full shadow-xl">
+
+        MongoDB
+
+    </div>
+
+    <!-- Floating Badge -->
+    <div
+        class="absolute top-40 right-0 bg-white dark:bg-zinc-900 px-5 py-3 rounded-full shadow-xl">
+
+        Docker
+
+    </div>
+
+    <!-- Profile Image -->
+    <img
+        src="assets/images/profile.png"
+        alt="Maeed Ahammed"
+        class="float relative w-[440px] rounded-[40px] shadow-[0_40px_100px_rgba(0,0,0,.18)] hover:scale-105 transition duration-500">
+
+</div>
+
+</section>
+
+<!-- ===================================================== -->
+<!-- ABOUT -->
+<!-- ===================================================== -->
+
+<section
+    id="about"
+    class="reveal py-28 bg-zinc-50 dark:bg-zinc-900/40">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+        <div class="grid lg:grid-cols-2 gap-20 items-center">
+
+            <!-- LEFT -->
+
+            <div>
+
+                <p class="uppercase tracking-[5px] text-primary font-semibold mb-4">
+                    About Me
+                </p>
+
+                <h2 class="text-4xl md:text-5xl font-heading font-bold mb-8">
+
+                    Building reliable backend systems that scale.
+
+                </h2>
+
+                <p class="text-grayText leading-9 mb-6">
+
+                    I'm <strong>Maeed Ahammed</strong>, a Backend Developer
+                    passionate about building secure, scalable, and maintainable
+                    server-side applications.
+
+                </p>
+
+                <p class="text-grayText leading-9 mb-6">
+
+                    My primary focus is backend engineering using
+                    <strong>NestJS</strong>,
+                    <strong>Express.js</strong>,
+                    <strong>MongoDB</strong>,
+                    <strong>PostgreSQL</strong>,
+                    and <strong>ASP.NET MVC</strong>.
+
+                </p>
+
+                <p class="text-grayText leading-9">
+
+                    During my internship at 6sense Technologies,
+                    I developed internal backend tools while collaborating
+                    with senior engineers. I also served as a Teaching Assistant
+                    for Data Structures & Algorithms at AIUB.
+
+                </p>
+
+            </div>
+
+            <!-- RIGHT -->
+
+            <div class="grid gap-6">
+
+                <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-8 shadow-lg">
+
+                    <h3 class="text-primary font-bold text-lg mb-3">
+
+                        Backend Development
+
+                    </h3>
+
+                    <p class="text-grayText leading-8">
+
+                        Designing scalable REST APIs, business logic,
+                        authentication, authorization and microservice-ready
+                        architectures.
+
+                    </p>
+
+                </div>
+
+                <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-8 shadow-lg">
+
+                    <h3 class="text-primary font-bold text-lg mb-3">
+
+                        Database Design
+
+                    </h3>
+
+                    <p class="text-grayText leading-8">
+
+                        Experience with MongoDB,
+                        PostgreSQL,
+                        SQL Server,
+                        MySQL,
+                        indexing,
+                        aggregation,
+                        schema design,
+                        and optimization.
+
+                    </p>
+
+                </div>
+
+                <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-8 shadow-lg">
+
+                    <h3 class="text-primary font-bold text-lg mb-3">
+
+                        Software Engineering
+
+                    </h3>
+
+                    <p class="text-grayText leading-8">
+
+                        Clean architecture,
+                        reusable code,
+                        Git workflow,
+                        Agile development,
+                        documentation,
+                        and testing.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===================================================== -->
+<!-- EXPERIENCE -->
+<!-- ===================================================== -->
+
+<section
+  id="experience"
+    class="reveal py-28">
+
+<div class="max-w-7xl mx-auto px-6">
+
+<div class="text-center mb-20">
+
+<p class="uppercase tracking-[5px] text-primary font-semibold">
+
+Professional Journey
+
+</p>
+
+<h2 class="text-5xl font-heading font-bold mt-4">
+
+Experience & Education
+
+</h2>
+
+</div>
+
+<div class="relative border-l-2 border-primary ml-4">
+
+<!-- Internship -->
+
+<div class="mb-20 ml-10 relative">
+
+<div
+class="absolute -left-[54px] w-6 h-6 rounded-full bg-primary">
+</div>
+
+<h3 class="text-2xl font-bold">
+
+Backend Developer Intern
+
+</h3>
+
+<p class="text-primary font-semibold mb-3">
+
+6sense Technologies
+
+</p>
+
+<p class="text-grayText leading-8">
+
+Developed an Employee Activity Monitoring System
+using NestJS, JavaScript and MongoDB.
+Worked with senior engineers to build
+internal tools, REST APIs,
+and backend features that improved
+team productivity.
+
+</p>
+
+</div>
+
+<!-- Teaching -->
+
+<div class="mb-20 ml-10 relative">
+
+<div
+class="absolute -left-[54px] w-6 h-6 rounded-full bg-primary">
+</div>
+
+<h3 class="text-2xl font-bold">
+
+Teaching Assistant
+
+</h3>
+
+<p class="text-primary font-semibold mb-3">
+
+American International University-Bangladesh
+
+</p>
+
+<p class="text-grayText leading-8">
+
+Assisted undergraduate students in
+Data Structures & Algorithms,
+conducted programming labs,
+and explained algorithm implementation
+using C++.
+
+</p>
+
+</div>
+
+<!-- Education -->
+
+<div class="ml-10 relative">
+
+<div
+class="absolute -left-[54px] w-6 h-6 rounded-full bg-primary">
+</div>
+
+<h3 class="text-2xl font-bold">
+
+Bachelor of Science
+
+</h3>
+
+<p class="text-primary font-semibold mb-3">
+
+Computer Science & Engineering
+
+</p>
+
+<p class="text-grayText leading-8">
+
+American International University-Bangladesh
+
+CGPA: 3.78
+
+Dean's List (2022–2025)
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ===================================================== -->
+<!-- CORE EXPERTISE -->
+<!-- ===================================================== -->
+
+<section
+id="skills"
+    class="reveal py-28 bg-zinc-50 dark:bg-zinc-900/40">
+
+<div class="max-w-7xl mx-auto px-6">
+
+<div class="text-center mb-20">
+
+<p class="uppercase tracking-[5px] text-primary">
+
+Core Expertise
+
+</p>
+
+<h2 class="text-5xl font-heading font-bold mt-4">
+
+Technologies I Work With
+
+</h2>
+
+</div>
+
+<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+<!-- Card -->
+
+<div class="bg-white dark:bg-zinc-900 rounded-3xl p-8 hover:-translate-y-2 transition">
+
+<div class="text-5xl mb-6">⚙️</div>
+
+<h3 class="font-bold text-xl mb-4">
+
+Backend
+
+</h3>
+
+<ul class="space-y-3 text-grayText">
+
+<li>Node.js</li>
+
+<li>NestJS</li>
+
+<li>Express.js</li>
+
+<li>ASP.NET MVC</li>
+
+</ul>
+
+</div>
+
+<!-- Card -->
+
+<div class="bg-white dark:bg-zinc-900 rounded-3xl p-8 hover:-translate-y-2 transition">
+
+<div class="text-5xl mb-6">🗄️</div>
+
+<h3 class="font-bold text-xl mb-4">
+
+Database
+
+</h3>
+
+<ul class="space-y-3 text-grayText">
+
+<li>MongoDB</li>
+
+<li>PostgreSQL</li>
+
+<li>MySQL</li>
+
+<li>SQL Server</li>
+
+</ul>
+
+</div>
+
+<!-- Card -->
+
+<div class="bg-white dark:bg-zinc-900 rounded-3xl p-8 hover:-translate-y-2 transition">
+
+<div class="text-5xl mb-6">🔐</div>
+
+<h3 class="font-bold text-xl mb-4">
+
+Authentication
+
+</h3>
+
+<ul class="space-y-3 text-grayText">
+
+<li>JWT</li>
+
+<li>Role Based Access</li>
+
+<li>Authorization</li>
+
+<li>REST Security</li>
+
+</ul>
+
+</div>
+
+<!-- Card -->
+
+<div class="bg-white dark:bg-zinc-900 rounded-3xl p-8 hover:-translate-y-2 transition">
+
+<div class="text-5xl mb-6">🛠️</div>
+
+<h3 class="font-bold text-xl mb-4">
+
+Tools
+
+</h3>
+
+<ul class="space-y-3 text-grayText">
+
+<li>Git</li>
+
+<li>Docker</li>
+
+<li>Postman</li>
+
+<li>Jira</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ===================================================== -->
+<!-- FEATURED PROJECTS -->
+<!-- ===================================================== -->
+
+<section
+    id="projects"
+    class="reveal py-28">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+        <div class="text-center mb-20">
+
+            <p class="uppercase tracking-[5px] text-primary font-semibold">
+                Portfolio
+            </p>
+
+            <h2 class="text-5xl font-heading font-bold mt-4">
+                Featured Projects
+            </h2>
+
+            <p class="max-w-3xl mx-auto mt-6 text-grayText leading-8">
+
+                Here are some of my favorite software engineering projects.
+                Each project demonstrates backend architecture, authentication,
+                database management, REST APIs, and scalable application
+                development.
+
+            </p>
+
+        </div>
+
+        <div class="space-y-24">
+
+            <!-- ===================================== -->
+            <!-- Project 1 -->
+            <!-- ===================================== -->
+
+            <div
+                class="grid lg:grid-cols-2 gap-12 items-center">
+
+                <div>
+
+                    <img
+                        src="assets/images/dev-community.png"
+                        alt="Dev Community"
+                        class="rounded-3xl shadow-2xl hover:scale-[1.02] transition duration-500">
+
+                </div>
+
+                <div>
+
+                    <p
+                        class="uppercase tracking-[4px] text-primary font-semibold mb-3">
+
+                        Backend Development
+
+                    </p>
+
+                    <h2
+                        class="text-4xl font-heading font-bold mb-6">
+
+                        Dev Community Platform
+
+                    </h2>
+
+                    <p
+                        class="text-grayText leading-8 mb-8">
+
+                        A scalable backend application built using NestJS,
+                        MongoDB and Redis that enables developers to
+                        share posts, comment, react, authenticate securely,
+                        and interact in a modern developer community.
+
+                    </p>
+
+                    <div
+                        class="grid grid-cols-2 gap-4 mb-8">
+
+                        <div>
+
+                            <h4 class="font-semibold mb-2">
+
+                                Tech Stack
+
+                            </h4>
+
+                            <p class="text-grayText">
+
+                                NestJS<br>
+                                MongoDB<br>
+                                Redis<br>
+                                BullMQ
+
+                            </p>
+
+                        </div>
+
+                        <div>
+
+                            <h4 class="font-semibold mb-2">
+
+                                Features
+
+                            </h4>
+
+                            <p class="text-grayText">
+
+                                JWT Authentication<br>
+                                Redis Cache<br>
+                                Email Queue<br>
+                                Role Management
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="flex flex-wrap gap-4">
+
+                        <a
+                            href="#"
+                            class="bg-primary text-white px-6 py-3 rounded-full">
+
+                            GitHub
+
+                        </a>
+
+                        <a
+                            href="#"
+                            class="border px-6 py-3 rounded-full">
+
+                            Case Study
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- ===================================== -->
+            <!-- Project 2 -->
+            <!-- ===================================== -->
+
+            <div
+                class="grid lg:grid-cols-2 gap-12 items-center">
+
+                <div class="order-2 lg:order-1">
+
+                    <div>
+
+                        <p
+                            class="uppercase tracking-[4px] text-primary font-semibold mb-3">
+
+                            ASP.NET MVC
+
+                        </p>
+
+                        <h2
+                            class="text-4xl font-heading font-bold mb-6">
+
+                            Fitness Tracker
+
+                        </h2>
+
+                        <p
+                            class="text-grayText leading-8 mb-8">
+
+                            A comprehensive health and fitness management
+                            system that allows users, trainers and
+                            administrators to manage workouts,
+                            subscriptions, progress tracking
+                            and notifications.
+
+                        </p>
+
+                        <div
+                            class="grid grid-cols-2 gap-4 mb-8">
+
+                            <div>
+
+                                <h4 class="font-semibold mb-2">
+
+                                    Technologies
+
+                                </h4>
+
+                                <p class="text-grayText">
+
+                                    ASP.NET MVC<br>
+                                    SQL Server<br>
+                                    Entity Framework<br>
+                                    Bootstrap
+
+                                </p>
+
+                            </div>
+
+                            <div>
+
+                                <h4 class="font-semibold mb-2">
+
+                                    Features
+
+                                </h4>
+
+                                <p class="text-grayText">
+
+                                    Authentication<br>
+                                    Workout Plans<br>
+                                    Email Service<br>
+                                    Payment Module
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="flex flex-wrap gap-4">
+
+                            <a
+                                href="#"
+                                class="bg-primary text-white px-6 py-3 rounded-full">
+
+                                GitHub
+
+                            </a>
+
+                            <a
+                                href="#"
+                                class="border px-6 py-3 rounded-full">
+
+                                Case Study
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="order-1 lg:order-2">
+
+                    <img
+                        src="assets/images/fitness-tracker.png"
+                        alt="Fitness Tracker"
+                        class="rounded-3xl shadow-2xl hover:scale-[1.02] transition duration-500">
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- ===================================== -->
+        <!-- View All Projects -->
+        <!-- ===================================== -->
+
+        <div class="text-center mt-20">
+
+            <a
+                href="projects.html"
+                class="inline-flex items-center gap-3 bg-primary text-white px-8 py-4 rounded-full hover:scale-105 transition">
+
+                View All Projects →
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===================================================== -->
+<!-- TECHNOLOGY STACK -->
+<!-- ===================================================== -->
+
+<section class="py-28 bg-zinc-50 dark:bg-zinc-900/40">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+        <div class="text-center mb-16">
+
+            <p class="uppercase tracking-[5px] text-primary">
+
+                Tech Stack
+
+            </p>
+
+            <h2 class="text-5xl font-heading font-bold mt-4">
+
+                Technologies I Use
+
+            </h2>
+
+        </div>
+
+        <div
+            class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
+
+            <div class="rounded-3xl bg-white dark:bg-zinc-900 p-8 text-center shadow-lg hover:-translate-y-2 transition">
+                <img  src="assets/icons/nestjs.svg" class="w-14 mx-auto mb-4">
+                <p>NestJS</p>
+            </div>
+
+            <div class="rounded-3xl bg-white dark:bg-zinc-900 p-8 text-center shadow-lg hover:-translate-y-2 transition">
+                <img src="assets/icons/nodejs.svg" class="w-14 mx-auto mb-4">
+                <p>Node.js</p>
+            </div>
+
+            <div class="rounded-3xl bg-white dark:bg-zinc-900 p-8 text-center shadow-lg hover:-translate-y-2 transition">
+                <img src="assets/icons/mongodb.svg" class="w-14 mx-auto mb-4">
+                <p>MongoDB</p>
+            </div>
+
+            <div class="rounded-3xl bg-white dark:bg-zinc-900 p-8 text-center shadow-lg hover:-translate-y-2 transition">
+                <img src="assets/icons/postgresql.svg" class="w-14 mx-auto mb-4">
+                <p>PostgreSQL</p>
+            </div>
+
+            <div class="rounded-3xl bg-white dark:bg-zinc-900 p-8 text-center shadow-lg hover:-translate-y-2 transition">
+                <img src="assets/icons/docker.svg" class="w-14 mx-auto mb-4">
+                <p>Docker</p>
+            </div>
+
+            <div class="rounded-3xl bg-white dark:bg-zinc-900 p-8 text-center shadow-lg hover:-translate-y-2 transition">
+                <img src="assets/icons/git.svg" class="w-14 mx-auto mb-4">
+                <p>Git</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===================================================== -->
+<!-- GITHUB & CODING PROFILES -->
+<!-- ===================================================== -->
+
+<section class="py-28">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+        <div class="grid lg:grid-cols-2 gap-14">
+
+            <div>
+
+                <p class="uppercase tracking-[5px] text-primary mb-4">
+
+                    GitHub
+
+                </p>
+
+                <h2 class="text-4xl font-heading font-bold mb-6">
+
+                    Open Source & Backend Development
+
+                </h2>
+
+                <p class="text-grayText leading-8 mb-8">
+
+                    I enjoy building backend applications,
+                    experimenting with software architecture,
+                    and continuously improving my engineering skills
+                    through personal projects and open-source work.
+
+                </p>
+
+                <a
+                    href="https://github.com/maeedanim"
+                    target="_blank"
+                    class="bg-primary text-white px-8 py-4 rounded-full inline-flex">
+
+                    Visit GitHub
+
+                </a>
+
+            </div>
+
+            <div class="grid gap-6">
+
+                <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-8 shadow-lg">
+
+                    <h3 class="font-bold text-xl mb-3">
+
+                        Codeforces
+
+                    </h3>
+
+                    <p class="text-grayText">
+
+                        maeedanim
+
+                    </p>
+
+                </div>
+
+                <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-8 shadow-lg">
+
+                    <h3 class="font-bold text-xl mb-3">
+
+                        LeetCode
+
+                    </h3>
+
+                    <p class="text-grayText">
+
+                        maeed_anim
+
+                    </p>
+
+                </div>
+
+                <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-8 shadow-lg">
+
+                    <h3 class="font-bold text-xl mb-3">
+
+                        CodeChef
+
+                    </h3>
+
+                    <p class="text-grayText">
+
+                        animmaeed
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ===================================================== -->
+<!-- ACHIEVEMENTS -->
+<!-- ===================================================== -->
+
+<section
+    id="achievements"
+    class="reveal py-28 bg-zinc-50 dark:bg-zinc-900/40">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+        <div class="text-center mb-20">
+
+            <p class="uppercase tracking-[5px] text-primary font-semibold">
+
+                Achievements
+
+            </p>
+
+            <h2 class="text-5xl font-heading font-bold mt-4">
+
+                Milestones & Highlights
+
+            </h2>
+
+            <p class="max-w-2xl mx-auto mt-6 text-grayText leading-8">
+
+                Academic accomplishments, professional experience,
+                and continuous learning that have shaped my journey
+                as a backend developer.
+
+            </p>
+
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+            <!-- Card -->
+
+            <div class="bg-white dark:bg-zinc-900 rounded-3xl p-8 shadow-lg text-center hover:-translate-y-2 transition">
+
+                <div class="text-5xl mb-5">🎓</div>
+
+                <h3 class="text-2xl font-bold mb-3">
+
+                    Dean's List
+
+                </h3>
+
+                <p class="text-grayText">
+
+                    Recognized for academic excellence
+                    from 2022–2025.
+
+                </p>
+
+            </div>
+
+            <!-- Card -->
+
+            <div class="bg-white dark:bg-zinc-900 rounded-3xl p-8 shadow-lg text-center hover:-translate-y-2 transition">
+
+                <div class="text-5xl mb-5">💼</div>
+
+                <h3 class="text-2xl font-bold mb-3">
+
+                    Backend Internship
+
+                </h3>
+
+                <p class="text-grayText">
+
+                    Worked on enterprise backend systems
+                    using NestJS and MongoDB.
+
+                </p>
+
+            </div>
+
+            <!-- Card -->
+
+            <div class="bg-white dark:bg-zinc-900 rounded-3xl p-8 shadow-lg text-center hover:-translate-y-2 transition">
+
+                <div class="text-5xl mb-5">👨‍🏫</div>
+
+                <h3 class="text-2xl font-bold mb-3">
+
+                    Teaching Assistant
+
+                </h3>
+
+                <p class="text-grayText">
+
+                    Assisted undergraduate students
+                    in Data Structures & Algorithms.
+
+                </p>
+
+            </div>
+
+            <!-- Card -->
+
+            <div class="bg-white dark:bg-zinc-900 rounded-3xl p-8 shadow-lg text-center hover:-translate-y-2 transition">
+
+                <div class="text-5xl mb-5">🚀</div>
+
+                <h3 class="text-2xl font-bold mb-3">
+
+                    Personal Projects
+
+                </h3>
+
+                <p class="text-grayText">
+
+                    Built multiple backend applications
+                    using modern technologies.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===================================================== -->
+<!-- STATISTICS -->
+<!-- ===================================================== -->
+
+<section class="reveal py-24">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+
+            <div class="text-center">
+
+                <h2
+                    class="counter text-6xl font-bold text-primary"
+                    data-target="4">
+
+                    0
+
+                </h2>
+
+                <p class="mt-4 text-grayText">
+
+                    Major Projects
+
+                </p>
+
+            </div>
+
+            <div class="text-center">
+
+                <h2
+                    class="counter text-6xl font-bold text-primary"
+                    data-target="15">
+
+                    0
+
+                </h2>
+
+                <p class="mt-4 text-grayText">
+
+                    Technologies
+
+                </p>
+
+            </div>
+
+            <div class="text-center">
+
+                <h2
+                    class="counter text-6xl font-bold text-primary"
+                    data-target="1">
+
+                    0
+
+                </h2>
+
+                <p class="mt-4 text-grayText">
+
+                    Internship
+
+                </p>
+
+            </div>
+
+            <div class="text-center">
+
+                <h2
+                    class="counter text-6xl font-bold text-primary"
+                    data-target="378">
+
+                    0
+
+                </h2>
+
+                <p class="mt-4 text-grayText">
+
+                    CGPA × 100
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===================================================== -->
+<!-- CTA -->
+<!-- ===================================================== -->
+
+<section class="reveal py-28">
+
+    <div class="max-w-6xl mx-auto px-6">
+
+        <div class="bg-primary rounded-[40px] p-16 text-center text-white">
+
+            <h2 class="text-5xl font-heading font-bold mb-8">
+
+                Interested in Working Together?
+
+            </h2>
+
+            <p class="max-w-2xl mx-auto leading-8 text-white/80 mb-10">
+
+                I'm always open to discussing backend development,
+                internships, full-time opportunities,
+                and exciting software engineering projects.
+
+            </p>
+
+            <div class="flex justify-center gap-5 flex-wrap">
+
+                <a
+                    href="#contact"
+                    class="bg-white text-primary px-8 py-4 rounded-full font-semibold">
+
+                    Contact Me
+
+                </a>
+
+                <a
+                    href="./assets/resume/Maeed_Ahammed_Resume.pdf"
+                    class="border border-white px-8 py-4 rounded-full">
+
+                    Download Resume
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===================================================== -->
+<!-- CONTACT -->
+<!-- ===================================================== -->
+
+<section
+  id="contact"
+    class="reveal py-28 bg-zinc-50 dark:bg-zinc-900/40">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+        <div class="text-center mb-20">
+
+            <p class="uppercase tracking-[5px] text-primary font-semibold">
+
+                Contact
+
+            </p>
+
+            <h2 class="text-5xl font-heading font-bold mt-4">
+
+                Let's Build Something Great Together
+
+            </h2>
+
+            <p class="max-w-2xl mx-auto mt-6 text-grayText leading-8">
+
+                Whether you have an internship opportunity, a backend project,
+                or simply want to connect, I'd be happy to hear from you.
+
+            </p>
+
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-16">
+
+            <!-- Contact Information -->
+
+            <div class="space-y-8">
+
+                <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-8 shadow-lg">
+
+                    <h3 class="text-xl font-bold mb-2">
+
+                        📧 Email
+
+                    </h3>
+
+                    <p class="text-grayText">
+
+                        maeedahammed@gmail.com
+
+                    </p>
+
+                </div>
+
+                <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-8 shadow-lg">
+
+                    <h3 class="text-xl font-bold mb-2">
+
+                        💻 GitHub
+
+                    </h3>
+
+                    <a
+                        href="https://github.com/maeedanim"
+                        target="_blank"
+                        class="text-primary hover:underline">
+
+                        github.com/maeedanim
+
+                    </a>
+
+                </div>
+
+                <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-8 shadow-lg">
+
+                    <h3 class="text-xl font-bold mb-2">
+
+                        🔗 LinkedIn
+
+                    </h3>
+
+                    <p class="text-grayText">
+
+                        https://www.linkedin.com/in/maeed/
+
+                    </p>
+
+                </div>
+
+                <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-8 shadow-lg">
+
+                    <h3 class="text-xl font-bold mb-2">
+
+                        📍 Location
+
+                    </h3>
+
+                    <p class="text-grayText">
+
+                        Dhaka, Bangladesh
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- Contact Form -->
+
+            <form
+                class="bg-white dark:bg-zinc-900 rounded-3xl p-10 shadow-xl space-y-6">
+
+                <div>
+
+                    <label class="block mb-2 font-semibold">
+
+                        Full Name
+
+                    </label>
+
+                    <input
+                        type="text"
+                        placeholder="John Doe"
+                        class="w-full border rounded-xl px-5 py-4 bg-transparent">
+
+                </div>
+
+                <div>
+
+                    <label class="block mb-2 font-semibold">
+
+                        Email
+
+                    </label>
+
+                    <input
+                        type="email"
+                        placeholder="john@example.com"
+                        class="w-full border rounded-xl px-5 py-4 bg-transparent">
+
+                </div>
+
+                <div>
+
+                    <label class="block mb-2 font-semibold">
+
+                        Subject
+
+                    </label>
+
+                    <input
+                        type="text"
+                        placeholder="Project Discussion"
+                        class="w-full border rounded-xl px-5 py-4 bg-transparent">
+
+                </div>
+
+                <div>
+
+                    <label class="block mb-2 font-semibold">
+
+                        Message
+
+                    </label>
+
+                    <textarea
+                        rows="6"
+                        placeholder="Write your message..."
+                        class="w-full border rounded-xl px-5 py-4 bg-transparent resize-none"></textarea>
+
+                </div>
+
+                <button
+                    class="bg-primary text-white px-8 py-4 rounded-full btn-primary">
+
+                    Send Message
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ===================================================== -->
+<!-- FLOATING SOCIAL LINKS -->
+<!-- ===================================================== -->
+
+<div
+    class="hidden lg:flex fixed left-8 top-1/2 -translate-y-1/2 flex-col gap-5 z-40">
+
+    <a
+        href="https://github.com/maeedanim"
+        target="_blank"
+        class="w-12 h-12 rounded-full bg-white dark:bg-zinc-900 shadow-lg flex items-center justify-center hover:bg-primary hover:text-white transition">
+
+        GH
+
+    </a>
+
+    <a
+        href="https://www.linkedin.com/in/maeed/"
+        target="_blank"
+        class="w-12 h-12 rounded-full bg-white dark:bg-zinc-900 shadow-lg flex items-center justify-center hover:bg-primary hover:text-white transition">
+
+        IN
+
+    </a>
+
+    <a
+        href="mailto:maeedahammed@gmail.com"
+        target="_blank"
+        class="w-12 h-12 rounded-full bg-white dark:bg-zinc-900 shadow-lg flex items-center justify-center hover:bg-primary hover:text-white transition">
+
+        @
+
+    </a>
+
+</div>
+
+
+<!-- ===================================================== -->
+<!-- FOOTER -->
+<!-- ===================================================== -->
+
+<footer
+    class="bg-zinc-950 text-white pt-20 pb-10">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+        <div
+            class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+
+            <!-- Brand -->
+
+            <div>
+
+                <h2 class="text-3xl font-bold mb-5">
+
+                    Maeed<span class="text-primary">.</span>
+
+                </h2>
+
+                <p class="text-zinc-400 leading-8">
+
+                    Backend Developer passionate about
+                    scalable software, APIs,
+                    and cloud-ready applications.
+
+                </p>
+
+            </div>
+
+            <!-- Navigation -->
+
+            <div>
+
+                <h3 class="font-bold text-xl mb-6">
+
+                    Navigation
+
+                </h3>
+
+                <ul class="space-y-3 text-zinc-400">
+
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+
+                </ul>
+
+            </div>
+
+            <!-- Technologies -->
+
+            <div>
+
+                <h3 class="font-bold text-xl mb-6">
+
+                    Technologies
+
+                </h3>
+
+                <ul class="space-y-3 text-zinc-400">
+
+                    <li>NestJS</li>
+                    <li>Express.js</li>
+                    <li>MongoDB</li>
+                    <li>PostgreSQL</li>
+                    <li>Docker</li>
+
+                </ul>
+
+            </div>
+
+            <!-- Contact -->
+
+            <div>
+
+                <h3 class="font-bold text-xl mb-6">
+
+                    Contact
+
+                </h3>
+
+                <ul class="space-y-3 text-zinc-400">
+
+                    <li>Dhaka, Bangladesh</li>
+                    <li>maeedahammed@gmail.com</li>
+                    <li>Available for opportunities</li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+        <div
+            class="border-t border-zinc-800 pt-8 text-center text-zinc-500">
+
+            © <span id="year"></span> Maeed Ahammed.
+            Designed & Developed by Maeed.
+
+        </div>
+
+    </div>
+
+</footer>
+
+<!-- ===================================================== -->
+<!-- BACK TO TOP -->
+<!-- ===================================================== -->
+
+<button
+
+    x-show="showTopButton"
+
+    x-transition
+
+    @click="window.scrollTo({
+        top:0,
+        behavior:'smooth'
+    })"
+
+    class="fixed bottom-8 right-8
+           w-14 h-14
+           rounded-full
+           bg-primary
+           text-white
+           shadow-xl
+           hover:scale-110
+           transition">
+
+    ↑
+
+</button>
+
+
+<script>
+/* ==========================================================
+   PORTFOLIO STATE (Alpine.js)
+========================================================== */
+
+function portfolio() {
+    return {
+        darkMode: localStorage.getItem("theme") === "dark",
+        mobileMenu: false,
+        showTopButton: false,
+        activeSection: "home",
+
+        init() {
+
+            // Watch Dark Mode
+            this.$watch("darkMode", (value) => {
+                localStorage.setItem(
+                    "theme",
+                    value ? "dark" : "light"
+                );
+            });
+
+            // Back To Top Button
+            window.addEventListener("scroll", () => {
+                this.showTopButton = window.scrollY > 500;
+            });
+
+        }
+    };
+}
+
+/* ==========================================================
+   TYPING ANIMATION
+========================================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const typingElement = document.getElementById("typingText");
+
+    if (typingElement) {
+
+        const titles = [
+
+            "Backend Developer",
+            "Software Engineer",
+            "NestJS Developer",
+            "API Designer",
+            "Problem Solver"
+
+        ];
+
+        let titleIndex = 0;
+        let charIndex = 0;
+        let deleting = false;
+
+        function type() {
+
+            const current = titles[titleIndex];
+
+            if (!deleting) {
+
+                typingElement.textContent =
+                    current.substring(0, charIndex);
+
+                charIndex++;
+
+                if (charIndex > current.length) {
+
+                    deleting = true;
+
+                    setTimeout(type, 1400);
+
+                    return;
+                }
+
+            } else {
+
+                typingElement.textContent =
+                    current.substring(0, charIndex);
+
+                charIndex--;
+
+                if (charIndex < 0) {
+
+                    deleting = false;
+
+                    titleIndex =
+                        (titleIndex + 1) % titles.length;
+
+                    charIndex = 0;
+                }
+
+            }
+
+            setTimeout(
+                type,
+                deleting ? 45 : 110
+            );
+
+        }
+
+        type();
+
+    }
+
+});
+
+/* ==========================================================
+   SCROLL PROGRESS BAR
+========================================================== */
+
+window.addEventListener("scroll", () => {
+
+    const scrollTop =
+        document.documentElement.scrollTop;
+
+    const scrollHeight =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+
+    const percentage =
+        (scrollTop / scrollHeight) * 100;
+
+    const progress =
+        document.getElementById("progressBar");
+
+    if (progress) {
+
+        progress.style.width =
+            percentage + "%";
+
+    }
+
+});
+
+/* ==========================================================
+   SCROLL REVEAL
+========================================================== */
+
+const revealElements =
+    document.querySelectorAll(".reveal");
+
+function revealSections() {
+
+    revealElements.forEach((element) => {
+
+        const top =
+            element.getBoundingClientRect().top;
+
+        const visible =
+            window.innerHeight - 120;
+
+        if (top < visible) {
+
+            element.classList.add("active");
+
+        }
+
+    });
+
+}
+
+window.addEventListener(
+    "scroll",
+    revealSections
+);
+
+revealSections();
+
+/* ==========================================================
+   COUNTER ANIMATION
+========================================================== */
+
+const counters =
+    document.querySelectorAll(".counter");
+
+counters.forEach(counter => {
+
+    const animate = () => {
+
+        const target =
+            Number(counter.dataset.target);
+
+        const current =
+            Number(counter.innerText);
+
+        const increment =
+            target / 60;
+
+        if (current < target) {
+
+            counter.innerText =
+                Math.ceil(current + increment);
+
+            requestAnimationFrame(animate);
+
+        } else {
+
+            counter.innerText = target;
+
+        }
+
+    };
+
+    animate();
+
+});
+
+/* ==========================================================
+   ACTIVE NAVIGATION
+========================================================== */
+
+const sections =
+    document.querySelectorAll("section[id]");
+
+const navLinks =
+    document.querySelectorAll("nav a");
+
+window.addEventListener("scroll", () => {
+
+    let current = "";
+
+    sections.forEach(section => {
+
+        const sectionTop =
+            section.offsetTop - 120;
+
+        if (window.scrollY >= sectionTop) {
+
+            current =
+                section.getAttribute("id");
+
+        }
+
+    });
+
+    navLinks.forEach(link => {
+
+        link.classList.remove(
+            "text-primary",
+            "font-semibold"
+        );
+
+        const href =
+            link.getAttribute("href");
+
+        if (href === "#" + current) {
+
+            link.classList.add(
+                "text-primary",
+                "font-semibold"
+            );
+
+        }
+
+    });
+
+});
+
+/* ==========================================================
+   SMOOTH SCROLL
+========================================================== */
+
+document
+.querySelectorAll('a[href^="#"]')
+.forEach(anchor => {
+
+    anchor.addEventListener("click", function (e) {
+
+        const target =
+            document.querySelector(
+                this.getAttribute("href")
+            );
+
+        if (target) {
+
+            e.preventDefault();
+
+            target.scrollIntoView({
+
+                behavior: "smooth"
+
+            });
+
+        }
+
+    });
+
+});
+
+/* ==========================================================
+   CURSOR GLOW
+========================================================== */
+
+const glow = document.getElementById("cursorGlow");
+
+document.addEventListener("mousemove", (e) => {
+
+    if (!glow) return;
+
+    glow.animate({
+
+        left: `${e.clientX-140}px`,
+
+        top: `${e.clientY-140}px`
+
+    },{
+
+        duration:500,
+
+        fill:"forwards"
+
+    });
+
+});
+
+/* ==========================================================
+   NAVBAR SHADOW
+========================================================== */
+
+const header =
+    document.querySelector("header");
+
+window.addEventListener("scroll", () => {
+
+    if (!header) return;
+
+    if (window.scrollY > 50) {
+
+        header.classList.add(
+            "shadow-xl"
+        );
+
+    } else {
+
+        header.classList.remove(
+            "shadow-xl"
+        );
+
+    }
+
+});
+
+/* ==========================================================
+   CURRENT YEAR
+========================================================== */
+
+const year =
+    document.getElementById("year");
+
+if (year) {
+
+    year.innerText =
+        new Date().getFullYear();
+
+}
+
+/* ==========================================================
+   LOADER
+========================================================== */
+
+window.addEventListener("load", () => {
+
+    const loader =
+        document.getElementById("loader");
+
+    if (!loader) return;
+
+    loader.style.opacity = "0";
+
+    setTimeout(() => {
+
+        loader.style.display = "none";
+
+    }, 700);
+
+});
+
+</script>
+
+
+
+</body>
+
+</html>
