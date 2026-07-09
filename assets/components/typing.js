@@ -5,8 +5,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!typingElement) return;
 
     const titles = [
-        "Backend Developer",
         "Software Engineer",
+        "Backend Developer",
         "NestJS Developer",
         "API Designer",
         "Problem Solver"
