@@ -167,11 +167,13 @@ Maeed<span class="text-primary"> Ahammed</span>
 
 <li><a href="#about">About</a></li>
 
-<li><a href="#skills">Skills</a></li>
-
 <li><a href="#experience">Experience</a></li>
 
+<li><a href="#skills">Skills</a></li>
+
 <li><a href="#projects">Projects</a></li>
+
+<li><a href="#achievements">Achievements</a></li>
 
 <li><a href="#contact">Contact</a></li>
 
@@ -382,29 +384,50 @@ CGPA
 <!-- Right Side -->
 <div class="relative flex justify-center">
 
-    <!-- Floating Badge -->
+    <!-- NestJS -->
     <div
-        class="absolute top-10 -left-8 bg-white dark:bg-zinc-900 px-5 py-3 rounded-full shadow-xl">
+        class="absolute top-14 -left-12 bg-white dark:bg-zinc-900 px-5 py-3 rounded-full shadow-xl flex items-center gap-3 hover:scale-105 transition-all duration-300">
 
-        NestJS
+        <img
+            src="assets/icons/nestjs.svg"
+            alt="NestJS"
+            class="w-6 h-6">
+
+        <span class="font-semibold">
+            NestJS
+        </span>
 
     </div>
 
-    <!-- Floating Badge -->
+    <!-- Docker -->
     <div
-        class="absolute bottom-20 -right-10 bg-white dark:bg-zinc-900 px-5 py-3 rounded-full shadow-xl">
+        class="absolute top-44 -right-12 bg-white dark:bg-zinc-900 px-5 py-3 rounded-full shadow-xl flex items-center gap-3 hover:scale-105 transition-all duration-300">
 
+        <img
+            src="assets/icons/docker.svg"
+            alt="Docker"
+            class="w-6 h-6">
+
+        <span class="font-semibold">
+            Docker
+        </span>
+
+    </div>
+
+    <!-- MongoDB -->
+    <div
+    class="absolute bottom-16 -right-20 bg-white dark:bg-zinc-900 px-5 py-3 rounded-full shadow-xl flex items-center gap-3 hover:scale-105 transition-all duration-300">
+
+    <img
+        src="assets/icons/mongodb.svg"
+        alt="MongoDB"
+        class="w-6 h-6">
+
+    <span class="font-semibold">
         MongoDB
+    </span>
 
-    </div>
-
-    <!-- Floating Badge -->
-    <div
-        class="absolute top-40 right-0 bg-white dark:bg-zinc-900 px-5 py-3 rounded-full shadow-xl">
-
-        Docker
-
-    </div>
+</div>
 
     <!-- Profile Image -->
     <img
@@ -1670,7 +1693,8 @@ class="absolute -top-40 -left-32 w-[500px] h-[500px] rounded-full bg-primary/10 
             <!-- Contact Form -->
 
             <form
-                class="bg-white dark:bg-zinc-900 rounded-3xl p-10 shadow-xl space-y-6">
+    id="contactForm"
+    class="bg-white dark:bg-zinc-900 rounded-3xl p-10 shadow-xl space-y-6">
 
                 <div>
 
@@ -1681,10 +1705,10 @@ class="absolute -top-40 -left-32 w-[500px] h-[500px] rounded-full bg-primary/10 
                     </label>
 
                     <input
-                        type="text"
-                        placeholder="Enter Your Name"
-                        class="w-full border rounded-xl px-5 py-4 bg-transparent">
-
+    id="name"
+    type="text"
+    placeholder="Enter Your Name"
+    class="w-full border rounded-xl px-5 py-4 bg-transparent">
                 </div>
 
                 <div>
@@ -1696,10 +1720,10 @@ class="absolute -top-40 -left-32 w-[500px] h-[500px] rounded-full bg-primary/10 
                     </label>
 
                     <input
-                        type="email"
-                        placeholder="Enter Your Email"
-                        class="w-full border rounded-xl px-5 py-4 bg-transparent">
-
+    id="email"
+    type="email"
+    placeholder="Enter Your Email"
+    class="w-full border rounded-xl px-5 py-4 bg-transparent">
                 </div>
 
                 <div>
@@ -1711,10 +1735,10 @@ class="absolute -top-40 -left-32 w-[500px] h-[500px] rounded-full bg-primary/10 
                     </label>
 
                     <input
-                        type="text"
-                        placeholder="Project Discussion"
-                        class="w-full border rounded-xl px-5 py-4 bg-transparent">
-
+    id="subject"
+    type="text"
+    placeholder="Project Discussion"
+    class="w-full border rounded-xl px-5 py-4 bg-transparent">
                 </div>
 
                 <div>
@@ -1726,14 +1750,15 @@ class="absolute -top-40 -left-32 w-[500px] h-[500px] rounded-full bg-primary/10 
                     </label>
 
                     <textarea
-                        rows="6"
-                        placeholder="Write your message..."
-                        class="w-full border rounded-xl px-5 py-4 bg-transparent resize-none"></textarea>
-
+    id="message"
+    rows="6"
+    placeholder="Write your message..."
+    class="w-full border rounded-xl px-5 py-4 bg-transparent resize-none"></textarea>
                 </div>
 
                 <button
-                    class="bg-primary text-white px-8 py-4 rounded-full btn-primary">
+    type="submit"
+    class="bg-primary text-white px-8 py-4 rounded-full btn-primary">
 
                     Send Message
 
@@ -1746,6 +1771,8 @@ class="absolute -top-40 -left-32 w-[500px] h-[500px] rounded-full bg-primary/10 
     </div>
 
 </section>
+
+
 <!-- ===================================================== -->
 <!-- FLOATING SOCIAL LINKS -->
 <!-- ===================================================== -->
@@ -1753,30 +1780,44 @@ class="absolute -top-40 -left-32 w-[500px] h-[500px] rounded-full bg-primary/10 
 <div
     class="hidden lg:flex fixed left-8 top-1/2 -translate-y-1/2 flex-col gap-5 z-40">
 
+    <!-- GitHub -->
     <a
         href="https://github.com/maeedanim"
         target="_blank"
-        class="w-12 h-12 rounded-full bg-white dark:bg-zinc-900 shadow-lg flex items-center justify-center hover:bg-primary hover:text-white transition">
+        aria-label="GitHub"
+        class="w-12 h-12 rounded-full bg-white dark:bg-zinc-900 shadow-lg flex items-center justify-center hover:bg-primary hover:scale-110 transition-all duration-300">
 
-        GH
+        <img
+            src="assets/icons/github.svg"
+            alt="GitHub"
+            class="w-6 h-6">
 
     </a>
 
+    <!-- LinkedIn -->
     <a
         href="https://www.linkedin.com/in/maeed/"
         target="_blank"
-        class="w-12 h-12 rounded-full bg-white dark:bg-zinc-900 shadow-lg flex items-center justify-center hover:bg-primary hover:text-white transition">
+        aria-label="LinkedIn"
+        class="w-12 h-12 rounded-full bg-white dark:bg-zinc-900 shadow-lg flex items-center justify-center hover:bg-primary hover:scale-110 transition-all duration-300">
 
-        IN
+        <img
+            src="assets/icons/linkedin.svg"
+            alt="LinkedIn"
+            class="w-6 h-6">
 
     </a>
 
+    <!-- Email -->
     <a
         href="mailto:maeedahammed@gmail.com"
-        target="_blank"
-        class="w-12 h-12 rounded-full bg-white dark:bg-zinc-900 shadow-lg flex items-center justify-center hover:bg-primary hover:text-white transition">
+        aria-label="Email"
+        class="w-12 h-12 rounded-full bg-white dark:bg-zinc-900 shadow-lg flex items-center justify-center hover:bg-primary hover:scale-110 transition-all duration-300">
 
-        @
+        <img
+            src="assets/icons/email.svg"
+            alt="Email"
+            class="w-6 h-6">
 
     </a>
 
@@ -1922,7 +1963,7 @@ class="absolute -top-40 -left-32 w-[500px] h-[500px] rounded-full bg-primary/10 
 </button>
 
 
-<script src="assets/alpine/portfolio.js"></script>
+
 
 <script src="assets/components/typing.js"></script>
 <script src="assets/components/progressBar.js"></script>
@@ -1934,6 +1975,58 @@ class="absolute -top-40 -left-32 w-[500px] h-[500px] rounded-full bg-primary/10 
 <script src="assets/components/navBar.js"></script>
 <script src="assets/components/year.js"></script>
 <script src="assets/components/loader.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script src="../assets/alpine/portfolio.js"></script>
+
+<script src="../assets/components/contactForm.js"></script>
+
+
+<!-- ========================================= -->
+<!-- Success Modal -->
+<!-- ========================================= -->
+
+<div
+    id="successModal"
+    class="fixed inset-0 bg-black/60 hidden items-center justify-center z-[99999]">
+
+    <div
+        class="bg-white dark:bg-zinc-900 rounded-3xl p-10 w-[90%] max-w-md text-center shadow-2xl">
+
+        <div
+            class="w-20 h-20 mx-auto rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
+
+            <span class="text-5xl text-green-500">✓</span>
+
+        </div>
+
+        <h2 class="text-3xl font-bold mt-6">
+
+            Your Message Has Been Sent!
+
+        </h2>
+
+        <p class="text-gray-500 dark:text-gray-400 mt-4 leading-7">
+
+            Thank you for contacting me.
+
+            <br><br>
+
+            I have received your message successfully and will get back to you as soon as possible.
+
+        </p>
+
+        <button
+            id="closeSuccessModal"
+            class="mt-8 bg-primary text-white px-8 py-3 rounded-full hover:scale-105 transition">
+
+            Close
+
+        </button>
+
+    </div>
+
+</div>
 
 </body>
 
