@@ -27,10 +27,15 @@ let filteredProjects = [...projects];
 
 function createProjectCard(project) {
 
-    const card = document.createElement("div");
+    const card = document.createElement("a");
 
+    card.href = project.github;
+
+card.target = "_blank";
+
+card.rel = "noopener noreferrer";
     card.className =
-        "bg-white dark:bg-zinc-900 rounded-3xl shadow-lg overflow-hidden hover:-translate-y-2 transition duration-300";
+        "block bg-white dark:bg-zinc-900 rounded-3xl overflow-hidden shadow-lg card-hover";
 
     card.innerHTML = `
 
@@ -41,17 +46,17 @@ function createProjectCard(project) {
 
         <div class="p-6">
 
-            <span class="text-primary text-sm font-semibold">
+            <span class="text-primary text-sm uppercase">
 
                 ${project.category}
 
             </span>
 
-            <h3 class="text-2xl font-bold mt-3">
+            <h2 class="text-2xl font-bold mt-2">
 
                 ${project.title}
 
-            </h3>
+            </h2>
 
             <p class="text-grayText mt-4 leading-7">
 
@@ -59,38 +64,23 @@ function createProjectCard(project) {
 
             </p>
 
-            <div class="flex flex-wrap gap-2 mt-5">
+            <div class="flex flex-wrap gap-2 mt-6">
 
-                ${project.technologies
-                    .map(
-                        tech => `
-                        <span class="px-3 py-1 rounded-full bg-primary/10 text-primary text-sm">
-                            ${tech}
-                        </span>`
-                    )
-                    .join("")}
+                ${project.technologies.map(tech => `
+                    <span class="px-3 py-1 rounded-full bg-zinc-100 dark:bg-zinc-800 text-sm">
+                        ${tech}
+                    </span>
+                `).join("")}
 
             </div>
 
-            <div class="flex gap-4 mt-8">
+            <div class="mt-8">
 
-            <a
-                   href="${project.github}"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   class="bg-primary text-white px-5 py-3 rounded-full btn-primary hover:scale-105 transition">
-                   
-                   GitHub
-                
-                </a>
+                <span class="text-primary font-semibold">
 
-                <a
-                    href="${project.details}"
-                    class="border px-5 py-3 rounded-full btn-primary">
+                    View Details →
 
-                    Details
-
-                </a>
+                </span>
 
             </div>
 

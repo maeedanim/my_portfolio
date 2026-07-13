@@ -36,7 +36,6 @@ const projects = [
 
         github: "https://github.com/maeedanim/Dev_Community_Platform",
 
-        details: "project-details.html"
     },
 
     {
@@ -59,7 +58,7 @@ const projects = [
 
         github: "https://github.com/maeedanim/Fitness-Tracker",
 
-        details: "project-details.html"
+        
     },
 
     {
@@ -81,8 +80,9 @@ const projects = [
 
         github: "https://github.com/maeedanim/Hospital-Management-System",
 
-        details: "project-details.html"
-    }
+    },
+
+    
 
     
 
