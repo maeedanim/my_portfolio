@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html
+    lang="en"
+    x-data="portfolio()"
+    :class="{ 'dark': darkMode }"
+    class="scroll-smooth">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Projects | Maeed Ahammed
+    </title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="../assets/js/tailwind-config.js"></script>
+
+    <!-- Fonts -->
+    <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=DM+Sans:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Alpine -->
+    <script defer
+        src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js">
+    </script>
+
+    <!-- CSS -->
+    <link rel="stylesheet"
+        href="../assets/css/style.css">
+
+    <link rel="stylesheet"
+        href="../assets/css/animations.css">
+
+    <link rel="stylesheet"
+        href="../assets/css/responsive.css">
+
+    <link
+    rel="icon"
+    type="image/x-icon"
+    href="../assets/favicon/favicon.ico">
+
+</head>
+
+<body class="bg-white dark:bg-dark text-gray-900 dark:text-white">
+
+
+<!-- ========================================= -->
+<!-- CURSOR GLOW -->
+<!-- ========================================= -->
+
+    <div
+        id="cursorGlow"
+        class="fixed w-72 h-72 rounded-full pointer-events-none z-0 blur-3xl opacity-20"
+        style="
+            background:#FF6B2B;
+            left:-150px;
+            top:-150px;">
+    </div>
+
+
+
+<!-- Loader -->
+
+<div
+    id="loader"
+    class="fixed inset-0 bg-white dark:bg-dark z-[99999] flex flex-col items-center justify-center transition-opacity duration-700">
+
+    <div class="w-20 h-20 border-[6px] border-primary border-t-transparent rounded-full animate-spin">
+    </div>
+
+    <h2 class="mt-8 text-2xl font-bold font-heading">
+
+        Loading Projects...
+
+    </h2>
+
+</div>
+
+<!-- Progress -->
+
+<div
+    id="progressBar"
+    class="fixed top-0 left-0 h-1 bg-primary z-[9999]"
+    style="width:0%">
+</div>
+
+
+
+<!-- Navbar -->
+
+<header
+class="fixed top-0 left-0 right-0 z-50 glass border-b border-zinc-200 dark:border-zinc-800">
+
+<div class="max-w-7xl mx-auto">
+
+<nav class="flex justify-between items-center h-20 px-6">
+
+<a
+href="../index.html"
+class="text-2xl font-bold font-heading">
+
+Maeed
+<span class="text-primary">
+
+Ahammed
+
+</span>
+
+</a>
+
+<ul class="hidden lg:flex gap-10">
+
+<li>
+
+<a href="../index.html">
+
+Home
+
+</a>
+
+</li>
+
+<li>
+
+<a href="projects.html"
+class="text-primary font-semibold">
+
+Projects
+
+</a>
+
+</li>
+
+<li>
+
+<a href="contact.html">
+
+Contact
+
+</a>
+
+</li>
+
+</ul>
+
+<div class="flex items-center gap-3">
+
+<button
+@click="darkMode=!darkMode"
+class="w-10 h-10 rounded-full border">
+
+🌙
+
+</button>
+
+</div>
+
+</nav>
+
+</div>
+
+</header>
+
+<!-- Hero -->
+
+<section
+class="pt-40 pb-20 dark:bg-black">
+
+<div class="max-w-7xl mx-auto px-6 text-center">
+
+<p
+class="uppercase tracking-[6px] text-primary font-semibold">
+
+Portfolio
+
+</p>
+
+<h1
+class="text-5xl lg:text-6xl font-heading font-bold mt-5">
+
+My Projects
+
+</h1>
+
+<p
+class="max-w-3xl mx-auto mt-8 text-grayText leading-8">
+
+A collection of backend systems, academic software,
+research projects, and enterprise applications built
+using modern technologies.
+
+</p>
+
+</div>
+
+</section>
+
+<!-- Search -->
+
+<section
+class="pb-10">
+
+<div class="max-w-7xl mx-auto px-6">
+
+<div
+class="flex flex-col md:flex-row gap-6 justify-between">
+
+<input
+    id="searchProject"
+    type="text"
+    placeholder="Search projects..."
+    class="border rounded-full px-6 py-4 flex-1 bg-transparent">
+<div
+class="flex flex-wrap gap-3">
+
+<button
+    class="filter-btn bg-primary text-white px-5 py-3 rounded-full btn-primary"
+    data-category="All">
+
+    All
+
+</button>
+
+<button
+    class="filter-btn border px-5 py-3 rounded-full btn-primary"
+    data-category="Backend">
+
+    Backend
+
+</button>
+
+<button
+    class="filter-btn border px-5 py-3 rounded-full btn-primary"
+    data-category="Web">
+
+    Web
+
+</button>
+
+<button
+    class="filter-btn border px-5 py-3 rounded-full btn-primary"
+    data-category="Research">
+
+    Research
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Projects -->
+
+<section class="pb-28">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+        <!-- Project Cards -->
+        <div
+            id="projectsContainer"
+            class="grid md:grid-cols-2 xl:grid-cols-3 gap-10">
+        </div>
+
+        <!-- Load More Button -->
+        <div class="text-center mt-16">
+
+            <button
+                id="loadMoreBtn"
+                class="bg-primary text-white px-8 py-4 rounded-full hover:scale-105 transition">
+
+                Load More
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Footer -->
+
+<footer
+class="bg-zinc-950 text-white py-10">
+
+<div class="max-w-7xl mx-auto px-6 text-center">
+
+© <span id="year"></span>
+
+Maeed Ahammed
+
+</div>
+
+</footer>
+
+<!-- Scripts -->
+
+<!-- Project Data -->
+<script src="../assets/js/projects.js"></script>
+
+<!-- Generate Project Cards -->
+<script src="../assets/js/app.js"></script>
+
+<!-- Alpine -->
+<script src="../assets/alpine/portfolio.js"></script>
+
+<!-- Components -->
+<script src="../assets/components/progressBar.js"></script>
+<script src="../assets/components/reveal.js"></script>
+<script src="../assets/components/loader.js"></script>
+<script src="../assets/components/year.js"></script>
+<script src="../assets/components/navbar.js"></script>
+<script src="../assets/components/cursorGlow.js"></script>
+
+</body>
+
+</html>
