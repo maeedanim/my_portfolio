@@ -245,27 +245,28 @@ class="lg:hidden bg-white dark:bg-zinc-900">
 <!-- HERO -->
 <!-- ========================= -->
 
-<section 
+<section
     id="home"
-    class="dark:bg-black reveal min-h-screen flex items-center relative overflow-hidden">
+    class="relative overflow-hidden dark:bg-black pt-32 pb-20 lg:min-h-screen lg:flex lg:items-center">
 
+    <!-- Background Glow -->
+    <div
+        class="absolute -top-40 -left-40 w-[450px] h-[450px] bg-primary/10 rounded-full blur-[140px]">
+    </div>
 
-<div
-class="absolute -top-40 -left-32 w-[500px] h-[500px] rounded-full bg-primary/10 blur-[140px]">
-</div>
+    <div
+        class="absolute bottom-0 right-0 w-[350px] h-[350px] bg-orange-300/10 rounded-full blur-[120px]">
+    </div>
 
-<div class="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full bg-orange-300/10 blur-[120px]">
-</div>
+    <div class="hero-gradient top-0 left-0"></div>
+    <div class="hero-gradient bottom-0 right-0"></div>
 
-<div class="hero-gradient top-0 left-0"></div>
+    <div
+        class="max-w-7xl mx-auto px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-2 items-center gap-20">
 
-<div class="hero-gradient bottom-0 right-0"></div>
-
-
-
-<div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
-
-<!-- LEFT -->
+        <!-- ===================================== -->
+        <!-- LEFT -->
+        <!-- ===================================== -->
 
 <div>
 
@@ -379,14 +380,56 @@ CGPA
 
 </div>
 
+
+
+<!-- ========================= -->
 <!-- RIGHT -->
+<!-- ========================= -->
 
-<!-- Right Side -->
-<div class="relative flex justify-center">
+<div
+    class="relative flex justify-center items-center mt-16 lg:mt-0">
 
+    <!-- ========================= -->
+    <!-- Profile Image -->
+    <!-- ========================= -->
+
+    <img
+        src="assets/images/profile.png"
+        alt="Maeed Ahammed"
+        class="
+            float
+            relative
+            w-[300px]
+            sm:w-[340px]
+            lg:w-[380px]
+            xl:w-[420px]
+            rounded-[40px]
+            shadow-[0_40px_100px_rgba(0,0,0,.18)]
+            hover:scale-105
+            transition-all
+            duration-500">
+
+    <!-- ========================= -->
     <!-- NestJS -->
+    <!-- ========================= -->
+
     <div
-        class="absolute top-14 -left-12 bg-white dark:bg-zinc-900 px-5 py-3 rounded-full shadow-xl flex items-center gap-3 hover:scale-105 transition-all duration-300">
+        class="
+            hidden sm:flex
+            absolute
+            top-14
+            -left-12
+            bg-white
+            dark:bg-zinc-900
+            px-5
+            py-3
+            rounded-full
+            shadow-xl
+            items-center
+            gap-3
+            hover:scale-105
+            transition-all
+            duration-300">
 
         <img
             src="assets/icons/nestjs.svg"
@@ -399,9 +442,27 @@ CGPA
 
     </div>
 
+    <!-- ========================= -->
     <!-- Docker -->
+    <!-- ========================= -->
+
     <div
-        class="absolute top-44 -right-12 bg-white dark:bg-zinc-900 px-5 py-3 rounded-full shadow-xl flex items-center gap-3 hover:scale-105 transition-all duration-300">
+        class="
+            hidden sm:flex
+            absolute
+            top-44
+            -right-12
+            bg-white
+            dark:bg-zinc-900
+            px-5
+            py-3
+            rounded-full
+            shadow-xl
+            items-center
+            gap-3
+            hover:scale-105
+            transition-all
+            duration-300">
 
         <img
             src="assets/icons/docker.svg"
@@ -414,28 +475,42 @@ CGPA
 
     </div>
 
+    <!-- ========================= -->
     <!-- MongoDB -->
+    <!-- ========================= -->
+
     <div
-    class="absolute bottom-16 -right-20 bg-white dark:bg-zinc-900 px-5 py-3 rounded-full shadow-xl flex items-center gap-3 hover:scale-105 transition-all duration-300">
+        class="
+            hidden sm:flex
+            absolute
+            bottom-16
+            -right-20
+            bg-white
+            dark:bg-zinc-900
+            px-5
+            py-3
+            rounded-full
+            shadow-xl
+            items-center
+            gap-3
+            hover:scale-105
+            transition-all
+            duration-300">
 
-    <img
-        src="assets/icons/mongodb.svg"
-        alt="MongoDB"
-        class="w-6 h-6">
+        <img
+            src="assets/icons/mongodb.svg"
+            alt="MongoDB"
+            class="w-6 h-6">
 
-    <span class="font-semibold">
-        MongoDB
-    </span>
+        <span class="font-semibold">
+            MongoDB
+        </span>
+
+    </div>
 
 </div>
 
-    <!-- Profile Image -->
-    <img
-        src="assets/images/profile.png"
-        alt="Maeed Ahammed"
-        class="float relative w-[380px] rounded-[40px] shadow-[0_40px_100px_rgba(0,0,0,.18)] hover:scale-105 transition duration-500">
-
-</div>
+    </div>
 
 </section>
 
