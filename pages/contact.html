@@ -321,92 +321,168 @@ I'd love to hear from you.
                 </h2>
 
                 <form
-                    id="contactForm"
-                    class="space-y-6">
+    id="contactForm"
+    class="space-y-6">
 
-                    <!-- Name -->
+    <!-- Full Name -->
+    <div>
 
-                    <div>
+        <label
+            for="name"
+            class="block mb-2 font-semibold">
 
-                        <label class="block mb-2 font-semibold">
+            Full Name
 
-                            Full Name
+        </label>
 
-                        </label>
+        <input
+            id="name"
+            type="text"
+            placeholder="Enter Your Name"
+            required
+            class="
+                w-full
+                rounded-xl
+                border
+                border-zinc-300
+                dark:border-zinc-700
+                bg-transparent
+                px-4
+                sm:px-5
+                py-3
+                sm:py-4
+                focus:outline-none
+                focus:ring-2
+                focus:ring-primary
+                transition">
 
-                        <input
-                            id="name"
-                            type="text"
-                            placeholder="Enter Your Name"
-                            class="w-full border rounded-xl px-5 py-4 bg-transparent">
+    </div>
 
-                    </div>
+    <!-- Email -->
+    <div>
 
-                    <!-- Email -->
+        <label
+            for="email"
+            class="block mb-2 font-semibold">
 
-                    <div>
+            Email
 
-                        <label class="block mb-2 font-semibold">
+        </label>
 
-                            Email
+        <input
+            id="email"
+            type="email"
+            placeholder="Enter Your Email"
+            required
+            class="
+                w-full
+                rounded-xl
+                border
+                border-zinc-300
+                dark:border-zinc-700
+                bg-transparent
+                px-4
+                sm:px-5
+                py-3
+                sm:py-4
+                focus:outline-none
+                focus:ring-2
+                focus:ring-primary
+                transition">
 
-                        </label>
+    </div>
 
-                        <input
-                            id="email"
-                            type="email"
-                            placeholder="Enter Your Email"
-                            class="w-full border rounded-xl px-5 py-4 bg-transparent">
+    <!-- Subject -->
+    <div>
 
-                    </div>
+        <label
+            for="subject"
+            class="block mb-2 font-semibold">
 
-                    <!-- Subject -->
+            Subject
 
-                    <div>
+        </label>
 
-                        <label class="block mb-2 font-semibold">
+        <input
+            id="subject"
+            type="text"
+            placeholder="Project Discussion"
+            required
+            class="
+                w-full
+                rounded-xl
+                border
+                border-zinc-300
+                dark:border-zinc-700
+                bg-transparent
+                px-4
+                sm:px-5
+                py-3
+                sm:py-4
+                focus:outline-none
+                focus:ring-2
+                focus:ring-primary
+                transition">
 
-                            Subject
+    </div>
 
-                        </label>
+    <!-- Message -->
+    <div>
 
-                        <input
-                            id="subject"
-                            type="text"
-                            placeholder="Project Discussion"
-                            class="w-full border rounded-xl px-5 py-4 bg-transparent">
+        <label
+            for="message"
+            class="block mb-2 font-semibold">
 
-                    </div>
+            Message
 
-                    <!-- Message -->
+        </label>
 
-                    <div>
+        <textarea
+            id="message"
+            placeholder="Write your message..."
+            required
+            class="
+                w-full
+                h-40
+                sm:h-48
+                lg:h-56
+                rounded-xl
+                border
+                border-zinc-300
+                dark:border-zinc-700
+                bg-transparent
+                px-4
+                sm:px-5
+                py-3
+                sm:py-4
+                resize-y
+                focus:outline-none
+                focus:ring-2
+                focus:ring-primary
+                transition"></textarea>
 
-                        <label class="block mb-2 font-semibold">
+    </div>
 
-                            Message
+    <!-- Submit Button -->
+    <button
+        type="submit"
+        class="
+            w-full
+            sm:w-auto
+            bg-primary
+            text-white
+            px-8
+            py-4
+            rounded-full
+            hover:scale-105
+            transition-all
+            duration-300">
 
-                        </label>
+        Send Message
 
-                        <textarea
-                            id="message"
-                            rows="6"
-                            placeholder="Write your message..."
-                            class="w-full border rounded-xl px-5 py-4 bg-transparent resize-none"></textarea>
+    </button>
 
-                    </div>
-
-                    <!-- Button -->
-
-                    <button
-                        type="submit"
-                        class="bg-primary text-white px-8 py-4 rounded-full hover:scale-105 transition">
-
-                        Send Message
-
-                    </button>
-
-                </form>
+</form>
 
             </div>
 
