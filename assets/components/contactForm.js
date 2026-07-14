@@ -141,20 +141,35 @@ if (closeButton) {
 // Close Modal When Clicking Outside
 // ==========================================
 
-const successModal =
-    document.getElementById("successModal");
+document.addEventListener("DOMContentLoaded", () => {
 
-if (successModal) {
+    const modal = document.getElementById("successModal");
+    const closeButton = document.getElementById("closeSuccessModal");
 
-    successModal.addEventListener("click", (event) => {
+    if (closeButton) {
 
-        if (event.target === successModal) {
+        closeButton.addEventListener("click", () => {
 
-            successModal.classList.remove("flex");
-            successModal.classList.add("hidden");
+            modal.classList.remove("flex");
+            modal.classList.add("hidden");
 
-        }
+        });
 
-    });
+    }
 
-}
+    if (modal) {
+
+        modal.addEventListener("click", (event) => {
+
+            if (event.target === modal) {
+
+                modal.classList.remove("flex");
+                modal.classList.add("hidden");
+
+            }
+
+        });
+
+    }
+
+});
