@@ -1,23 +1,179 @@
 /* =========================================
-   TABLET
+   TABLET (≤1024px)
 ========================================= */
 
-@media (max-width: 1024px) {
+@media (max-width:1024px){
+
+    /* Hero */
+    #home{
+        padding-top:8rem;
+        padding-bottom:5rem;
+    }
+
+    #home .max-w-7xl{
+        grid-template-columns:1fr;
+        gap:4rem;
+        text-align:center;
+    }
+
+    #home h1{
+        font-size:3.5rem;
+        line-height:1.1;
+    }
+
+    #home p{
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    /* Hero Buttons */
+
+    #home .btn-primary{
+        padding:14px 28px;
+    }
+
+    /* Hero Image */
+
+    #home img[alt="Maeed Ahammed"]{
+        width:340px;
+    }
+
+    /* Floating Tech Badges */
+
+    #home .tech-badge{
+        display:none;
+    }
+
+    /* Contact */
+
+    #contact .grid{
+        grid-template-columns:1fr;
+    }
+
+    /* Forms */
+
+    input,
+    textarea{
+        font-size:16px;
+    }
 
 }
 
 /* =========================================
-   MOBILE
+   MOBILE (≤768px)
 ========================================= */
 
-@media (max-width: 768px) {
+@media (max-width:768px){
+
+    section{
+        padding-top:5rem;
+        padding-bottom:5rem;
+    }
+
+    .max-w-7xl{
+        padding-left:1.25rem;
+        padding-right:1.25rem;
+    }
+
+    /* Hero */
+
+    #home h1{
+        font-size:2.8rem;
+    }
+
+    #home p{
+        font-size:1rem;
+        line-height:2;
+    }
+
+    /* Buttons */
+
+    #home .flex{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    #home .btn-primary{
+        width:100%;
+        max-width:280px;
+        text-align:center;
+    }
+
+    /* Statistics */
+
+    #home .grid-cols-3{
+        gap:1.5rem;
+    }
+
+    #home .grid-cols-3 h2{
+        font-size:2rem;
+    }
+
+    /* Image */
+
+    #home img[alt="Maeed Ahammed"]{
+        width:280px;
+    }
+
+    /* Hide floating badges */
+
+    #home .tech-badge{
+        display:none;
+    }
+
+    /* Contact */
+
+    #contact h2{
+        font-size:2rem;
+    }
+
+    form{
+        padding:1.5rem;
+    }
 
 }
 
 /* =========================================
-   SMALL MOBILE
+   SMALL MOBILE (≤480px)
 ========================================= */
 
-@media (max-width: 480px) {
+@media (max-width:480px){
+
+    html{
+        font-size:15px;
+    }
+
+    #home{
+        padding-top:7rem;
+    }
+
+    #home h1{
+        font-size:2.3rem;
+    }
+
+    #home p{
+        font-size:.95rem;
+        line-height:1.9;
+    }
+
+    #home img[alt="Maeed Ahammed"]{
+        width:220px;
+    }
+
+    #home .grid-cols-3{
+        gap:1rem;
+    }
+
+    #home .grid-cols-3 h2{
+        font-size:1.8rem;
+    }
+
+    #home .grid-cols-3 p{
+        font-size:.85rem;
+    }
+
+    form{
+        padding:1rem;
+    }
 
 }
