@@ -4,7 +4,7 @@
 
 > Codebase: `c:\Users\maeed\OneDrive\Documents\Projects\my_portfolio`
 >
-> *Note: the URL above is from the original README. The technical report below references `https://maeedanim.onrender.com/` — double-check which domain is currently live before publishing, as they may point to different deployments.*
+> *Note: the URL above is from the original README. The technical report below references `https://maeedanim.onrender.com/` double-check which domain is currently live before publishing, as they may point to different deployments.*
 
 ---
 
