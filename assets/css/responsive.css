@@ -11,6 +11,45 @@ body {
 }
 
 /* =========================================
+   PERFORMANCE — GPU acceleration
+========================================= */
+
+.reveal,
+.float,
+.btn-primary,
+.card-hover,
+.glass,
+header {
+    will-change: transform;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+/* Reduce expensive blur on mobile */
+@media (max-width: 768px) {
+    #cursorGlow {
+        display: none !important;
+    }
+
+    .blur-3xl {
+        filter: blur(32px) !important;
+    }
+
+    .blur-\[140px\] {
+        filter: blur(60px) !important;
+    }
+
+    .blur-\[120px\] {
+        filter: blur(50px) !important;
+    }
+
+    .glass {
+        backdrop-filter: blur(10px);
+    }
+}
+
+
+/* =========================================
    TABLET (≤1024px)
 ========================================= */
 

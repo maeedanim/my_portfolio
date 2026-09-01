@@ -1,20 +1,25 @@
 const glow =
     document.getElementById("cursorGlow");
 
-document.addEventListener("mousemove", e => {
+// Disable cursor glow on touch/mobile devices for performance
+const isTouchDevice =
+    "ontouchstart" in window ||
+    navigator.maxTouchPoints > 0 ||
+    window.innerWidth < 768;
 
-    if (!glow) return;
+if (isTouchDevice && glow) {
 
-    glow.animate({
+    glow.style.display = "none";
 
-        left: `${e.clientX - 140}px`,
-        top: `${e.clientY - 140}px`
+} else {
 
-    }, {
+    document.addEventListener("mousemove", e => {
 
-        duration: 500,
-        fill: "forwards"
+        if (!glow) return;
 
-    });
+        glow.style.left = `${e.clientX - 140}px`;
+        glow.style.top = `${e.clientY - 140}px`;
 
-});
+    }, { passive: true });
+
+}
