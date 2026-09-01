@@ -249,7 +249,7 @@ class="lg:hidden bg-white dark:bg-zinc-900">
 
 <section
     id="home"
-    class="relative overflow-hidden dark:bg-black pt-32 pb-20 lg:min-h-screen lg:flex lg:items-center">
+    class="relative overflow-x-clip dark:bg-black pt-32 pb-20 lg:min-h-screen lg:flex lg:items-center">
 
     <!-- Background Glow -->
     <div
@@ -281,7 +281,7 @@ class="uppercase tracking-[6px] text-primary font-semibold mb-5">
 </p>
 
 <h1
-class="text-5xl lg:text-7xl font-heading font-bold leading-tight mb-8">
+class="text-3xl sm:text-4xl lg:text-5xl xl:text-7xl font-heading font-bold leading-tight mb-8">
 
 Hi,
 
@@ -329,11 +329,11 @@ Download Resume
 </div>
 
 <div
-class="grid grid-cols-3 gap-10 mt-20">
+class="grid grid-cols-3 gap-6 sm:gap-10 mt-12 sm:mt-20">
 
 <div>
 
-<h2 class="text-4xl font-bold text-primary">
+<h2 class="text-2xl sm:text-4xl font-bold text-primary">
 
 01
 
@@ -350,7 +350,7 @@ Backend Internship
 <div>
 
 <h2
-    class="text-4xl font-bold text-primary">
+    class="text-2xl sm:text-4xl font-bold text-primary">
     4
 
 </h2>
@@ -365,7 +365,7 @@ Major Projects
 
 <div>
 
-<h2 class="text-4xl font-bold text-primary">
+<h2 class="text-2xl sm:text-4xl font-bold text-primary">
 
 3.78
 
@@ -418,26 +418,34 @@ CGPA
 
     <div
         class="
-            hidden sm:flex
+            flex
             absolute
-            top-14
-            -left-12
+            top-4
+            sm:top-14
+            -left-2
+            sm:-left-12
             bg-white
             dark:bg-zinc-900
-            px-5
-            py-3
+            px-3
+            sm:px-5
+            py-2
+            sm:py-3
             rounded-full
             shadow-xl
             items-center
-            gap-3
+            gap-2
+            sm:gap-3
+            text-xs
+            sm:text-base
             hover:scale-105
             transition-all
-            duration-300">
+            duration-300
+            z-10">
 
         <img
             src="assets/icons/nestjs.svg"
             alt="NestJS"
-            class="w-6 h-6">
+            class="w-4 h-4 sm:w-6 sm:h-6">
 
         <span class="font-semibold">
             NestJS
@@ -451,26 +459,34 @@ CGPA
 
     <div
         class="
-            hidden sm:flex
+            flex
             absolute
-            top-44
-            -right-12
+            top-28
+            sm:top-44
+            -right-2
+            sm:-right-12
             bg-white
             dark:bg-zinc-900
-            px-5
-            py-3
+            px-3
+            sm:px-5
+            py-2
+            sm:py-3
             rounded-full
             shadow-xl
             items-center
-            gap-3
+            gap-2
+            sm:gap-3
+            text-xs
+            sm:text-base
             hover:scale-105
             transition-all
-            duration-300">
+            duration-300
+            z-10">
 
         <img
             src="assets/icons/docker.svg"
             alt="Docker"
-            class="w-6 h-6">
+            class="w-4 h-4 sm:w-6 sm:h-6">
 
         <span class="font-semibold">
             Docker
@@ -484,26 +500,34 @@ CGPA
 
     <div
         class="
-            hidden sm:flex
+            flex
             absolute
-            bottom-16
-            -right-20
+            bottom-4
+            sm:bottom-16
+            -right-2
+            sm:-right-20
             bg-white
             dark:bg-zinc-900
-            px-5
-            py-3
+            px-3
+            sm:px-5
+            py-2
+            sm:py-3
             rounded-full
             shadow-xl
             items-center
-            gap-3
+            gap-2
+            sm:gap-3
+            text-xs
+            sm:text-base
             hover:scale-105
             transition-all
-            duration-300">
+            duration-300
+            z-10">
 
         <img
             src="assets/icons/mongodb.svg"
             alt="MongoDB"
-            class="w-6 h-6">
+            class="w-4 h-4 sm:w-6 sm:h-6">
 
         <span class="font-semibold">
             MongoDB
@@ -651,7 +675,7 @@ CGPA
 <!-- EXPERIENCE -->
 <!-- ===================================================== -->
 
-<section id="experience" class=" dark:bg-black reveal py-28">
+<section id="experience" class="relative overflow-hidden dark:bg-black reveal py-28">
 
 <div
 class="absolute -top-40 -left-32 w-[500px] h-[500px] rounded-full bg-primary/10 blur-[140px]">
@@ -676,7 +700,7 @@ Professional Journey
 
 </p>
 
-<h2 class="text-5xl font-heading font-bold mt-4">
+<h2 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold mt-4">
 
 Experience & Education
 
@@ -809,7 +833,7 @@ Core Expertise
 
 </p>
 
-<h2 class="text-5xl font-heading font-bold mt-4">
+<h2 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold mt-4">
 
 Technologies I Work With
 
@@ -935,7 +959,7 @@ Tools
 
 <section
     id="projects"
-    class="dark:bg-black reveal py-28">
+    class="relative overflow-hidden dark:bg-black reveal py-28">
 
     <div class="absolute -top-40 -left-32 w-[500px] h-[500px] rounded-full bg-primary/10 blur-[140px]">
     </div>
@@ -957,7 +981,7 @@ Tools
                 Portfolio
             </p>
 
-            <h2 class="text-5xl font-heading font-bold mt-4">
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold mt-4">
                 Featured Projects
             </h2>
 
@@ -1223,7 +1247,7 @@ Tools
 
             </p>
 
-            <h2 class="text-5xl font-heading font-bold mt-4">
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold mt-4">
 
                 Technologies I Use
 
@@ -1398,7 +1422,7 @@ Tools
 
             </p>
 
-            <h2 class="text-5xl font-heading font-bold mt-4">
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold mt-4">
 
                 Milestones & Highlights
 
@@ -1519,7 +1543,7 @@ Tools
             <div class="text-center">
 
                 <h2
-                    class="counter text-6xl font-bold text-primary"
+                    class="counter text-3xl sm:text-5xl lg:text-6xl font-bold text-primary"
                     data-target="4">
 
                     0
@@ -1537,7 +1561,7 @@ Tools
             <div class="text-center">
 
                 <h2
-                    class="counter text-6xl font-bold text-primary"
+                    class="counter text-3xl sm:text-5xl lg:text-6xl font-bold text-primary"
                     data-target="15">
 
                     0
@@ -1555,7 +1579,7 @@ Tools
             <div class="text-center">
 
                 <h2
-                    class="counter text-6xl font-bold text-primary"
+                    class="counter text-3xl sm:text-5xl lg:text-6xl font-bold text-primary"
                     data-target="1">
 
                     0
@@ -1573,7 +1597,7 @@ Tools
             <div class="text-center">
 
                 <h2
-                    class="counter text-6xl font-bold text-primary"
+                    class="counter text-3xl sm:text-5xl lg:text-6xl font-bold text-primary"
                     data-target="3.78">
 
                     0
@@ -1602,9 +1626,9 @@ Tools
 
     <div class="max-w-6xl mx-auto px-6">
 
-        <div class="bg-primary rounded-[40px] p-16 text-center text-white">
+        <div class="bg-primary rounded-[40px] p-6 sm:p-10 lg:p-16 text-center text-white">
 
-            <h2 class="text-5xl font-heading font-bold mb-8">
+            <h2 class="text-2xl sm:text-3xl lg:text-5xl font-heading font-bold mb-8">
 
                 Interested in Working Together?
 

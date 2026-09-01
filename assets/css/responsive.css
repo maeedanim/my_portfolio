@@ -1,4 +1,16 @@
 /* =========================================
+   GLOBAL MOBILE FIX
+   Prevent horizontal overflow from absolute
+   positioned glow/gradient elements
+========================================= */
+
+html,
+body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+/* =========================================
    TABLET (≤1024px)
 ========================================= */
 
@@ -44,6 +56,17 @@
         display:none;
     }
 
+    /* Section Headings */
+
+    .text-5xl{
+        font-size:2.5rem !important;
+    }
+
+    /* CTA Section */
+    .bg-primary.rounded-\[40px\]{
+        padding:3rem 2rem;
+    }
+
     /* Contact */
 
     #contact .grid{
@@ -78,7 +101,7 @@
     /* Hero */
 
     #home h1{
-        font-size:2.8rem;
+        font-size:2.5rem;
     }
 
     #home p{
@@ -99,7 +122,7 @@
         text-align:center;
     }
 
-    /* Statistics */
+    /* Statistics in hero */
 
     #home .grid-cols-3{
         gap:1.5rem;
@@ -121,14 +144,101 @@
         display:none;
     }
 
+    /* Section Headings */
+
+    .text-5xl{
+        font-size:2rem !important;
+    }
+
+    .text-4xl{
+        font-size:1.75rem !important;
+    }
+
+    /* CTA Section */
+    .bg-primary.rounded-\[40px\]{
+        padding:2.5rem 1.5rem;
+        border-radius:1.5rem;
+    }
+
+    .bg-primary.rounded-\[40px\] h2{
+        font-size:1.75rem !important;
+    }
+
+    .bg-primary.rounded-\[40px\] p{
+        font-size:0.95rem;
+    }
+
+    /* Statistics counters */
+
+    .counter{
+        font-size:3rem !important;
+    }
+
+    /* Tech Stack grid - ensure 2 cols fit */
+    .grid.grid-cols-2.md\:grid-cols-4.lg\:grid-cols-6{
+        grid-template-columns:repeat(3, 1fr);
+        gap:0.75rem;
+    }
+
+    .grid.grid-cols-2.md\:grid-cols-4.lg\:grid-cols-6 > div{
+        padding:1rem;
+    }
+
+    .grid.grid-cols-2.md\:grid-cols-4.lg\:grid-cols-6 img{
+        width:2.5rem;
+    }
+
+    /* Achievements grid */
+    .grid.md\:grid-cols-2.lg\:grid-cols-4{
+        grid-template-columns:repeat(2, 1fr);
+        gap:0.75rem;
+    }
+
+    .grid.md\:grid-cols-2.lg\:grid-cols-4 > div{
+        padding:1.25rem;
+    }
+
+    /* Statistics section */
+    .grid.grid-cols-2.lg\:grid-cols-4{
+        grid-template-columns:repeat(2, 1fr);
+        gap:1.5rem;
+    }
+
+    /* Hero gradient / glow elements — constrain */
+
+    .hero-gradient{
+        width:300px !important;
+        height:300px !important;
+    }
+
+    /* Footer */
+
+    footer .grid{
+        grid-template-columns:1fr 1fr;
+        gap:2rem;
+    }
+
     /* Contact */
 
     #contact h2{
-        font-size:2rem;
+        font-size:1.75rem !important;
     }
 
     form{
         padding:1.5rem;
+    }
+
+    /* Experience timeline */
+    .border-l-2{
+        margin-left:0.5rem;
+    }
+
+    .border-l-2 > div{
+        margin-left:2rem;
+    }
+
+    .border-l-2 h3{
+        font-size:1.25rem;
     }
 
 }
@@ -148,7 +258,7 @@
     }
 
     #home h1{
-        font-size:2.3rem;
+        font-size:2rem;
     }
 
     #home p{
@@ -165,15 +275,133 @@
     }
 
     #home .grid-cols-3 h2{
-        font-size:1.8rem;
+        font-size:1.6rem;
     }
 
     #home .grid-cols-3 p{
-        font-size:.85rem;
+        font-size:.8rem;
     }
 
+    /* Section headings */
+
+    .text-5xl{
+        font-size:1.6rem !important;
+    }
+
+    .text-4xl{
+        font-size:1.4rem !important;
+    }
+
+    /* CTA */
+    .bg-primary.rounded-\[40px\]{
+        padding:2rem 1.25rem;
+        border-radius:1.25rem;
+    }
+
+    .bg-primary.rounded-\[40px\] h2{
+        font-size:1.4rem !important;
+    }
+
+    /* Statistics counters */
+    .counter{
+        font-size:2.25rem !important;
+    }
+
+    /* Tech stack — 2 cols on tiny screens */
+    .grid.grid-cols-2.md\:grid-cols-4.lg\:grid-cols-6{
+        grid-template-columns:repeat(2, 1fr);
+        gap:0.5rem;
+    }
+
+    .grid.grid-cols-2.md\:grid-cols-4.lg\:grid-cols-6 > div{
+        padding:0.75rem;
+        border-radius:1rem;
+    }
+
+    .grid.grid-cols-2.md\:grid-cols-4.lg\:grid-cols-6 img{
+        width:2rem;
+        margin-bottom:0.5rem;
+    }
+
+    .grid.grid-cols-2.md\:grid-cols-4.lg\:grid-cols-6 p{
+        font-size:0.8rem;
+    }
+
+    /* Achievements — single col on tiny */
+    .grid.md\:grid-cols-2.lg\:grid-cols-4{
+        grid-template-columns:1fr;
+    }
+
+    /* Hero gradient / glow — even smaller */
+
+    .hero-gradient{
+        width:200px !important;
+        height:200px !important;
+    }
+
+    /* Footer — single column */
+
+    footer .grid{
+        grid-template-columns:1fr;
+        gap:2rem;
+    }
+
+    /* Contact form */
     form{
         padding:1rem;
     }
 
+    /* Navbar */
+    nav{
+        padding-left:1rem;
+        padding-right:1rem;
+    }
+
+    nav a.text-2xl{
+        font-size:1.25rem;
+    }
+
+    /* Experience timeline */
+    .border-l-2 > div{
+        margin-left:1.5rem;
+    }
+
+    .border-l-2 h3{
+        font-size:1.1rem;
+    }
+
+    .border-l-2 p{
+        font-size:0.9rem;
+    }
+}
+
+/* =========================================
+   EXTRA SMALL (≤360px)
+========================================= */
+
+@media (max-width:360px){
+
+    #home h1{
+        font-size:1.75rem;
+    }
+
+    #home .grid-cols-3 h2{
+        font-size:1.4rem;
+    }
+
+    #home .grid-cols-3 p{
+        font-size:.75rem;
+    }
+
+    .text-5xl{
+        font-size:1.4rem !important;
+    }
+
+    .counter{
+        font-size:2rem !important;
+    }
+
+    .bg-primary.rounded-\[40px\] h2{
+        font-size:1.25rem !important;
+    }
 }
