@@ -85,4 +85,5 @@ body::before {
     border-radius: 100%;
     filter: blur(120px);
     background: #ff6b2b20;
+    pointer-events: none;
 }
