@@ -37,9 +37,31 @@ const projects = [
         github: "https://github.com/maeedanim/Dev_Community_Platform",
 
     },
-
     {
         id: 2,
+
+        title: "Vehicle Rental Management",
+
+        category: "Backend",
+
+        image: "../assets/images/vehicle-rental.png",
+
+        description:
+            "A REST API for vehicle rental management with staff authentication, rental tracking, reports, file uploads and Swagger documentation.",
+
+        technologies: [
+            "Node.js",
+            "Express.js",
+            "TypeScript",
+            "PostgreSQL"
+        ],
+
+        github: "https://github.com/maeedanim/Vehicle-Rental-Management",
+
+    },
+
+    {
+        id: 3,
 
         title: "Fitness Tracker",
 
@@ -58,11 +80,11 @@ const projects = [
 
         github: "https://github.com/maeedanim/Fitness-Tracker",
 
-        
+
     },
 
     {
-        id: 3,
+        id: 4,
 
         title: "Hospital Management",
 
@@ -82,8 +104,10 @@ const projects = [
 
     },
 
-    
 
-    
+
+
+
+
 
 ];
