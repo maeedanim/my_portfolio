@@ -1,17 +1,11 @@
 <!DOCTYPE html>
-<html
-    lang="en"
-    x-data="portfolio()"
-    :class="{ 'dark': darkMode }"
-    class="scroll-smooth">
+<html lang="en" x-data="portfolio()" :class="{ 'dark': darkMode }" class="scroll-smooth">
 
 <head>
 
     <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>
         Contact | Maeed Ahammed
@@ -22,357 +16,306 @@
     <script src="../assets/js/tailwind-config.js"></script>
 
     <!-- Fonts -->
-    <link rel="preconnect"
-        href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 
-    <link rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link
         href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=DM+Sans:wght@300;400;500;700&display=swap"
         rel="stylesheet">
 
     <!-- Alpine -->
-    <script
-        defer
-        src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js">
     </script>
 
     <!-- CSS -->
-    <link
-        rel="stylesheet"
-        href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
 
-    <link
-        rel="stylesheet"
-        href="../assets/css/animations.css">
+    <link rel="stylesheet" href="../assets/css/animations.css">
 
-    <link
-        rel="stylesheet"
-        href="../assets/css/responsive.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
 
     <link rel="icon" type="image/png" href="../assets/favicon/favicon.ico">
 
 </head>
 
-<body
-    class="bg-white dark:bg-dark text-gray-900 dark:text-white">
+<body class="bg-white dark:bg-dark text-gray-900 dark:text-white">
 
     <!-- ========================================= -->
-<!-- Loader -->
-<!-- ========================================= -->
+    <!-- Loader -->
+    <!-- ========================================= -->
 
-<div
-    id="loader"
-    class="fixed inset-0 bg-white dark:bg-dark z-[99999] flex flex-col items-center justify-center transition-opacity duration-700">
+    <div id="loader"
+        class="fixed inset-0 bg-white dark:bg-dark z-[99999] flex flex-col items-center justify-center transition-opacity duration-700">
 
-    <div class="w-20 h-20 border-[6px] border-primary border-t-transparent rounded-full animate-spin">
+        <div class="w-20 h-20 border-[6px] border-primary border-t-transparent rounded-full animate-spin">
+        </div>
+
+        <h2 class="mt-8 text-2xl font-bold font-heading">
+            Loading Contact...
+        </h2>
+
     </div>
 
-    <h2 class="mt-8 text-2xl font-bold font-heading">
-        Loading Contact...
-    </h2>
+    <!-- ========================================= -->
+    <!-- Progress Bar -->
+    <!-- ========================================= -->
 
-</div>
+    <div id="progressBar" class="fixed top-0 left-0 h-1 bg-primary z-[9999]" style="width:0%">
+    </div>
 
-<!-- ========================================= -->
-<!-- Progress Bar -->
-<!-- ========================================= -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass border-b border-zinc-200 dark:border-zinc-800">
 
-<div
-    id="progressBar"
-    class="fixed top-0 left-0 h-1 bg-primary z-[9999]"
-    style="width:0%">
-</div>
+        <div class="max-w-7xl mx-auto">
 
-<header
-class="fixed top-0 left-0 right-0 z-50 glass border-b border-zinc-200 dark:border-zinc-800">
+            <nav class="flex justify-between items-center h-20 px-6">
 
-<div class="max-w-7xl mx-auto">
+                <a href="/" class="text-2xl font-bold font-heading">
 
-<nav class="flex justify-between items-center h-20 px-6">
+                    Maeed
+                    <span class="text-primary">
+                        Ahammed
+                    </span>
 
-<a
-href="../index.html"
-class="text-2xl font-bold font-heading">
+                </a>
 
-Maeed
-<span class="text-primary">
-Ahammed
-</span>
+                <ul class="hidden lg:flex gap-10">
 
-</a>
+                    <li>
+                        <a href="/">
+                            Home
+                        </a>
+                    </li>
 
-<ul class="hidden lg:flex gap-10">
+                    <li>
+                        <a href="/projects">
+                            Projects
+                        </a>
+                    </li>
 
-<li>
-<a href="../index.html">
-Home
-</a>
-</li>
+                    <li>
+                        <a href="/contact" class="text-primary font-semibold">
+                            Contact
+                        </a>
+                    </li>
 
-<li>
-<a href="projects.html">
-Projects
-</a>
-</li>
+                </ul>
 
-<li>
-<a
-href="contact.html"
-class="text-primary font-semibold">
-Contact
-</a>
-</li>
+                <div class="flex items-center gap-3">
 
-</ul>
+                    <button @click="darkMode=!darkMode" class="w-10 h-10 rounded-full border">
 
-<div class="flex items-center gap-3">
+                        🌙
 
-<button
-@click="darkMode=!darkMode"
-class="w-10 h-10 rounded-full border">
+                    </button>
 
-🌙
+                    <button class="lg:hidden text-2xl" @click="mobileMenu=!mobileMenu">
 
-</button>
+                        ☰
 
-<button
-class="lg:hidden text-2xl"
-@click="mobileMenu=!mobileMenu">
-
-☰
-
-</button>
-
-</div>
-
-</nav>
-
-</div>
-
-<!-- Mobile Menu -->
-
-<div
-    x-show="mobileMenu"
-    x-transition:enter="transition ease-out duration-300"
-    x-transition:enter-start="opacity-0 -translate-y-5"
-    x-transition:enter-end="opacity-100 translate-y-0"
-    x-transition:leave="transition ease-in duration-200"
-    x-transition:leave-start="opacity-100 translate-y-0"
-    x-transition:leave-end="opacity-0 -translate-y-5"
-class="lg:hidden bg-white dark:bg-zinc-900">
-
-<ul class="flex flex-col p-6 gap-6">
-
-<li><a href="../index.html" @click="mobileMenu=false">Home</a></li>
-
-<li><a href="projects.html" @click="mobileMenu=false">Projects</a></li>
-
-<li><a href="contact.html" class="text-primary font-semibold" @click="mobileMenu=false">Contact</a></li>
-
-</ul>
-
-</div>
-
-</header>
-
-<section class="pt-40 pb-20 dark:bg-black">
-
-<div class="max-w-7xl mx-auto px-6 text-center">
-
-<p
-class="uppercase tracking-[6px] text-primary font-semibold">
-
-Get In Touch
-
-</p>
-
-<h1
-class="text-5xl lg:text-6xl font-heading font-bold mt-5">
-
-Contact Me
-
-</h1>
-
-<p
-class="max-w-3xl mx-auto mt-8 text-grayText leading-8">
-
-Have an internship opportunity, backend project,
-or just want to connect?
-I'd love to hear from you.
-
-</p>
-
-</div>
-
-</section>
-
-<!-- ========================================= -->
-<!-- Contact Section -->
-<!-- ========================================= -->
-
-<section class="pt-16 pb-28">
-
-    <div class="max-w-7xl mx-auto px-6">
-
-        <div class="grid lg:grid-cols-2 gap-16">
-
-            <!-- ========================================= -->
-            <!-- Left Side -->
-            <!-- ========================================= -->
-
-            <div>
-
-                <h2 class="text-4xl font-heading font-bold mb-8">
-
-                    Let's Talk
-
-                </h2>
-
-                <p class="text-grayText leading-8 mb-10">
-
-                    Whether you're looking for a Backend Developer,
-                    have an exciting project, or simply want to connect,
-                    feel free to reach out through any of the channels below.
-
-                </p>
-
-                <!-- Email -->
-
-                <div class="mb-8">
-
-                    <h3 class="font-semibold text-lg mb-2">
-
-                        📧 Email
-
-                    </h3>
-
-                    <a
-                        href="mailto:maeedahammed@gmail.com"
-                        class="text-primary hover:underline">
-
-                        maeedahammed@gmail.com
-
-                    </a>
+                    </button>
 
                 </div>
 
-                <!-- Phone -->
+            </nav>
 
-                <div class="mb-8">
+        </div>
 
-                    <h3 class="font-semibold text-lg mb-2">
+        <!-- Mobile Menu -->
 
-                        📱 Phone
+        <div x-show="mobileMenu" x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="opacity-0 -translate-y-5" x-transition:enter-end="opacity-100 translate-y-0"
+            x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 translate-y-0"
+            x-transition:leave-end="opacity-0 -translate-y-5" class="lg:hidden bg-white dark:bg-zinc-900">
 
-                    </h3>
+            <ul class="flex flex-col p-6 gap-6">
 
-                    <p>
+                <li><a href="/" @click="mobileMenu=false">Home</a></li>
 
-                        +8801960201797
+                <li><a href="/projects" @click="mobileMenu=false">Projects</a></li>
 
-                    </p>
+                <li><a href="/contact" class="text-primary font-semibold" @click="mobileMenu=false">Contact</a></li>
 
-                </div>
+            </ul>
 
-                <!-- Location -->
+        </div>
 
-                <div class="mb-8">
+    </header>
 
-                    <h3 class="font-semibold text-lg mb-2">
+    <section class="pt-40 pb-20 dark:bg-black">
 
-                        📍 Location
+        <div class="max-w-7xl mx-auto px-6 text-center">
 
-                    </h3>
+            <p class="uppercase tracking-[6px] text-primary font-semibold">
 
-                    <p>
+                Get In Touch
 
-                        Dhaka, Bangladesh
+            </p>
 
-                    </p>
+            <h1 class="text-5xl lg:text-6xl font-heading font-bold mt-5">
 
-                </div>
+                Contact Me
 
-                <!-- GitHub -->
+            </h1>
 
-                <div class="mb-8">
+            <p class="max-w-3xl mx-auto mt-8 text-grayText leading-8">
 
-                    <h3 class="font-semibold text-lg mb-2">
+                Have an internship opportunity, backend project,
+                or just want to connect?
+                I'd love to hear from you.
 
-                        💻 GitHub
+            </p>
 
-                    </h3>
+        </div>
 
-                    <a
-                        href="https://github.com/maeedanim"
-                        target="_blank"
-                        class="text-primary hover:underline">
+    </section>
 
-                        github.com/maeedanim
+    <!-- ========================================= -->
+    <!-- Contact Section -->
+    <!-- ========================================= -->
 
-                    </a>
+    <section class="pt-16 pb-28">
 
-                </div>
+        <div class="max-w-7xl mx-auto px-6">
 
-                <!-- LinkedIn -->
+            <div class="grid lg:grid-cols-2 gap-16">
+
+                <!-- ========================================= -->
+                <!-- Left Side -->
+                <!-- ========================================= -->
 
                 <div>
 
-                    <h3 class="font-semibold text-lg mb-2">
+                    <h2 class="text-4xl font-heading font-bold mb-8">
 
-                        🔗 LinkedIn
+                        Let's Talk
 
-                    </h3>
+                    </h2>
 
-                    <a
-                        href="https://linkedin.com/in/maeed"
-                        target="_blank"
-                        class="text-primary hover:underline">
+                    <p class="text-grayText leading-8 mb-10">
 
-                        linkedin.com/in/maeed
+                        Whether you're looking for a Backend Developer,
+                        have an exciting project, or simply want to connect,
+                        feel free to reach out through any of the channels below.
 
-                    </a>
+                    </p>
+
+                    <!-- Email -->
+
+                    <div class="mb-8">
+
+                        <h3 class="font-semibold text-lg mb-2">
+
+                            📧 Email
+
+                        </h3>
+
+                        <a href="mailto:maeedahammed@gmail.com" class="text-primary hover:underline">
+
+                            maeedahammed@gmail.com
+
+                        </a>
+
+                    </div>
+
+                    <!-- Phone -->
+
+                    <div class="mb-8">
+
+                        <h3 class="font-semibold text-lg mb-2">
+
+                            📱 Phone
+
+                        </h3>
+
+                        <p>
+
+                            +8801960201797
+
+                        </p>
+
+                    </div>
+
+                    <!-- Location -->
+
+                    <div class="mb-8">
+
+                        <h3 class="font-semibold text-lg mb-2">
+
+                            📍 Location
+
+                        </h3>
+
+                        <p>
+
+                            Dhaka, Bangladesh
+
+                        </p>
+
+                    </div>
+
+                    <!-- GitHub -->
+
+                    <div class="mb-8">
+
+                        <h3 class="font-semibold text-lg mb-2">
+
+                            💻 GitHub
+
+                        </h3>
+
+                        <a href="https://github.com/maeedanim" target="_blank" class="text-primary hover:underline">
+
+                            github.com/maeedanim
+
+                        </a>
+
+                    </div>
+
+                    <!-- LinkedIn -->
+
+                    <div>
+
+                        <h3 class="font-semibold text-lg mb-2">
+
+                            🔗 LinkedIn
+
+                        </h3>
+
+                        <a href="https://linkedin.com/in/maeed" target="_blank" class="text-primary hover:underline">
+
+                            linkedin.com/in/maeed
+
+                        </a>
+
+                    </div>
 
                 </div>
 
-            </div>
+                <!-- ========================================= -->
+                <!-- Right Side -->
+                <!-- ========================================= -->
 
-            <!-- ========================================= -->
-            <!-- Right Side -->
-            <!-- ========================================= -->
+                <div class="bg-white dark:bg-zinc-900 rounded-3xl shadow-xl p-10">
 
-            <div
-                class="bg-white dark:bg-zinc-900 rounded-3xl shadow-xl p-10">
+                    <h2 class="text-3xl font-heading font-bold mb-8">
 
-                <h2 class="text-3xl font-heading font-bold mb-8">
+                        Send a Message
 
-                    Send a Message
+                    </h2>
 
-                </h2>
+                    <form id="contactForm" class="space-y-6">
 
-                <form
-    id="contactForm"
-    class="space-y-6">
+                        <!-- Full Name -->
+                        <div>
 
-    <!-- Full Name -->
-    <div>
+                            <label for="name" class="block mb-2 font-semibold">
 
-        <label
-            for="name"
-            class="block mb-2 font-semibold">
+                                Full Name
 
-            Full Name
+                            </label>
 
-        </label>
-
-        <input
-            id="name"
-            type="text"
-            placeholder="Enter Your Name"
-            required
-            class="
+                            <input id="name" type="text" placeholder="Enter Your Name" required class="
                 w-full
                 rounded-xl
                 border
@@ -388,25 +331,18 @@ I'd love to hear from you.
                 focus:ring-primary
                 transition">
 
-    </div>
+                        </div>
 
-    <!-- Email -->
-    <div>
+                        <!-- Email -->
+                        <div>
 
-        <label
-            for="email"
-            class="block mb-2 font-semibold">
+                            <label for="email" class="block mb-2 font-semibold">
 
-            Email
+                                Email
 
-        </label>
+                            </label>
 
-        <input
-            id="email"
-            type="email"
-            placeholder="Enter Your Email"
-            required
-            class="
+                            <input id="email" type="email" placeholder="Enter Your Email" required class="
                 w-full
                 rounded-xl
                 border
@@ -422,25 +358,18 @@ I'd love to hear from you.
                 focus:ring-primary
                 transition">
 
-    </div>
+                        </div>
 
-    <!-- Subject -->
-    <div>
+                        <!-- Subject -->
+                        <div>
 
-        <label
-            for="subject"
-            class="block mb-2 font-semibold">
+                            <label for="subject" class="block mb-2 font-semibold">
 
-            Subject
+                                Subject
 
-        </label>
+                            </label>
 
-        <input
-            id="subject"
-            type="text"
-            placeholder="Project Discussion"
-            required
-            class="
+                            <input id="subject" type="text" placeholder="Project Discussion" required class="
                 w-full
                 rounded-xl
                 border
@@ -456,24 +385,18 @@ I'd love to hear from you.
                 focus:ring-primary
                 transition">
 
-    </div>
+                        </div>
 
-    <!-- Message -->
-    <div>
+                        <!-- Message -->
+                        <div>
 
-        <label
-            for="message"
-            class="block mb-2 font-semibold">
+                            <label for="message" class="block mb-2 font-semibold">
 
-            Message
+                                Message
 
-        </label>
+                            </label>
 
-        <textarea
-            id="message"
-            placeholder="Write your message..."
-            required
-            class="
+                            <textarea id="message" placeholder="Write your message..." required class="
                 w-full
                 h-40
                 sm:h-48
@@ -493,12 +416,10 @@ I'd love to hear from you.
                 focus:ring-primary
                 transition"></textarea>
 
-    </div>
+                        </div>
 
-    <!-- Submit Button -->
-    <button
-        type="submit"
-        class="
+                        <!-- Submit Button -->
+                        <button type="submit" class="
             w-full
             sm:w-auto
             bg-primary
@@ -510,19 +431,19 @@ I'd love to hear from you.
             transition-all
             duration-300">
 
-        Send Message
+                            Send Message
 
-    </button>
+                        </button>
 
-</form>
+                    </form>
+
+                </div>
 
             </div>
 
         </div>
 
-    </div>
-
-</section>
+    </section>
 
     <!-- Scripts -->
 
@@ -543,98 +464,77 @@ I'd love to hear from you.
     <script src="../assets/components/contactForm.js"></script>
 
 
-<!-- ========================================= -->
-<!-- Success Modal -->
-<!-- ========================================= -->
+    <!-- ========================================= -->
+    <!-- Success Modal -->
+    <!-- ========================================= -->
 
-<div
-    id="successModal"
-    class="fixed inset-0 bg-black/60 hidden items-center justify-center z-[99999]">
+    <div id="successModal" class="fixed inset-0 bg-black/60 hidden items-center justify-center z-[99999]">
 
-    <div
-        class="bg-white dark:bg-zinc-900 rounded-3xl p-10 w-[90%] max-w-md text-center shadow-2xl">
+        <div class="bg-white dark:bg-zinc-900 rounded-3xl p-10 w-[90%] max-w-md text-center shadow-2xl">
 
-        <div
-            class="w-20 h-20 mx-auto rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
+            <div
+                class="w-20 h-20 mx-auto rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
 
-            <span class="text-5xl text-green-500">✓</span>
+                <span class="text-5xl text-green-500">✓</span>
+
+            </div>
+
+            <h2 class="text-3xl font-bold mt-6">
+
+                Your Message Has Been Sent!
+
+            </h2>
+
+            <p class="text-gray-500 dark:text-gray-400 mt-4 leading-7">
+
+                Thank you for contacting me.
+
+                <br><br>
+
+                I have received your message successfully and will get back to you as soon as possible.
+
+            </p>
+
+            <button id="closeSuccessModal"
+                class="mt-8 bg-primary text-white px-8 py-3 rounded-full hover:scale-105 transition">
+
+                Close
+
+            </button>
 
         </div>
 
-        <h2 class="text-3xl font-bold mt-6">
-
-            Your Message Has Been Sent!
-
-        </h2>
-
-        <p class="text-gray-500 dark:text-gray-400 mt-4 leading-7">
-
-            Thank you for contacting me.
-
-            <br><br>
-
-            I have received your message successfully and will get back to you as soon as possible.
-
-        </p>
-
-        <button
-            id="closeSuccessModal"
-            class="mt-8 bg-primary text-white px-8 py-3 rounded-full hover:scale-105 transition">
-
-            Close
-
-        </button>
-
     </div>
 
-</div>
 
 
+    <!-- Floating Social Links -->
 
-<!-- Floating Social Links -->
+    <div
+        class="fixed left-4 lg:left-8 bottom-6 lg:bottom-auto lg:top-1/2 lg:-translate-y-1/2 flex flex-col gap-3 lg:gap-5 z-40">
 
-<div
-    class="fixed left-4 lg:left-8 bottom-6 lg:bottom-auto lg:top-1/2 lg:-translate-y-1/2 flex flex-col gap-3 lg:gap-5 z-40">
+        <a href="https://github.com/maeedanim" target="_blank" aria-label="GitHub"
+            class="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-white dark:bg-zinc-900 shadow-lg flex items-center justify-center hover:bg-primary hover:scale-110 transition-all duration-300">
 
-    <a
-        href="https://github.com/maeedanim"
-        target="_blank"
-        aria-label="GitHub"
-        class="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-white dark:bg-zinc-900 shadow-lg flex items-center justify-center hover:bg-primary hover:scale-110 transition-all duration-300">
+            <img src="../assets/icons/github.svg" alt="GitHub" class="w-5 h-5 lg:w-6 lg:h-6">
 
-        <img
-            src="../assets/icons/github.svg"
-            alt="GitHub"
-            class="w-5 h-5 lg:w-6 lg:h-6">
+        </a>
 
-    </a>
+        <a href="https://www.linkedin.com/in/maeed/" target="_blank" aria-label="LinkedIn"
+            class="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-white dark:bg-zinc-900 shadow-lg flex items-center justify-center hover:bg-primary hover:scale-110 transition-all duration-300">
 
-    <a
-        href="https://www.linkedin.com/in/maeed/"
-        target="_blank"
-        aria-label="LinkedIn"
-        class="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-white dark:bg-zinc-900 shadow-lg flex items-center justify-center hover:bg-primary hover:scale-110 transition-all duration-300">
+            <img src="../assets/icons/linkedin.svg" alt="LinkedIn" class="w-5 h-5 lg:w-6 lg:h-6">
 
-        <img
-            src="../assets/icons/linkedin.svg"
-            alt="LinkedIn"
-            class="w-5 h-5 lg:w-6 lg:h-6">
+        </a>
 
-    </a>
+        <a href="mailto:maeedahammed@gmail.com" aria-label="Email"
+            class="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-white dark:bg-zinc-900 shadow-lg flex items-center justify-center hover:bg-primary hover:scale-110 transition-all duration-300">
 
-    <a
-        href="mailto:maeedahammed@gmail.com"
-        aria-label="Email"
-        class="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-white dark:bg-zinc-900 shadow-lg flex items-center justify-center hover:bg-primary hover:scale-110 transition-all duration-300">
+            <img src="../assets/icons/email.svg" alt="Email" class="w-5 h-5 lg:w-6 lg:h-6">
 
-        <img
-            src="../assets/icons/email.svg"
-            alt="Email"
-            class="w-5 h-5 lg:w-6 lg:h-6">
+        </a>
 
-    </a>
-
-</div>
+    </div>
 
 </body>
 

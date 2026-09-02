@@ -1,15 +1,11 @@
 <!DOCTYPE html>
-<html
-    lang="en"
-    x-data="portfolio()"
-    :class="{ 'dark': darkMode }"
-    class="scroll-smooth">
+<html lang="en" x-data="portfolio()" :class="{ 'dark': darkMode }" class="scroll-smooth">
 
 <head>
 
-<link rel="icon" href="assets/favicon/favicon.ico">
+    <link rel="icon" href="assets/favicon/favicon.ico">
 
-<meta name="theme-color" content="#FF6B2B">
+    <meta name="theme-color" content="#FF6B2B">
 
 
 
@@ -19,34 +15,27 @@
 
     <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="description"
+    <meta name="description"
         content="Software Engineer Portfolio of Maeed Ahammed. NestJS, ExpressJS, MongoDB, PostgreSQL, ASP.NET MVC, REST APIs, Software Engineering.">
 
-    <meta
-        name="keywords"
-        content="Software Engineer, NestJS,ExpressJS,MongoDB,Software Engineer,Portfolio">
+    <meta name="keywords" content="Software Engineer, NestJS,ExpressJS,MongoDB,Software Engineer,Portfolio">
 
-    <meta
-        name="author"
-        content="Maeed Ahammed">
+    <meta name="author" content="Maeed Ahammed">
 
     <!-- Open Graph -->
 
-<meta property="og:title" content="Maeed Ahammed | Software Engineer">
+    <meta property="og:title" content="Maeed Ahammed | Software Engineer">
 
-<meta property="og:description"
-      content="Software Engineer specializing in scalable APIs using NestJS, ExpressJS, MongoDB and PostgreSQL.">
+    <meta property="og:description"
+        content="Software Engineer specializing in scalable APIs using NestJS, ExpressJS, MongoDB and PostgreSQL.">
 
-<meta property="og:type" content="website">
+    <meta property="og:type" content="website">
 
-<meta property="og:image" content="assets/images/preview.png">
+    <meta property="og:image" content="assets/images/preview.png">
 
-<meta property="og:url" content="https://maeedanim.onrender.com/">
+    <meta property="og:url" content="https://maeedanim.onrender.com/">
     <title>
         Maeed Ahammed | Software Engineer
     </title>
@@ -74,332 +63,287 @@
     <!-- Alpine JS -->
     <!-- ========================================= -->
 
-    <script
-        defer
-        src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js">
     </script>
 
     <!-- ========================================= -->
     <!-- Styles -->
     <!-- ========================================= -->
 
-    <link
-        rel="stylesheet"
-        href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 
-    <link
-        rel="stylesheet"
-        href="assets/css/animations.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
 
-    <link
-        rel="stylesheet"
-        href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
 
 </head>
 
-<body
-    class="bg-white dark:bg-dark text-gray-900 dark:text-white">
+<body class="bg-white dark:bg-dark text-gray-900 dark:text-white">
 
-<!-- ===================================================== -->
-<!-- LOADER -->
-<!-- ===================================================== -->
+    <!-- ===================================================== -->
+    <!-- LOADER -->
+    <!-- ===================================================== -->
 
-<div
-    id="loader"
-    class="fixed inset-0 bg-white dark:bg-dark z-[99999] flex flex-col items-center justify-center transition-opacity duration-700">
+    <div id="loader"
+        class="fixed inset-0 bg-white dark:bg-dark z-[99999] flex flex-col items-center justify-center transition-opacity duration-700">
 
-    <div
-        class="w-20 h-20 border-[6px] border-primary border-t-transparent rounded-full animate-spin">
+        <div class="w-20 h-20 border-[6px] border-primary border-t-transparent rounded-full animate-spin">
+        </div>
+
+        <h2 class="mt-8 text-2xl font-bold font-heading">
+            Loading Portfolio...
+        </h2>
+
     </div>
 
-    <h2 class="mt-8 text-2xl font-bold font-heading">
-        Loading Portfolio...
-    </h2>
+    <!-- ========================================= -->
+    <!-- CURSOR GLOW -->
+    <!-- ========================================= -->
 
-</div>
-
-<!-- ========================================= -->
-<!-- CURSOR GLOW -->
-<!-- ========================================= -->
-
-    <div
-        id="cursorGlow"
-        class="fixed w-72 h-72 rounded-full pointer-events-none z-0 blur-3xl opacity-20"
-        style="
+    <div id="cursorGlow" class="fixed w-72 h-72 rounded-full pointer-events-none z-0 blur-3xl opacity-20" style="
             background:#FF6B2B;
             left:-150px;
             top:-150px;">
     </div>
 
 
-<!-- ========================================= -->
-<!-- SCROLL PROGRESS -->
-<!-- ========================================= -->
+    <!-- ========================================= -->
+    <!-- SCROLL PROGRESS -->
+    <!-- ========================================= -->
 
-<div
-    id="progressBar"
-    class="fixed top-0 left-0 h-1 bg-primary z-[9999]"
-    style="width:0%">
-</div>
-
-<!-- ========================= -->
-<!-- NAVBAR -->
-<!-- ========================= -->
-
-<header
-class="fixed top-0 left-0 right-0 z-50 glass border-b border-zinc-200 dark:border-zinc-800">
-
-<div class="max-w-7xl mx-auto">
-
-<nav class="flex justify-between items-center h-20 px-6">
-
-<a
-href="#"
-class="text-2xl font-bold font-heading">
-
-Maeed<span class="text-primary"> Ahammed</span>
-
-</a>
-
-<!-- Desktop -->
-
-<ul class="hidden lg:flex gap-10 text-sm">
-
-<li><a href="#about">About</a></li>
-
-<li><a href="#experience">Experience</a></li>
-
-<li><a href="#skills">Skills</a></li>
-
-<li><a href="#projects">Projects</a></li>
-
-<li><a href="#achievements">Achievements</a></li>
-
-<li><a href="#contact">Contact Me</a></li>
-
-</ul>
-
-<div class="flex gap-3 items-center">
-
-<button
-@click="darkMode=!darkMode"
-class="w-10 h-10 rounded-full border">
-
-🌙
-
-</button>
-
-<a
-href="#contact"
-class="bg-primary px-5 py-2 rounded-full text-white btn-primary">
-
-Hire Me
-
-</a>
-
-<button
-class="lg:hidden"
-@click="mobileMenu=!mobileMenu">
-
-☰
-
-</button>
-
-</div>
-
-</nav>
-
-</div>
-
-<!-- Mobile -->
-
-<div
-    x-show="mobileMenu"
-    x-transition:enter="transition ease-out duration-300"
-    x-transition:enter-start="opacity-0 -translate-y-5"
-    x-transition:enter-end="opacity-100 translate-y-0"
-    x-transition:leave="transition ease-in duration-200"
-    x-transition:leave-start="opacity-100 translate-y-0"
-    x-transition:leave-end="opacity-0 -translate-y-5"
-class="lg:hidden bg-white dark:bg-zinc-900">
-
-<ul class="flex flex-col p-6 gap-6">
-
-<li><a href="#about">About</a></li>
-
-<li><a href="#experience">Experience</a></li>
-
-<li><a href="#skills">Skills</a></li>
-
-<li><a href="#projects">Projects</a></li>
-
-<li><a href="#achievements">Achievements</a></li>
-
-<li><a href="#contact">Contact Me</a></li>
-
-</ul>
-
-</div>
-
-</header>
-
-<!-- ========================= -->
-<!-- HERO -->
-<!-- ========================= -->
-
-<section
-    id="home"
-    class="relative overflow-x-clip dark:bg-black pt-32 pb-20 lg:min-h-screen lg:flex lg:items-center">
-
-    <!-- Background Glow -->
-    <div
-        class="absolute -top-40 -left-40 w-[450px] h-[450px] bg-primary/10 rounded-full blur-[140px] pointer-events-none">
+    <div id="progressBar" class="fixed top-0 left-0 h-1 bg-primary z-[9999]" style="width:0%">
     </div>
 
-    <div
-        class="absolute bottom-0 right-0 w-[350px] h-[350px] bg-orange-300/10 rounded-full blur-[120px] pointer-events-none">
-    </div>
-
-    <div class="hero-gradient top-0 left-0"></div>
-    <div class="hero-gradient bottom-0 right-0"></div>
-
-    <div
-        class="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-2 items-center gap-20">
-
-
-<!-- ===================================== -->
-<!-- LEFT -->
-<!-- ===================================== -->
-
-<div>
-
-<p
-class="uppercase tracking-[6px] text-primary font-semibold mb-5">
-
-<span id="typingText"></span>
-
-</p>
-
-<h1
-class="text-3xl sm:text-4xl lg:text-5xl xl:text-7xl font-heading font-bold leading-tight mb-8">
-
-Hi,
-
-I'm
-
-<span class="text-primary">
-
-Maeed Ahammed
-
-</span>
-
-</h1>
-
-<p
-class="text-lg text-grayText leading-9 max-w-xl">
-
-I build scalable backend systems,
-REST APIs, authentication systems,
-and database-driven web applications
-using modern technologies including
-NestJS, ExpressJS, MongoDB,
-PostgreSQL, ASP.NET MVC,
-and Docker.
-
-</p>
-
-<div class="flex flex-wrap gap-5 mt-12">
-
-<a
-href="#projects"
-class="bg-primary text-white px-8 py-4 rounded-full btn-primary">
-
-View Projects
-
-</a>
-
-<a
-href="./assets/resume/Maeed_Ahammed_Resume.pdf"
-class="bg-primary text-white px-8 py-4 rounded-full btn-primary">
-
-Download Resume
-
-</a>
-
-</div>
-
-<div
-class="grid grid-cols-3 gap-6 sm:gap-10 mt-12 sm:mt-20">
-
-<div>
-
-<h2 class="text-2xl sm:text-4xl font-bold text-primary">
-
-01
-
-</h2>
-
-<p class="mt-3 text-grayText">
-
-Backend Internship
-
-</p>
-
-</div>
-
-<div>
-
-<h2
-    class="text-2xl sm:text-4xl font-bold text-primary">
-    4
-
-</h2>
-
-<p class="mt-3 text-grayText">
-
-Major Projects
-
-</p>
-
-</div>
-
-<div>
-
-<h2 class="text-2xl sm:text-4xl font-bold text-primary">
-
-3.78
-
-</h2>
-
-<p class="mt-3 text-grayText">
-
-CGPA
-
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-
-
-<!-- ========================= -->
-<!-- RIGHT -->
-<!-- ========================= -->
-
-<div
-    class="relative flex justify-center items-center mt-16 lg:mt-0">
-
     <!-- ========================= -->
-    <!-- Profile Image -->
+    <!-- NAVBAR -->
     <!-- ========================= -->
 
-    <img
-        src="assets/images/profile.png"
-        alt="Maeed Ahammed"
-        class="
+    <header class="fixed top-0 left-0 right-0 z-50 glass border-b border-zinc-200 dark:border-zinc-800">
+
+        <div class="max-w-7xl mx-auto">
+
+            <nav class="flex justify-between items-center h-20 px-6">
+
+                <a href="#" class="text-2xl font-bold font-heading">
+
+                    Maeed<span class="text-primary"> Ahammed</span>
+
+                </a>
+
+                <!-- Desktop -->
+
+                <ul class="hidden lg:flex gap-10 text-sm">
+
+                    <li><a href="#about">About</a></li>
+
+                    <li><a href="#experience">Experience</a></li>
+
+                    <li><a href="#skills">Skills</a></li>
+
+                    <li><a href="#projects">Projects</a></li>
+
+                    <li><a href="#achievements">Achievements</a></li>
+
+                    <li><a href="#contact">Contact Me</a></li>
+
+                </ul>
+
+                <div class="flex gap-3 items-center">
+
+                    <button @click="darkMode=!darkMode" class="w-10 h-10 rounded-full border">
+
+                        🌙
+
+                    </button>
+
+                    <a href="#contact" class="bg-primary px-5 py-2 rounded-full text-white btn-primary">
+
+                        Hire Me
+
+                    </a>
+
+                    <button class="lg:hidden" @click="mobileMenu=!mobileMenu">
+
+                        ☰
+
+                    </button>
+
+                </div>
+
+            </nav>
+
+        </div>
+
+        <!-- Mobile -->
+
+        <div x-show="mobileMenu" x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="opacity-0 -translate-y-5" x-transition:enter-end="opacity-100 translate-y-0"
+            x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 translate-y-0"
+            x-transition:leave-end="opacity-0 -translate-y-5" class="lg:hidden bg-white dark:bg-zinc-900">
+
+            <ul class="flex flex-col p-6 gap-6">
+
+                <li><a href="#about">About</a></li>
+
+                <li><a href="#experience">Experience</a></li>
+
+                <li><a href="#skills">Skills</a></li>
+
+                <li><a href="#projects">Projects</a></li>
+
+                <li><a href="#achievements">Achievements</a></li>
+
+                <li><a href="#contact">Contact Me</a></li>
+
+            </ul>
+
+        </div>
+
+    </header>
+
+    <!-- ========================= -->
+    <!-- HERO -->
+    <!-- ========================= -->
+
+    <section id="home"
+        class="relative overflow-x-clip dark:bg-black pt-32 pb-20 lg:min-h-screen lg:flex lg:items-center">
+
+        <!-- Background Glow -->
+        <div
+            class="absolute -top-40 -left-40 w-[450px] h-[450px] bg-primary/10 rounded-full blur-[140px] pointer-events-none">
+        </div>
+
+        <div
+            class="absolute bottom-0 right-0 w-[350px] h-[350px] bg-orange-300/10 rounded-full blur-[120px] pointer-events-none">
+        </div>
+
+        <div class="hero-gradient top-0 left-0"></div>
+        <div class="hero-gradient bottom-0 right-0"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-2 items-center gap-20">
+
+
+            <!-- ===================================== -->
+            <!-- LEFT -->
+            <!-- ===================================== -->
+
+            <div>
+
+                <p class="uppercase tracking-[6px] text-primary font-semibold mb-5">
+
+                    <span id="typingText"></span>
+
+                </p>
+
+                <h1 class="text-3xl sm:text-4xl lg:text-5xl xl:text-7xl font-heading font-bold leading-tight mb-8">
+
+                    Hi,
+
+                    I'm
+
+                    <span class="text-primary">
+
+                        Maeed Ahammed
+
+                    </span>
+
+                </h1>
+
+                <p class="text-lg text-grayText leading-9 max-w-xl">
+
+                    I build scalable backend systems,
+                    REST APIs, authentication systems,
+                    and database-driven web applications
+                    using modern technologies including
+                    NestJS, ExpressJS, MongoDB,
+                    PostgreSQL, ASP.NET MVC,
+                    and Docker.
+
+                </p>
+
+                <div class="flex flex-wrap gap-5 mt-12">
+
+                    <a href="#projects" class="bg-primary text-white px-8 py-4 rounded-full btn-primary">
+
+                        View Projects
+
+                    </a>
+
+                    <a href="./assets/resume/Maeed_Ahammed_Resume.pdf"
+                        class="bg-primary text-white px-8 py-4 rounded-full btn-primary">
+
+                        Download Resume
+
+                    </a>
+
+                </div>
+
+                <div class="grid grid-cols-3 gap-6 sm:gap-10 mt-12 sm:mt-20">
+
+                    <div>
+
+                        <h2 class="text-2xl sm:text-4xl font-bold text-primary">
+
+                            01
+
+                        </h2>
+
+                        <p class="mt-3 text-grayText">
+
+                            Backend Internship
+
+                        </p>
+
+                    </div>
+
+                    <div>
+
+                        <h2 class="text-2xl sm:text-4xl font-bold text-primary">
+                            4
+
+                        </h2>
+
+                        <p class="mt-3 text-grayText">
+
+                            Major Projects
+
+                        </p>
+
+                    </div>
+
+                    <div>
+
+                        <h2 class="text-2xl sm:text-4xl font-bold text-primary">
+
+                            3.78
+
+                        </h2>
+
+                        <p class="mt-3 text-grayText">
+
+                            CGPA
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ========================= -->
+            <!-- RIGHT -->
+            <!-- ========================= -->
+
+            <div class="relative flex justify-center items-center mt-16 lg:mt-0">
+
+                <!-- ========================= -->
+                <!-- Profile Image -->
+                <!-- ========================= -->
+
+                <img src="assets/images/profile.png" alt="Maeed Ahammed" class="
             float
             relative
             w-[300px]
@@ -412,12 +356,11 @@ CGPA
             transition-all
             duration-500">
 
-    <!-- ========================= -->
-    <!-- NestJS -->
-    <!-- ========================= -->
+                <!-- ========================= -->
+                <!-- NestJS -->
+                <!-- ========================= -->
 
-    <div
-        class="
+                <div class="
             flex
             absolute
             top-4
@@ -442,23 +385,19 @@ CGPA
             duration-300
             z-10">
 
-        <img
-            src="assets/icons/nestjs.svg"
-            alt="NestJS"
-            class="w-4 h-4 sm:w-6 sm:h-6">
+                    <img src="assets/icons/nestjs.svg" alt="NestJS" class="w-4 h-4 sm:w-6 sm:h-6">
 
-        <span class="font-semibold">
-            NestJS
-        </span>
+                    <span class="font-semibold">
+                        NestJS
+                    </span>
 
-    </div>
+                </div>
 
-    <!-- ========================= -->
-    <!-- Docker -->
-    <!-- ========================= -->
+                <!-- ========================= -->
+                <!-- Docker -->
+                <!-- ========================= -->
 
-    <div
-        class="
+                <div class="
             flex
             absolute
             top-28
@@ -483,23 +422,19 @@ CGPA
             duration-300
             z-10">
 
-        <img
-            src="assets/icons/docker.svg"
-            alt="Docker"
-            class="w-4 h-4 sm:w-6 sm:h-6">
+                    <img src="assets/icons/docker.svg" alt="Docker" class="w-4 h-4 sm:w-6 sm:h-6">
 
-        <span class="font-semibold">
-            Docker
-        </span>
+                    <span class="font-semibold">
+                        Docker
+                    </span>
 
-    </div>
+                </div>
 
-    <!-- ========================= -->
-    <!-- MongoDB -->
-    <!-- ========================= -->
+                <!-- ========================= -->
+                <!-- MongoDB -->
+                <!-- ========================= -->
 
-    <div
-        class="
+                <div class="
             flex
             absolute
             bottom-4
@@ -524,142 +459,11 @@ CGPA
             duration-300
             z-10">
 
-        <img
-            src="assets/icons/mongodb.svg"
-            alt="MongoDB"
-            class="w-4 h-4 sm:w-6 sm:h-6">
+                    <img src="assets/icons/mongodb.svg" alt="MongoDB" class="w-4 h-4 sm:w-6 sm:h-6">
 
-        <span class="font-semibold">
-            MongoDB
-        </span>
-
-    </div>
-
-</div>
-
-    </div>
-
-</section>
-
-<!-- ===================================================== -->
-<!-- ABOUT -->
-<!-- ===================================================== -->
-
-<section
-    id="about"
-    class="reveal py-28 bg-zinc-50 dark:bg-zinc-900/40">
-
-    <div class="max-w-7xl mx-auto px-6">
-
-        <div class="grid lg:grid-cols-2 gap-20 items-center">
-
-            <!-- LEFT -->
-
-            <div>
-
-                <p class="uppercase tracking-[5px] text-primary font-semibold mb-4">
-                    About Me
-                </p>
-
-                <h2 class="text-4xl md:text-5xl font-heading font-bold mb-8">
-
-                    Building reliable backend systems that scale.
-
-                </h2>
-
-                <p class="text-grayText leading-9 mb-6">
-
-                    I'm <strong>Maeed Ahammed</strong>, a "Software Engineer"
-                    passionate about building secure, scalable, and maintainable
-                    server-side applications.
-
-                </p>
-
-                <p class="text-grayText leading-9 mb-6">
-
-                    My primary focus is backend engineering using
-                    <strong>NestJS</strong>,
-                    <strong>Express.js</strong>,
-                    <strong>MongoDB</strong>,
-                    <strong>PostgreSQL</strong>,
-                    and <strong>ASP.NET MVC</strong>.
-
-                </p>
-
-                <p class="text-grayText leading-9">
-
-                    During my internship at 6sense Technologies,
-                    I developed internal backend tools while collaborating
-                    with senior engineers. I also served as a Teaching Assistant
-                    for Data Structures & Algorithms at AIUB.
-
-                </p>
-
-            </div>
-
-            <!-- RIGHT -->
-
-            <div class="grid gap-6">
-
-                <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-8 shadow-lg">
-
-                    <h3 class="text-primary font-bold text-lg mb-3">
-
-                        Backend Development
-
-                    </h3>
-
-                    <p class="text-grayText leading-8">
-
-                        Designing scalable REST APIs, business logic,
-                        authentication, authorization and microservice-ready
-                        architectures.
-
-                    </p>
-
-                </div>
-
-                <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-8 shadow-lg">
-
-                    <h3 class="text-primary font-bold text-lg mb-3">
-
-                        Database Design
-
-                    </h3>
-
-                    <p class="text-grayText leading-8">
-
-                        Experience with MongoDB,
-                        PostgreSQL,
-                        SQL Server,
-                        MySQL,
-                        indexing,
-                        aggregation,
-                        schema design,
-                        and optimization.
-
-                    </p>
-
-                </div>
-
-                <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-8 shadow-lg">
-
-                    <h3 class="text-primary font-bold text-lg mb-3">
-
-                        Software Engineering
-
-                    </h3>
-
-                    <p class="text-grayText leading-8">
-
-                        Clean architecture,
-                        reusable code,
-                        Git workflow,
-                        Agile development,
-                        documentation,
-                        and testing.
-
-                    </p>
+                    <span class="font-semibold">
+                        MongoDB
+                    </span>
 
                 </div>
 
@@ -667,433 +471,125 @@ CGPA
 
         </div>
 
-    </div>
+    </section>
 
-</section>
+    <!-- ===================================================== -->
+    <!-- ABOUT -->
+    <!-- ===================================================== -->
 
-<!-- ===================================================== -->
-<!-- EXPERIENCE -->
-<!-- ===================================================== -->
+    <section id="about" class="reveal py-28 bg-zinc-50 dark:bg-zinc-900/40">
 
-<section id="experience" class="relative overflow-hidden dark:bg-black reveal py-28">
+        <div class="max-w-7xl mx-auto px-6">
 
-<div
-class="absolute -top-40 -left-32 w-[500px] h-[500px] rounded-full bg-primary/10 blur-[140px] pointer-events-none">
-</div>
+            <div class="grid lg:grid-cols-2 gap-20 items-center">
 
-<div class="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full bg-orange-300/10 blur-[120px] pointer-events-none">
-</div>
-
-<div class="hero-gradient top-0 left-0"></div>
-
-<div class="hero-gradient bottom-0 right-0"></div>
-
-
-
-<div class="relative z-10 max-w-7xl mx-auto px-6">
-
-<div class="text-center mb-20">
-
-<p class="uppercase tracking-[5px] text-primary font-semibold">
-
-Professional Journey
-
-</p>
-
-<h2 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold mt-4">
-
-Experience & Education
-
-</h2>
-
-</div>
-
-<div class="relative border-l-2 border-primary ml-4">
-
-<!-- Internship -->
-
-<div class="mb-20 ml-10 relative">
-
-<div
-class="absolute -left-[54px] w-6 h-6 rounded-full bg-primary">
-</div>
-
-<h3 class="text-2xl font-bold">
-
-Backend Developer Intern
-
-</h3>
-
-<p class="text-primary font-semibold mb-3">
-
-6sense Technologies
-
-</p>
-
-<p class="text-grayText leading-8">
-
-Developed an Employee Activity Monitoring System
-using NestJS, JavaScript and MongoDB.
-Worked with senior engineers to build
-internal tools, REST APIs,
-and backend features that improved
-team productivity.
-
-</p>
-
-</div>
-
-<!-- Teaching -->
-
-<div class="mb-20 ml-10 relative">
-
-<div
-class="absolute -left-[54px] w-6 h-6 rounded-full bg-primary">
-</div>
-
-<h3 class="text-2xl font-bold">
-
-Teaching Assistant
-
-</h3>
-
-<p class="text-primary font-semibold mb-3">
-
-American International University-Bangladesh
-
-</p>
-
-<p class="text-grayText leading-8">
-
-Assisted undergraduate students in
-Data Structures & Algorithms,
-conducted programming labs,
-and explained algorithm implementation
-using C++.
-
-</p>
-
-</div>
-
-<!-- Education -->
-
-<div class="ml-10 relative">
-
-<div
-class="absolute -left-[54px] w-6 h-6 rounded-full bg-primary">
-</div>
-
-<h3 class="text-2xl font-bold">
-
-Bachelor of Science
-
-</h3>
-
-<p class="text-primary font-semibold mb-3">
-
-Computer Science & Engineering
-
-</p>
-
-<p class="text-grayText leading-8">
-
-American International University-Bangladesh
-
-CGPA: 3.78
-
-Dean's List (2022–2026)
-
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ===================================================== -->
-<!-- CORE EXPERTISE -->
-<!-- ===================================================== -->
-
-<section
-id="skills"
-    class="reveal py-28 bg-zinc-50 dark:bg-zinc-900/40">
-
-
-    
-<div class="max-w-7xl mx-auto px-6">
-
-<div class="text-center mb-20">
-
-<p class="uppercase tracking-[5px] text-primary">
-
-Core Expertise
-
-</p>
-
-<h2 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold mt-4">
-
-Technologies I Work With
-
-</h2>
-
-</div>
-
-<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-
-<!-- Card -->
-
-<div class="bg-white dark:bg-zinc-900 rounded-3xl p-8 hover:-translate-y-2 transition">
-
-<div class="text-5xl mb-6">⚙️</div>
-
-<h3 class="font-bold text-xl mb-4">
-
-Backend
-
-</h3>
-
-<ul class="space-y-3 text-grayText">
-
-<li>Node.js</li>
-
-<li>NestJS</li>
-
-<li>Express.js</li>
-
-<li>ASP.NET MVC</li>
-
-</ul>
-
-</div>
-
-<!-- Card -->
-
-<div class="bg-white dark:bg-zinc-900 rounded-3xl p-8 hover:-translate-y-2 transition">
-
-<div class="text-5xl mb-6">🗄️</div>
-
-<h3 class="font-bold text-xl mb-4">
-
-Database
-
-</h3>
-
-<ul class="space-y-3 text-grayText">
-
-<li>MongoDB</li>
-
-<li>PostgreSQL</li>
-
-<li>MySQL</li>
-
-<li>SQL Server</li>
-
-</ul>
-
-</div>
-
-<!-- Card -->
-
-<div class="bg-white dark:bg-zinc-900 rounded-3xl p-8 hover:-translate-y-2 transition">
-
-<div class="text-5xl mb-6">🔐</div>
-
-<h3 class="font-bold text-xl mb-4">
-
-Authentication
-
-</h3>
-
-<ul class="space-y-3 text-grayText">
-
-<li>JWT</li>
-
-<li>Role Based Access</li>
-
-<li>Authorization</li>
-
-<li>REST Security</li>
-
-</ul>
-
-</div>
-
-<!-- Card -->
-
-<div class="bg-white dark:bg-zinc-900 rounded-3xl p-8 hover:-translate-y-2 transition">
-
-<div class="text-5xl mb-6">🛠️</div>
-
-<h3 class="font-bold text-xl mb-4">
-
-Tools
-
-</h3>
-
-<ul class="space-y-3 text-grayText">
-
-<li>Git</li>
-
-<li>Docker</li>
-
-<li>Postman</li>
-
-<li>Jira</li>
-
-</ul>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ===================================================== -->
-<!-- FEATURED PROJECTS -->
-<!-- ===================================================== -->
-
-<section
-    id="projects"
-    class="relative overflow-hidden dark:bg-black reveal py-28">
-
-    <div class="absolute -top-40 -left-32 w-[500px] h-[500px] rounded-full bg-primary/10 blur-[140px] pointer-events-none">
-    </div>
-    
-    <div class="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full bg-orange-300/10 blur-[120px] pointer-events-none">
-    </div>
-    
-    <div class="hero-gradient top-0 left-0"></div>
-    
-    <div class="hero-gradient bottom-0 right-0"></div>
-
-
-
-    <div class="relative z-10 max-w-7xl mx-auto px-6">
-
-        <div class="text-center mb-20">
-
-            <p class="uppercase tracking-[5px] text-primary font-semibold">
-                Portfolio
-            </p>
-
-            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold mt-4">
-                Featured Projects
-            </h2>
-
-            <p class="max-w-3xl mx-auto mt-6 text-grayText leading-8">
-
-                Here are some of my favorite software engineering projects.
-                Each project demonstrates backend architecture, authentication,
-                database management, REST APIs, and scalable application
-                development.
-
-            </p>
-
-        </div>
-
-        <div class="space-y-24">
-
-            <!-- ===================================== -->
-            <!-- Project 1 -->
-            <!-- ===================================== -->
-
-            <div
-                class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- LEFT -->
 
                 <div>
 
-                    <img
-                        src="assets/images/dev-community.png"
-                        alt="Dev Community"
-                        class="rounded-3xl shadow-2xl hover:scale-[1.02] transition duration-500">
-
-                </div>
-
-                <div>
-
-                    <p
-                        class="uppercase tracking-[4px] text-primary font-semibold mb-3">
-
-                        Backend Development
-
+                    <p class="uppercase tracking-[5px] text-primary font-semibold mb-4">
+                        About Me
                     </p>
 
-                    <h2
-                        class="text-4xl font-heading font-bold mb-6">
+                    <h2 class="text-4xl md:text-5xl font-heading font-bold mb-8">
 
-                        Dev Community Platform
+                        Building reliable backend systems that scale.
 
                     </h2>
 
-                    <p
-                        class="text-grayText leading-8 mb-8">
+                    <p class="text-grayText leading-9 mb-6">
 
-                        A scalable backend application built using NestJS,
-                        MongoDB and Redis that enables developers to
-                        share posts, comment, react, authenticate securely,
-                        and interact in a modern developer community.
+                        I'm <strong>Maeed Ahammed</strong>, a "Software Engineer"
+                        passionate about building secure, scalable, and maintainable
+                        server-side applications.
 
                     </p>
 
-                    <div
-                        class="grid grid-cols-2 gap-4 mb-8">
+                    <p class="text-grayText leading-9 mb-6">
 
-                        <div>
+                        My primary focus is backend engineering using
+                        <strong>NestJS</strong>,
+                        <strong>Express.js</strong>,
+                        <strong>MongoDB</strong>,
+                        <strong>PostgreSQL</strong>,
+                        and <strong>ASP.NET MVC</strong>.
 
-                            <h4 class="font-semibold mb-2">
+                    </p>
 
-                                Tech Stack
+                    <p class="text-grayText leading-9">
 
-                            </h4>
+                        During my internship at 6sense Technologies,
+                        I developed internal backend tools while collaborating
+                        with senior engineers. I also served as a Teaching Assistant
+                        for Data Structures & Algorithms at AIUB.
 
-                            <p class="text-grayText">
+                    </p>
 
-                                NestJS<br>
-                                MongoDB<br>
-                                Redis<br>
-                                BullMQ
+                </div>
 
-                            </p>
+                <!-- RIGHT -->
 
-                        </div>
+                <div class="grid gap-6">
 
-                        <div>
+                    <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-8 shadow-lg">
 
-                            <h4 class="font-semibold mb-2">
+                        <h3 class="text-primary font-bold text-lg mb-3">
 
-                                Features
+                            Backend Development
 
-                            </h4>
+                        </h3>
 
-                            <p class="text-grayText">
+                        <p class="text-grayText leading-8">
 
-                                JWT Authentication<br>
-                                Redis Cache<br>
-                                Email Queue<br>
-                                Role Management
+                            Designing scalable REST APIs, business logic,
+                            authentication, authorization and microservice-ready
+                            architectures.
 
-                            </p>
-
-                        </div>
+                        </p>
 
                     </div>
 
-                    <div class="flex flex-wrap gap-4">
+                    <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-8 shadow-lg">
 
-                        <a
-                            href="https://github.com/maeedanim/Dev_Community_Platform"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="bg-primary text-white px-6 py-3 rounded-full btn-primary">
+                        <h3 class="text-primary font-bold text-lg mb-3">
 
-                            GitHub
+                            Database Design
 
-                        </a>
+                        </h3>
+
+                        <p class="text-grayText leading-8">
+
+                            Experience with MongoDB,
+                            PostgreSQL,
+                            SQL Server,
+                            MySQL,
+                            indexing,
+                            aggregation,
+                            schema design,
+                            and optimization.
+
+                        </p>
+
+                    </div>
+
+                    <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-8 shadow-lg">
+
+                        <h3 class="text-primary font-bold text-lg mb-3">
+
+                            Software Engineering
+
+                        </h3>
+
+                        <p class="text-grayText leading-8">
+
+                            Clean architecture,
+                            reusable code,
+                            Git workflow,
+                            Agile development,
+                            documentation,
+                            and testing.
+
+                        </p>
 
                     </div>
 
@@ -1101,59 +597,385 @@ Tools
 
             </div>
 
-            <!-- ===================================== -->
-            <!-- Project 2 -->
-            <!-- ===================================== -->
+        </div>
 
-            <div
-                class="grid lg:grid-cols-2 gap-12 items-center">
+    </section>
 
-                <div class="order-2 lg:order-1">
+    <!-- ===================================================== -->
+    <!-- EXPERIENCE -->
+    <!-- ===================================================== -->
+
+    <section id="experience" class="relative overflow-hidden dark:bg-black reveal py-28">
+
+        <div
+            class="absolute -top-40 -left-32 w-[500px] h-[500px] rounded-full bg-primary/10 blur-[140px] pointer-events-none">
+        </div>
+
+        <div
+            class="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full bg-orange-300/10 blur-[120px] pointer-events-none">
+        </div>
+
+        <div class="hero-gradient top-0 left-0"></div>
+
+        <div class="hero-gradient bottom-0 right-0"></div>
+
+
+
+        <div class="relative z-10 max-w-7xl mx-auto px-6">
+
+            <div class="text-center mb-20">
+
+                <p class="uppercase tracking-[5px] text-primary font-semibold">
+
+                    Professional Journey
+
+                </p>
+
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold mt-4">
+
+                    Experience & Education
+
+                </h2>
+
+            </div>
+
+            <div class="relative border-l-2 border-primary ml-4">
+
+                <!-- Internship -->
+
+                <div class="mb-20 ml-10 relative">
+
+                    <div class="absolute -left-[54px] w-6 h-6 rounded-full bg-primary">
+                    </div>
+
+                    <h3 class="text-2xl font-bold">
+
+                        Backend Developer Intern
+
+                    </h3>
+
+                    <p class="text-primary font-semibold mb-3">
+
+                        6sense Technologies
+
+                    </p>
+
+                    <p class="text-grayText leading-8">
+
+                        Developed an Employee Activity Monitoring System
+                        using NestJS, JavaScript and MongoDB.
+                        Worked with senior engineers to build
+                        internal tools, REST APIs,
+                        and backend features that improved
+                        team productivity.
+
+                    </p>
+
+                </div>
+
+                <!-- Teaching -->
+
+                <div class="mb-20 ml-10 relative">
+
+                    <div class="absolute -left-[54px] w-6 h-6 rounded-full bg-primary">
+                    </div>
+
+                    <h3 class="text-2xl font-bold">
+
+                        Teaching Assistant
+
+                    </h3>
+
+                    <p class="text-primary font-semibold mb-3">
+
+                        American International University-Bangladesh
+
+                    </p>
+
+                    <p class="text-grayText leading-8">
+
+                        Assisted undergraduate students in
+                        Data Structures & Algorithms,
+                        conducted programming labs,
+                        and explained algorithm implementation
+                        using C++.
+
+                    </p>
+
+                </div>
+
+                <!-- Education -->
+
+                <div class="ml-10 relative">
+
+                    <div class="absolute -left-[54px] w-6 h-6 rounded-full bg-primary">
+                    </div>
+
+                    <h3 class="text-2xl font-bold">
+
+                        Bachelor of Science
+
+                    </h3>
+
+                    <p class="text-primary font-semibold mb-3">
+
+                        Computer Science & Engineering
+
+                    </p>
+
+                    <p class="text-grayText leading-8">
+
+                        American International University-Bangladesh
+
+                        CGPA: 3.78
+
+                        Dean's List (2022–2026)
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ===================================================== -->
+    <!-- CORE EXPERTISE -->
+    <!-- ===================================================== -->
+
+    <section id="skills" class="reveal py-28 bg-zinc-50 dark:bg-zinc-900/40">
+
+
+
+        <div class="max-w-7xl mx-auto px-6">
+
+            <div class="text-center mb-20">
+
+                <p class="uppercase tracking-[5px] text-primary">
+
+                    Core Expertise
+
+                </p>
+
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold mt-4">
+
+                    Technologies I Work With
+
+                </h2>
+
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+                <!-- Card -->
+
+                <div class="bg-white dark:bg-zinc-900 rounded-3xl p-8 hover:-translate-y-2 transition">
+
+                    <div class="text-5xl mb-6">⚙️</div>
+
+                    <h3 class="font-bold text-xl mb-4">
+
+                        Backend
+
+                    </h3>
+
+                    <ul class="space-y-3 text-grayText">
+
+                        <li>Node.js</li>
+
+                        <li>NestJS</li>
+
+                        <li>Express.js</li>
+
+                        <li>ASP.NET MVC</li>
+
+                    </ul>
+
+                </div>
+
+                <!-- Card -->
+
+                <div class="bg-white dark:bg-zinc-900 rounded-3xl p-8 hover:-translate-y-2 transition">
+
+                    <div class="text-5xl mb-6">🗄️</div>
+
+                    <h3 class="font-bold text-xl mb-4">
+
+                        Database
+
+                    </h3>
+
+                    <ul class="space-y-3 text-grayText">
+
+                        <li>MongoDB</li>
+
+                        <li>PostgreSQL</li>
+
+                        <li>MySQL</li>
+
+                        <li>SQL Server</li>
+
+                    </ul>
+
+                </div>
+
+                <!-- Card -->
+
+                <div class="bg-white dark:bg-zinc-900 rounded-3xl p-8 hover:-translate-y-2 transition">
+
+                    <div class="text-5xl mb-6">🔐</div>
+
+                    <h3 class="font-bold text-xl mb-4">
+
+                        Authentication
+
+                    </h3>
+
+                    <ul class="space-y-3 text-grayText">
+
+                        <li>JWT</li>
+
+                        <li>Role Based Access</li>
+
+                        <li>Authorization</li>
+
+                        <li>REST Security</li>
+
+                    </ul>
+
+                </div>
+
+                <!-- Card -->
+
+                <div class="bg-white dark:bg-zinc-900 rounded-3xl p-8 hover:-translate-y-2 transition">
+
+                    <div class="text-5xl mb-6">🛠️</div>
+
+                    <h3 class="font-bold text-xl mb-4">
+
+                        Tools
+
+                    </h3>
+
+                    <ul class="space-y-3 text-grayText">
+
+                        <li>Git</li>
+
+                        <li>Docker</li>
+
+                        <li>Postman</li>
+
+                        <li>Jira</li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ===================================================== -->
+    <!-- FEATURED PROJECTS -->
+    <!-- ===================================================== -->
+
+    <section id="projects" class="relative overflow-hidden dark:bg-black reveal py-28">
+
+        <div
+            class="absolute -top-40 -left-32 w-[500px] h-[500px] rounded-full bg-primary/10 blur-[140px] pointer-events-none">
+        </div>
+
+        <div
+            class="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full bg-orange-300/10 blur-[120px] pointer-events-none">
+        </div>
+
+        <div class="hero-gradient top-0 left-0"></div>
+
+        <div class="hero-gradient bottom-0 right-0"></div>
+
+
+
+        <div class="relative z-10 max-w-7xl mx-auto px-6">
+
+            <div class="text-center mb-20">
+
+                <p class="uppercase tracking-[5px] text-primary font-semibold">
+                    Portfolio
+                </p>
+
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold mt-4">
+                    Featured Projects
+                </h2>
+
+                <p class="max-w-3xl mx-auto mt-6 text-grayText leading-8">
+
+                    Here are some of my favorite software engineering projects.
+                    Each project demonstrates backend architecture, authentication,
+                    database management, REST APIs, and scalable application
+                    development.
+
+                </p>
+
+            </div>
+
+            <div class="space-y-24">
+
+                <!-- ===================================== -->
+                <!-- Project 1 -->
+                <!-- ===================================== -->
+
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
 
                     <div>
 
-                        <p
-                            class="uppercase tracking-[4px] text-primary font-semibold mb-3">
+                        <img src="assets/images/dev-community.png" alt="Dev Community"
+                            class="rounded-3xl shadow-2xl hover:scale-[1.02] transition duration-500">
 
-                            ASP.NET MVC
+                    </div>
+
+                    <div>
+
+                        <p class="uppercase tracking-[4px] text-primary font-semibold mb-3">
+
+                            Backend Development
 
                         </p>
 
-                        <h2
-                            class="text-4xl font-heading font-bold mb-6">
+                        <h2 class="text-4xl font-heading font-bold mb-6">
 
-                            Fitness Tracker
+                            Dev Community Platform
 
                         </h2>
 
-                        <p
-                            class="text-grayText leading-8 mb-8">
+                        <p class="text-grayText leading-8 mb-8">
 
-                            A comprehensive health and fitness management
-                            system that allows users, trainers and
-                            administrators to manage workouts,
-                            subscriptions, progress tracking
-                            and notifications.
+                            A scalable backend application built using NestJS,
+                            MongoDB and Redis that enables developers to
+                            share posts, comment, react, authenticate securely,
+                            and interact in a modern developer community.
 
                         </p>
 
-                        <div
-                            class="grid grid-cols-2 gap-4 mb-8">
+                        <div class="grid grid-cols-2 gap-4 mb-8">
 
                             <div>
 
                                 <h4 class="font-semibold mb-2">
 
-                                    Technologies
+                                    Tech Stack
 
                                 </h4>
 
                                 <p class="text-grayText">
 
-                                    ASP.NET MVC<br>
-                                    SQL Server<br>
-                                    Entity Framework<br>
-                                    Bootstrap
+                                    NestJS<br>
+                                    MongoDB<br>
+                                    Redis<br>
+                                    BullMQ
 
                                 </p>
 
@@ -1169,10 +991,10 @@ Tools
 
                                 <p class="text-grayText">
 
-                                    Authentication<br>
-                                    Workout Plans<br>
-                                    Email Service<br>
-                                    Payment Module
+                                    JWT Authentication<br>
+                                    Redis Cache<br>
+                                    Email Queue<br>
+                                    Role Management
 
                                 </p>
 
@@ -1182,9 +1004,7 @@ Tools
 
                         <div class="flex flex-wrap gap-4">
 
-                            <a
-                                href="https://github.com/maeedanim/Fitness-Tracker"
-                                target="_blank"
+                            <a href="https://github.com/maeedanim/Dev_Community_Platform" target="_blank"
                                 rel="noopener noreferrer"
                                 class="bg-primary text-white px-6 py-3 rounded-full btn-primary">
 
@@ -1198,465 +1018,117 @@ Tools
 
                 </div>
 
-                <div class="order-1 lg:order-2">
+                <!-- ===================================== -->
+                <!-- Project 2 -->
+                <!-- ===================================== -->
 
-                    <img
-                        src="assets/images/fitness-tracker.png"
-                        alt="Fitness Tracker"
-                        class="rounded-3xl shadow-2xl hover:scale-[1.02] transition duration-500">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
 
-                </div>
+                    <div class="order-2 lg:order-1">
 
-            </div>
+                        <div>
 
-        </div>
+                            <p class="uppercase tracking-[4px] text-primary font-semibold mb-3">
 
-        <!-- ===================================== -->
-        <!-- View All Projects -->
-        <!-- ===================================== -->
+                                ASP.NET MVC
 
-        <div class="text-center mt-20">
+                            </p>
 
-            <a
-                href="pages/projects.html"
-                class="inline-flex items-center gap-3 bg-primary text-white px-8 py-4 rounded-full hover:scale-105 transition">
+                            <h2 class="text-4xl font-heading font-bold mb-6">
 
-                View All Projects →
+                                Fitness Tracker
 
-            </a>
+                            </h2>
 
-        </div>
+                            <p class="text-grayText leading-8 mb-8">
 
-    </div>
+                                A comprehensive health and fitness management
+                                system that allows users, trainers and
+                                administrators to manage workouts,
+                                subscriptions, progress tracking
+                                and notifications.
 
-</section>
+                            </p>
 
-<!-- ===================================================== -->
-<!-- TECHNOLOGY STACK -->
-<!-- ===================================================== -->
+                            <div class="grid grid-cols-2 gap-4 mb-8">
 
-<section class="py-28 bg-zinc-50 dark:bg-zinc-900/40">
+                                <div>
 
-    <div class="max-w-7xl mx-auto px-6">
+                                    <h4 class="font-semibold mb-2">
 
-        <div class="text-center mb-16">
+                                        Technologies
 
-            <p class="uppercase tracking-[5px] text-primary">
+                                    </h4>
 
-                Tech Stack
+                                    <p class="text-grayText">
 
-            </p>
+                                        ASP.NET MVC<br>
+                                        SQL Server<br>
+                                        Entity Framework<br>
+                                        Bootstrap
 
-            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold mt-4">
+                                    </p>
 
-                Technologies I Use
+                                </div>
 
-            </h2>
+                                <div>
 
-        </div>
+                                    <h4 class="font-semibold mb-2">
 
-        <div
-            class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
+                                        Features
 
-            <div class="rounded-3xl bg-white dark:bg-zinc-900 p-8 text-center shadow-lg hover:-translate-y-2 transition">
-                <img  src="assets/icons/nestjs.svg" class="w-14 mx-auto mb-4">
-                <p>NestJS</p>
-            </div>
+                                    </h4>
 
-            <div class="rounded-3xl bg-white dark:bg-zinc-900 p-8 text-center shadow-lg hover:-translate-y-2 transition">
-                <img src="assets/icons/nodejs.svg" class="w-14 mx-auto mb-4">
-                <p>Node.js</p>
-            </div>
+                                    <p class="text-grayText">
 
-            <div class="rounded-3xl bg-white dark:bg-zinc-900 p-8 text-center shadow-lg hover:-translate-y-2 transition">
-                <img src="assets/icons/mongodb.svg" class="w-14 mx-auto mb-4">
-                <p>MongoDB</p>
-            </div>
+                                        Authentication<br>
+                                        Workout Plans<br>
+                                        Email Service<br>
+                                        Payment Module
 
-            <div class="rounded-3xl bg-white dark:bg-zinc-900 p-8 text-center shadow-lg hover:-translate-y-2 transition">
-                <img src="assets/icons/postgresql.svg" class="w-14 mx-auto mb-4">
-                <p>PostgreSQL</p>
-            </div>
+                                    </p>
 
-            <div class="rounded-3xl bg-white dark:bg-zinc-900 p-8 text-center shadow-lg hover:-translate-y-2 transition">
-                <img src="assets/icons/docker.svg" class="w-14 mx-auto mb-4">
-                <p>Docker</p>
-            </div>
+                                </div>
 
-            <div class="rounded-3xl bg-white dark:bg-zinc-900 p-8 text-center shadow-lg hover:-translate-y-2 transition">
-                <img src="assets/icons/git.svg" class="w-14 mx-auto mb-4">
-                <p>Git</p>
-            </div>
+                            </div>
 
-        </div>
+                            <div class="flex flex-wrap gap-4">
 
-    </div>
+                                <a href="https://github.com/maeedanim/Fitness-Tracker" target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="bg-primary text-white px-6 py-3 rounded-full btn-primary">
 
-</section>
+                                    GitHub
 
-<!-- ===================================================== -->
-<!-- GITHUB & CODING PROFILES -->
-<!-- ===================================================== -->
+                                </a>
 
-<section class="py-28 dark:bg-black">
+                            </div>
 
-    
-    
+                        </div>
 
-    <div class="max-w-7xl mx-auto px-6">
+                    </div>
 
-        
+                    <div class="order-1 lg:order-2">
 
-        <div class="grid lg:grid-cols-2 gap-14">
+                        <img src="assets/images/fitness-tracker.png" alt="Fitness Tracker"
+                            class="rounded-3xl shadow-2xl hover:scale-[1.02] transition duration-500">
 
-            
-
-            <div>
-
-                <p class="uppercase tracking-[5px] text-primary mb-4">
-
-                    GitHub
-
-                </p>
-
-                <h2 class="text-4xl font-heading font-bold mb-6">
-
-                    Open Source & Backend Development
-
-                </h2>
-
-                <p class="text-grayText leading-8 mb-8">
-
-                    I enjoy building backend applications,
-                    experimenting with software architecture,
-                    and continuously improving my engineering skills
-                    through personal projects and open-source work.
-
-                </p>
-
-                <a
-                    href="https://github.com/maeedanim"
-                    target="_blank"
-                    class="bg-primary text-white px-8 py-4 rounded-full btn-primary inline-flex">
-
-                    Visit GitHub
-
-                </a>
-
-            </div>
-
-            <div class="grid gap-6">
-
-                <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-8 shadow-lg">
-
-                    <h3 class="font-bold text-xl mb-3">
-
-                        Codeforces
-
-                    </h3>
-
-                    <p class="text-grayText">
-
-                        maeedanim
-
-                    </p>
+                    </div>
 
                 </div>
 
-                <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-8 shadow-lg">
-
-                    <h3 class="font-bold text-xl mb-3">
-
-                        LeetCode
-
-                    </h3>
-
-                    <p class="text-grayText">
-
-                        maeed_anim
-
-                    </p>
-
-                </div>
-
-                <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-8 shadow-lg">
-
-                    <h3 class="font-bold text-xl mb-3">
-
-                        CodeChef
-
-                    </h3>
-
-                    <p class="text-grayText">
-
-                        animmaeed
-
-                    </p>
-
-                </div>
-
             </div>
 
-        </div>
+            <!-- ===================================== -->
+            <!-- View All Projects -->
+            <!-- ===================================== -->
 
-    </div>
+            <div class="text-center mt-20">
 
-</section>
+                <a href="/projects"
+                    class="inline-flex items-center gap-3 bg-primary text-white px-8 py-4 rounded-full hover:scale-105 transition">
 
-
-<!-- ===================================================== -->
-<!-- ACHIEVEMENTS -->
-<!-- ===================================================== -->
-
-<section
-    id="achievements"
-    class="reveal py-28 bg-zinc-50 dark:bg-zinc-900/40">
-
-    <div class="max-w-7xl mx-auto px-6">
-
-        <div class="text-center mb-20">
-
-            <p class="uppercase tracking-[5px] text-primary font-semibold">
-
-                Achievements
-
-            </p>
-
-            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold mt-4">
-
-                Milestones & Highlights
-
-            </h2>
-
-            <p class="max-w-2xl mx-auto mt-6 text-grayText leading-8">
-
-                Academic accomplishments, professional experience,
-                and continuous learning that have shaped my journey
-                as a Software engineer.
-
-            </p>
-
-        </div>
-
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-
-            <!-- Card -->
-
-            <div class="bg-white dark:bg-zinc-900 rounded-3xl p-8 shadow-lg text-center hover:-translate-y-2 transition">
-
-                <div class="text-5xl mb-5">🎓</div>
-
-                <h3 class="text-2xl font-bold mb-3">
-
-                    Dean's List
-
-                </h3>
-
-                <p class="text-grayText">
-
-                    Recognized for academic excellence
-                    from 2022–2025.
-
-                </p>
-
-            </div>
-
-            <!-- Card -->
-
-            <div class="bg-white dark:bg-zinc-900 rounded-3xl p-8 shadow-lg text-center hover:-translate-y-2 transition">
-
-                <div class="text-5xl mb-5">💼</div>
-
-                <h3 class="text-2xl font-bold mb-3">
-
-                    Backend Internship
-
-                </h3>
-
-                <p class="text-grayText">
-
-                    Worked on enterprise backend systems
-                    using NestJS and MongoDB.
-
-                </p>
-
-            </div>
-
-            <!-- Card -->
-
-            <div class="bg-white dark:bg-zinc-900 rounded-3xl p-8 shadow-lg text-center hover:-translate-y-2 transition">
-
-                <div class="text-5xl mb-5">👨‍🏫</div>
-
-                <h3 class="text-2xl font-bold mb-3">
-
-                    Teaching Assistant
-
-                </h3>
-
-                <p class="text-grayText">
-
-                    Assisted undergraduate students
-                    in Data Structures & Algorithms.
-
-                </p>
-
-            </div>
-
-            <!-- Card -->
-
-            <div class="bg-white dark:bg-zinc-900 rounded-3xl p-8 shadow-lg text-center hover:-translate-y-2 transition">
-
-                <div class="text-5xl mb-5">🚀</div>
-
-                <h3 class="text-2xl font-bold mb-3">
-
-                    Personal Projects
-
-                </h3>
-
-                <p class="text-grayText">
-
-                    Built multiple backend applications
-                    using modern technologies.
-
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ===================================================== -->
-<!-- STATISTICS -->
-<!-- ===================================================== -->
-
-<section class="dark:bg-black reveal py-24">
-
-    <div class="max-w-7xl mx-auto px-6">
-
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
-
-            <div class="text-center">
-
-                <h2
-                    class="counter text-3xl sm:text-5xl lg:text-6xl font-bold text-primary"
-                    data-target="4">
-
-                    0
-
-                </h2>
-
-                <p class="mt-4 text-grayText">
-
-                    Major Projects
-
-                </p>
-
-            </div>
-
-            <div class="text-center">
-
-                <h2
-                    class="counter text-3xl sm:text-5xl lg:text-6xl font-bold text-primary"
-                    data-target="15">
-
-                    0
-
-                </h2>
-
-                <p class="mt-4 text-grayText">
-
-                    Technologies
-
-                </p>
-
-            </div>
-
-            <div class="text-center">
-
-                <h2
-                    class="counter text-3xl sm:text-5xl lg:text-6xl font-bold text-primary"
-                    data-target="1">
-
-                    0
-
-                </h2>
-
-                <p class="mt-4 text-grayText">
-
-                    Internship
-
-                </p>
-
-            </div>
-
-            <div class="text-center">
-
-                <h2
-                    class="counter text-3xl sm:text-5xl lg:text-6xl font-bold text-primary"
-                    data-target="3.78">
-
-                    0
-
-                </h2>
-
-                <p class="mt-4 text-grayText">
-
-                    CGPA
-
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ===================================================== -->
-<!-- CTA -->
-<!-- ===================================================== -->
-
-<section class="reveal py-28">
-
-    <div class="max-w-6xl mx-auto px-6">
-
-        <div class="bg-primary rounded-[40px] p-6 sm:p-10 lg:p-16 text-center text-white">
-
-            <h2 class="text-2xl sm:text-3xl lg:text-5xl font-heading font-bold mb-8">
-
-                Interested in Working Together?
-
-            </h2>
-
-            <p class="max-w-2xl mx-auto leading-8 text-white/80 mb-10">
-
-                I'm always open to discussing backend development,
-                internships, full-time opportunities,
-                and exciting software engineering projects.
-
-            </p>
-
-            <div class="flex justify-center gap-5 flex-wrap">
-
-                <a
-                    href="#contact"
-                    class="bg-white text-primary px-8 py-4 rounded-full font-semibold hover:scale-105 transition">
-
-                    Contact Me
-
-                </a>
-
-                <a
-                    href="./assets/resume/Maeed_Ahammed_Resume.pdf"
-                    class="bg-white text-primary px-8 py-4 rounded-full font-semibold hover:scale-105 transition">
-
-                    Download Resume
+                    View All Projects →
 
                 </a>
 
@@ -1664,400 +1136,787 @@ Tools
 
         </div>
 
-    </div>
+    </section>
 
-</section>
+    <!-- ===================================================== -->
+    <!-- TECHNOLOGY STACK -->
+    <!-- ===================================================== -->
 
-<!-- ===================================================== -->
-<!-- CONTACT -->
-<!-- ===================================================== -->
+    <section class="py-28 bg-zinc-50 dark:bg-zinc-900/40">
 
-<section
-    id="contact"
-    class="relative overflow-hidden reveal py-20 lg:py-28 bg-zinc-50 dark:bg-black">
+        <div class="max-w-7xl mx-auto px-6">
 
-    <!-- Background Effects -->
-    <div class="absolute -top-40 -left-32 w-[500px] h-[500px] rounded-full bg-primary/10 blur-[140px] pointer-events-none"></div>
+            <div class="text-center mb-16">
 
-    <div class="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full bg-orange-300/10 blur-[120px] pointer-events-none"></div>
+                <p class="uppercase tracking-[5px] text-primary">
 
-    <div class="hero-gradient top-0 left-0"></div>
-    <div class="hero-gradient bottom-0 right-0"></div>
+                    Tech Stack
 
-    <div class="relative z-10 max-w-7xl mx-auto px-6">
+                </p>
 
-        <!-- Heading -->
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold mt-4">
 
-        <div class="text-center mb-16 lg:mb-20">
+                    Technologies I Use
 
-            <p class="uppercase tracking-[5px] text-primary font-semibold">
-                Contact
-            </p>
+                </h2>
 
-            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold mt-4">
-                Let's Build Something Great Together
-            </h2>
+            </div>
 
-            <p class="max-w-2xl mx-auto mt-6 text-grayText leading-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
 
-                Whether you have an internship opportunity,
-                a backend project,
-                or simply want to connect,
-                I'd be happy to hear from you.
+                <div
+                    class="rounded-3xl bg-white dark:bg-zinc-900 p-8 text-center shadow-lg hover:-translate-y-2 transition">
+                    <img src="assets/icons/nestjs.svg" class="w-14 mx-auto mb-4">
+                    <p>NestJS</p>
+                </div>
 
-            </p>
+                <div
+                    class="rounded-3xl bg-white dark:bg-zinc-900 p-8 text-center shadow-lg hover:-translate-y-2 transition">
+                    <img src="assets/icons/nodejs.svg" class="w-14 mx-auto mb-4">
+                    <p>Node.js</p>
+                </div>
+
+                <div
+                    class="rounded-3xl bg-white dark:bg-zinc-900 p-8 text-center shadow-lg hover:-translate-y-2 transition">
+                    <img src="assets/icons/mongodb.svg" class="w-14 mx-auto mb-4">
+                    <p>MongoDB</p>
+                </div>
+
+                <div
+                    class="rounded-3xl bg-white dark:bg-zinc-900 p-8 text-center shadow-lg hover:-translate-y-2 transition">
+                    <img src="assets/icons/postgresql.svg" class="w-14 mx-auto mb-4">
+                    <p>PostgreSQL</p>
+                </div>
+
+                <div
+                    class="rounded-3xl bg-white dark:bg-zinc-900 p-8 text-center shadow-lg hover:-translate-y-2 transition">
+                    <img src="assets/icons/docker.svg" class="w-14 mx-auto mb-4">
+                    <p>Docker</p>
+                </div>
+
+                <div
+                    class="rounded-3xl bg-white dark:bg-zinc-900 p-8 text-center shadow-lg hover:-translate-y-2 transition">
+                    <img src="assets/icons/git.svg" class="w-14 mx-auto mb-4">
+                    <p>Git</p>
+                </div>
+
+            </div>
 
         </div>
 
-        <!-- Grid -->
+    </section>
 
-        <div class="grid grid-cols-1 xl:grid-cols-2 gap-12 lg:gap-16 items-start">
+    <!-- ===================================================== -->
+    <!-- GITHUB & CODING PROFILES -->
+    <!-- ===================================================== -->
 
-            <!-- ====================================== -->
-            <!-- Contact Information -->
-            <!-- ====================================== -->
+    <section class="py-28 dark:bg-black">
 
-            <div class="space-y-6">
 
-                <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-6 lg:p-8 shadow-lg">
 
-                    <h3 class="text-xl font-bold mb-3">
-                        📧 Email
-                    </h3>
 
-                    <p class="text-grayText break-all">
-                        maeedahammed@gmail.com
+        <div class="max-w-7xl mx-auto px-6">
+
+
+
+            <div class="grid lg:grid-cols-2 gap-14">
+
+
+
+                <div>
+
+                    <p class="uppercase tracking-[5px] text-primary mb-4">
+
+                        GitHub
+
                     </p>
 
-                </div>
+                    <h2 class="text-4xl font-heading font-bold mb-6">
 
-                <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-6 lg:p-8 shadow-lg">
+                        Open Source & Backend Development
 
-                    <h3 class="text-xl font-bold mb-3">
-                        💻 GitHub
-                    </h3>
+                    </h2>
 
-                    <a
-                        href="https://github.com/maeedanim"
-                        target="_blank"
-                        class="text-primary hover:underline break-all">
+                    <p class="text-grayText leading-8 mb-8">
 
-                        github.com/maeedanim
+                        I enjoy building backend applications,
+                        experimenting with software architecture,
+                        and continuously improving my engineering skills
+                        through personal projects and open-source work.
+
+                    </p>
+
+                    <a href="https://github.com/maeedanim" target="_blank"
+                        class="bg-primary text-white px-8 py-4 rounded-full btn-primary inline-flex">
+
+                        Visit GitHub
 
                     </a>
 
                 </div>
 
-                <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-6 lg:p-8 shadow-lg">
+                <div class="grid gap-6">
 
-                    <h3 class="text-xl font-bold mb-3">
-                        🔗 LinkedIn
-                    </h3>
+                    <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-8 shadow-lg">
 
-                    <a
-                        href="https://www.linkedin.com/in/maeed/"
-                        target="_blank"
-                        class="text-primary hover:underline break-all">
+                        <h3 class="font-bold text-xl mb-3">
 
-                        linkedin.com/in/maeed
+                            Codeforces
 
-                    </a>
+                        </h3>
+
+                        <p class="text-grayText">
+
+                            maeedanim
+
+                        </p>
+
+                    </div>
+
+                    <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-8 shadow-lg">
+
+                        <h3 class="font-bold text-xl mb-3">
+
+                            LeetCode
+
+                        </h3>
+
+                        <p class="text-grayText">
+
+                            maeed_anim
+
+                        </p>
+
+                    </div>
+
+                    <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-8 shadow-lg">
+
+                        <h3 class="font-bold text-xl mb-3">
+
+                            CodeChef
+
+                        </h3>
+
+                        <p class="text-grayText">
+
+                            animmaeed
+
+                        </p>
+
+                    </div>
 
                 </div>
 
-                <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-6 lg:p-8 shadow-lg">
+            </div>
 
-                    <h3 class="text-xl font-bold mb-3">
-                        📍 Location
+        </div>
+
+    </section>
+
+
+    <!-- ===================================================== -->
+    <!-- ACHIEVEMENTS -->
+    <!-- ===================================================== -->
+
+    <section id="achievements" class="reveal py-28 bg-zinc-50 dark:bg-zinc-900/40">
+
+        <div class="max-w-7xl mx-auto px-6">
+
+            <div class="text-center mb-20">
+
+                <p class="uppercase tracking-[5px] text-primary font-semibold">
+
+                    Achievements
+
+                </p>
+
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold mt-4">
+
+                    Milestones & Highlights
+
+                </h2>
+
+                <p class="max-w-2xl mx-auto mt-6 text-grayText leading-8">
+
+                    Academic accomplishments, professional experience,
+                    and continuous learning that have shaped my journey
+                    as a Software engineer.
+
+                </p>
+
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+                <!-- Card -->
+
+                <div
+                    class="bg-white dark:bg-zinc-900 rounded-3xl p-8 shadow-lg text-center hover:-translate-y-2 transition">
+
+                    <div class="text-5xl mb-5">🎓</div>
+
+                    <h3 class="text-2xl font-bold mb-3">
+
+                        Dean's List
+
                     </h3>
 
                     <p class="text-grayText">
-                        Dhaka, Bangladesh
+
+                        Recognized for academic excellence
+                        from 2022–2025.
+
+                    </p>
+
+                </div>
+
+                <!-- Card -->
+
+                <div
+                    class="bg-white dark:bg-zinc-900 rounded-3xl p-8 shadow-lg text-center hover:-translate-y-2 transition">
+
+                    <div class="text-5xl mb-5">💼</div>
+
+                    <h3 class="text-2xl font-bold mb-3">
+
+                        Backend Internship
+
+                    </h3>
+
+                    <p class="text-grayText">
+
+                        Worked on enterprise backend systems
+                        using NestJS and MongoDB.
+
+                    </p>
+
+                </div>
+
+                <!-- Card -->
+
+                <div
+                    class="bg-white dark:bg-zinc-900 rounded-3xl p-8 shadow-lg text-center hover:-translate-y-2 transition">
+
+                    <div class="text-5xl mb-5">👨‍🏫</div>
+
+                    <h3 class="text-2xl font-bold mb-3">
+
+                        Teaching Assistant
+
+                    </h3>
+
+                    <p class="text-grayText">
+
+                        Assisted undergraduate students
+                        in Data Structures & Algorithms.
+
+                    </p>
+
+                </div>
+
+                <!-- Card -->
+
+                <div
+                    class="bg-white dark:bg-zinc-900 rounded-3xl p-8 shadow-lg text-center hover:-translate-y-2 transition">
+
+                    <div class="text-5xl mb-5">🚀</div>
+
+                    <h3 class="text-2xl font-bold mb-3">
+
+                        Personal Projects
+
+                    </h3>
+
+                    <p class="text-grayText">
+
+                        Built multiple backend applications
+                        using modern technologies.
+
                     </p>
 
                 </div>
 
             </div>
 
-            <!-- ====================================== -->
-            <!-- Contact Form -->
-            <!-- ====================================== -->
+        </div>
 
-            <div class="w-full xl:max-w-xl xl:ml-auto">
+    </section>
 
-                <form
-                    id="contactForm"
-                    class="bg-white dark:bg-zinc-900 rounded-3xl shadow-xl p-6 sm:p-8 lg:p-10 space-y-6">
+    <!-- ===================================================== -->
+    <!-- STATISTICS -->
+    <!-- ===================================================== -->
 
-                    <!-- Name -->
+    <section class="dark:bg-black reveal py-24">
 
-                    <div>
+        <div class="max-w-7xl mx-auto px-6">
 
-                        <label class="block mb-2 font-semibold">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
 
-                            Full Name
+                <div class="text-center">
 
-                        </label>
+                    <h2 class="counter text-3xl sm:text-5xl lg:text-6xl font-bold text-primary" data-target="4">
 
-                        <input
-                            id="name"
-                            type="text"
-                            placeholder="Enter Your Name"
-                            class="w-full rounded-xl border px-5 py-4 bg-transparent focus:outline-none focus:ring-2 focus:ring-primary">
+                        0
 
-                    </div>
+                    </h2>
 
-                    <!-- Email -->
+                    <p class="mt-4 text-grayText">
 
-                    <div>
+                        Major Projects
 
-                        <label class="block mb-2 font-semibold">
+                    </p>
 
-                            Email
+                </div>
 
-                        </label>
+                <div class="text-center">
 
-                        <input
-                            id="email"
-                            type="email"
-                            placeholder="Enter Your Email"
-                            class="w-full rounded-xl border px-5 py-4 bg-transparent focus:outline-none focus:ring-2 focus:ring-primary">
+                    <h2 class="counter text-3xl sm:text-5xl lg:text-6xl font-bold text-primary" data-target="15">
 
-                    </div>
+                        0
 
-                    <!-- Subject -->
+                    </h2>
 
-                    <div>
+                    <p class="mt-4 text-grayText">
 
-                        <label class="block mb-2 font-semibold">
+                        Technologies
 
-                            Subject
+                    </p>
 
-                        </label>
+                </div>
 
-                        <input
-                            id="subject"
-                            type="text"
-                            placeholder="Project Discussion"
-                            class="w-full rounded-xl border px-5 py-4 bg-transparent focus:outline-none focus:ring-2 focus:ring-primary">
+                <div class="text-center">
 
-                    </div>
+                    <h2 class="counter text-3xl sm:text-5xl lg:text-6xl font-bold text-primary" data-target="1">
 
-                    <!-- Message -->
+                        0
 
-                    <div>
+                    </h2>
 
-                        <label class="block mb-2 font-semibold">
+                    <p class="mt-4 text-grayText">
 
-                            Message
+                        Internship
 
-                        </label>
+                    </p>
 
-                        <textarea
-                            id="message"
-                            placeholder="Write your message..."
-                            class="w-full h-44 sm:h-52 lg:h-60 rounded-xl border px-5 py-4 bg-transparent resize-y focus:outline-none focus:ring-2 focus:ring-primary"></textarea>
+                </div>
 
-                    </div>
+                <div class="text-center">
 
-                    <!-- Button -->
+                    <h2 class="counter text-3xl sm:text-5xl lg:text-6xl font-bold text-primary" data-target="3.78">
 
-                    <button
-                        type="submit"
-                        class="w-full sm:w-auto bg-primary text-white px-8 py-4 rounded-full btn-primary">
+                        0
 
-                        Send Message
+                    </h2>
 
-                    </button>
+                    <p class="mt-4 text-grayText">
 
-                </form>
+                        CGPA
+
+                    </p>
+
+                </div>
 
             </div>
 
         </div>
 
-    </div>
+    </section>
 
-</section>
+    <!-- ===================================================== -->
+    <!-- CTA -->
+    <!-- ===================================================== -->
 
+    <section class="reveal py-28">
 
-<!-- ===================================================== -->
-<!-- FLOATING SOCIAL LINKS -->
-<!-- ===================================================== -->
+        <div class="max-w-6xl mx-auto px-6">
 
-<div
-    class="fixed left-4 lg:left-8 bottom-6 lg:bottom-auto lg:top-1/2 lg:-translate-y-1/2 flex flex-col gap-3 lg:gap-5 z-40">
+            <div class="bg-primary rounded-[40px] p-6 sm:p-10 lg:p-16 text-center text-white">
 
-    <!-- GitHub -->
-    <a
-        href="https://github.com/maeedanim"
-        target="_blank"
-        aria-label="GitHub"
-        class="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-white dark:bg-zinc-900 shadow-lg flex items-center justify-center hover:bg-primary hover:scale-110 transition-all duration-300">
+                <h2 class="text-2xl sm:text-3xl lg:text-5xl font-heading font-bold mb-8">
 
-        <img
-            src="assets/icons/github.svg"
-            alt="GitHub"
-            class="w-6 h-6">
-
-    </a>
-
-    <!-- LinkedIn -->
-    <a
-        href="https://www.linkedin.com/in/maeed/"
-        target="_blank"
-        aria-label="LinkedIn"
-        class="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-white dark:bg-zinc-900 shadow-lg flex items-center justify-center hover:bg-primary hover:scale-110 transition-all duration-300">
-
-        <img
-            src="assets/icons/linkedin.svg"
-            alt="LinkedIn"
-            class="w-6 h-6">
-
-    </a>
-
-    <!-- Email -->
-    <a
-        href="mailto:maeedahammed@gmail.com"
-        aria-label="Email"
-        class="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-white dark:bg-zinc-900 shadow-lg flex items-center justify-center hover:bg-primary hover:scale-110 transition-all duration-300">
-
-        <img
-            src="assets/icons/email.svg"
-            alt="Email"
-            class="w-6 h-6">
-
-    </a>
-
-</div>
-
-
-<!-- ===================================================== -->
-<!-- FOOTER -->
-<!-- ===================================================== -->
-
-<footer
-    class="bg-zinc-950 text-white pt-20 pb-10">
-
-    <div class="max-w-7xl mx-auto px-6">
-
-        <div
-            class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-
-            <!-- Brand -->
-
-            <div>
-
-                <h2 class="text-3xl font-bold mb-5">
-
-                    Maeed<span class="text-primary"> Ahammed</span>
+                    Interested in Working Together?
 
                 </h2>
 
-                <p class="text-zinc-400 leading-8">
+                <p class="max-w-2xl mx-auto leading-8 text-white/80 mb-10">
 
-                    Software Engineer passionate about
-                    scalable software, APIs,
-                    and cloud-ready applications.
+                    I'm always open to discussing backend development,
+                    internships, full-time opportunities,
+                    and exciting software engineering projects.
 
                 </p>
 
-            </div>
+                <div class="flex justify-center gap-5 flex-wrap">
 
-            <!-- Navigation -->
+                    <a href="#contact"
+                        class="bg-white text-primary px-8 py-4 rounded-full font-semibold hover:scale-105 transition">
 
-            <div>
+                        Contact Me
 
-                <h3 class="font-bold text-xl mb-6">
+                    </a>
 
-                    Navigation
+                    <a href="./assets/resume/Maeed_Ahammed_Resume.pdf"
+                        class="bg-white text-primary px-8 py-4 rounded-full font-semibold hover:scale-105 transition">
 
-                </h3>
+                        Download Resume
 
-                <ul class="space-y-3 text-zinc-400">
+                    </a>
 
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-
-                </ul>
+                </div>
 
             </div>
 
-            <!-- Technologies -->
+        </div>
 
-            <div>
+    </section>
 
-                <h3 class="font-bold text-xl mb-6">
+    <!-- ===================================================== -->
+    <!-- CONTACT -->
+    <!-- ===================================================== -->
 
-                    Technologies
+    <section id="contact" class="relative overflow-hidden reveal py-20 lg:py-28 bg-zinc-50 dark:bg-black">
 
-                </h3>
+        <!-- Background Effects -->
+        <div
+            class="absolute -top-40 -left-32 w-[500px] h-[500px] rounded-full bg-primary/10 blur-[140px] pointer-events-none">
+        </div>
 
-                <ul class="space-y-3 text-zinc-400">
+        <div
+            class="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full bg-orange-300/10 blur-[120px] pointer-events-none">
+        </div>
 
-                    <li>NestJS</li>
-                    <li>Express.js</li>
-                    <li>MongoDB</li>
-                    <li>PostgreSQL</li>
-                    <li>Docker</li>
+        <div class="hero-gradient top-0 left-0"></div>
+        <div class="hero-gradient bottom-0 right-0"></div>
 
-                </ul>
+        <div class="relative z-10 max-w-7xl mx-auto px-6">
 
-            </div>
+            <!-- Heading -->
 
-            <!-- Contact -->
+            <div class="text-center mb-16 lg:mb-20">
 
-            <div>
-
-                <h3 class="font-bold text-xl mb-6">
-
+                <p class="uppercase tracking-[5px] text-primary font-semibold">
                     Contact
+                </p>
 
-                </h3>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold mt-4">
+                    Let's Build Something Great Together
+                </h2>
 
-                <ul class="space-y-3 text-zinc-400">
+                <p class="max-w-2xl mx-auto mt-6 text-grayText leading-8">
 
-                    <li>Dhaka, Bangladesh</li>
-                    <li>maeedahammed@gmail.com</li>
-                    <li>Phone No. : +8801960201797</li>
-                    <li>Available for opportunities</li>
+                    Whether you have an internship opportunity,
+                    a backend project,
+                    or simply want to connect,
+                    I'd be happy to hear from you.
 
-                </ul>
+                </p>
+
+            </div>
+
+            <!-- Grid -->
+
+            <div class="grid grid-cols-1 xl:grid-cols-2 gap-12 lg:gap-16 items-start">
+
+                <!-- ====================================== -->
+                <!-- Contact Information -->
+                <!-- ====================================== -->
+
+                <div class="space-y-6">
+
+                    <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-6 lg:p-8 shadow-lg">
+
+                        <h3 class="text-xl font-bold mb-3">
+                            📧 Email
+                        </h3>
+
+                        <p class="text-grayText break-all">
+                            maeedahammed@gmail.com
+                        </p>
+
+                    </div>
+
+                    <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-6 lg:p-8 shadow-lg">
+
+                        <h3 class="text-xl font-bold mb-3">
+                            💻 GitHub
+                        </h3>
+
+                        <a href="https://github.com/maeedanim" target="_blank"
+                            class="text-primary hover:underline break-all">
+
+                            github.com/maeedanim
+
+                        </a>
+
+                    </div>
+
+                    <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-6 lg:p-8 shadow-lg">
+
+                        <h3 class="text-xl font-bold mb-3">
+                            🔗 LinkedIn
+                        </h3>
+
+                        <a href="https://www.linkedin.com/in/maeed/" target="_blank"
+                            class="text-primary hover:underline break-all">
+
+                            linkedin.com/in/maeed
+
+                        </a>
+
+                    </div>
+
+                    <div class="card-hover bg-white dark:bg-zinc-900 rounded-3xl p-6 lg:p-8 shadow-lg">
+
+                        <h3 class="text-xl font-bold mb-3">
+                            📍 Location
+                        </h3>
+
+                        <p class="text-grayText">
+                            Dhaka, Bangladesh
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <!-- ====================================== -->
+                <!-- Contact Form -->
+                <!-- ====================================== -->
+
+                <div class="w-full xl:max-w-xl xl:ml-auto">
+
+                    <form id="contactForm"
+                        class="bg-white dark:bg-zinc-900 rounded-3xl shadow-xl p-6 sm:p-8 lg:p-10 space-y-6">
+
+                        <!-- Name -->
+
+                        <div>
+
+                            <label class="block mb-2 font-semibold">
+
+                                Full Name
+
+                            </label>
+
+                            <input id="name" type="text" placeholder="Enter Your Name"
+                                class="w-full rounded-xl border px-5 py-4 bg-transparent focus:outline-none focus:ring-2 focus:ring-primary">
+
+                        </div>
+
+                        <!-- Email -->
+
+                        <div>
+
+                            <label class="block mb-2 font-semibold">
+
+                                Email
+
+                            </label>
+
+                            <input id="email" type="email" placeholder="Enter Your Email"
+                                class="w-full rounded-xl border px-5 py-4 bg-transparent focus:outline-none focus:ring-2 focus:ring-primary">
+
+                        </div>
+
+                        <!-- Subject -->
+
+                        <div>
+
+                            <label class="block mb-2 font-semibold">
+
+                                Subject
+
+                            </label>
+
+                            <input id="subject" type="text" placeholder="Project Discussion"
+                                class="w-full rounded-xl border px-5 py-4 bg-transparent focus:outline-none focus:ring-2 focus:ring-primary">
+
+                        </div>
+
+                        <!-- Message -->
+
+                        <div>
+
+                            <label class="block mb-2 font-semibold">
+
+                                Message
+
+                            </label>
+
+                            <textarea id="message" placeholder="Write your message..."
+                                class="w-full h-44 sm:h-52 lg:h-60 rounded-xl border px-5 py-4 bg-transparent resize-y focus:outline-none focus:ring-2 focus:ring-primary"></textarea>
+
+                        </div>
+
+                        <!-- Button -->
+
+                        <button type="submit"
+                            class="w-full sm:w-auto bg-primary text-white px-8 py-4 rounded-full btn-primary">
+
+                            Send Message
+
+                        </button>
+
+                    </form>
+
+                </div>
 
             </div>
 
         </div>
 
-        <div
-            class="border-t border-zinc-800 pt-8 text-center text-zinc-500">
+    </section>
 
-            © <span id="year"></span> Maeed Ahammed.
-            Designed & Developed by Maeed.
 
-        </div>
+    <!-- ===================================================== -->
+    <!-- FLOATING SOCIAL LINKS -->
+    <!-- ===================================================== -->
+
+    <div
+        class="fixed left-4 lg:left-8 bottom-6 lg:bottom-auto lg:top-1/2 lg:-translate-y-1/2 flex flex-col gap-3 lg:gap-5 z-40">
+
+        <!-- GitHub -->
+        <a href="https://github.com/maeedanim" target="_blank" aria-label="GitHub"
+            class="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-white dark:bg-zinc-900 shadow-lg flex items-center justify-center hover:bg-primary hover:scale-110 transition-all duration-300">
+
+            <img src="assets/icons/github.svg" alt="GitHub" class="w-6 h-6">
+
+        </a>
+
+        <!-- LinkedIn -->
+        <a href="https://www.linkedin.com/in/maeed/" target="_blank" aria-label="LinkedIn"
+            class="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-white dark:bg-zinc-900 shadow-lg flex items-center justify-center hover:bg-primary hover:scale-110 transition-all duration-300">
+
+            <img src="assets/icons/linkedin.svg" alt="LinkedIn" class="w-6 h-6">
+
+        </a>
+
+        <!-- Email -->
+        <a href="mailto:maeedahammed@gmail.com" aria-label="Email"
+            class="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-white dark:bg-zinc-900 shadow-lg flex items-center justify-center hover:bg-primary hover:scale-110 transition-all duration-300">
+
+            <img src="assets/icons/email.svg" alt="Email" class="w-6 h-6">
+
+        </a>
 
     </div>
 
-</footer>
 
-<!-- ===================================================== -->
-<!-- BACK TO TOP -->
-<!-- ===================================================== -->
+    <!-- ===================================================== -->
+    <!-- FOOTER -->
+    <!-- ===================================================== -->
 
-<button
+    <footer class="bg-zinc-950 text-white pt-20 pb-10">
 
-    x-show="showTopButton"
+        <div class="max-w-7xl mx-auto px-6">
 
-    x-transition
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
 
-    @click="window.scrollTo({
+                <!-- Brand -->
+
+                <div>
+
+                    <h2 class="text-3xl font-bold mb-5">
+
+                        Maeed<span class="text-primary"> Ahammed</span>
+
+                    </h2>
+
+                    <p class="text-zinc-400 leading-8">
+
+                        Software Engineer passionate about
+                        scalable software, APIs,
+                        and cloud-ready applications.
+
+                    </p>
+
+                </div>
+
+                <!-- Navigation -->
+
+                <div>
+
+                    <h3 class="font-bold text-xl mb-6">
+
+                        Navigation
+
+                    </h3>
+
+                    <ul class="space-y-3 text-zinc-400">
+
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#contact">Contact</a></li>
+
+                    </ul>
+
+                </div>
+
+                <!-- Technologies -->
+
+                <div>
+
+                    <h3 class="font-bold text-xl mb-6">
+
+                        Technologies
+
+                    </h3>
+
+                    <ul class="space-y-3 text-zinc-400">
+
+                        <li>NestJS</li>
+                        <li>Express.js</li>
+                        <li>MongoDB</li>
+                        <li>PostgreSQL</li>
+                        <li>Docker</li>
+
+                    </ul>
+
+                </div>
+
+                <!-- Contact -->
+
+                <div>
+
+                    <h3 class="font-bold text-xl mb-6">
+
+                        Contact
+
+                    </h3>
+
+                    <ul class="space-y-3 text-zinc-400">
+
+                        <li>Dhaka, Bangladesh</li>
+                        <li>maeedahammed@gmail.com</li>
+                        <li>Phone No. : +8801960201797</li>
+                        <li>Available for opportunities</li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+            <div class="border-t border-zinc-800 pt-8 text-center text-zinc-500">
+
+                © <span id="year"></span> Maeed Ahammed.
+                Designed & Developed by Maeed.
+
+            </div>
+
+        </div>
+
+    </footer>
+
+    <!-- ===================================================== -->
+    <!-- BACK TO TOP -->
+    <!-- ===================================================== -->
+
+    <button x-show="showTopButton" x-transition @click="window.scrollTo({
         top:0,
         behavior:'smooth'
-    })"
-
-    class="fixed bottom-8 right-8
+    })" class="fixed bottom-8 right-8
            w-14 h-14
            rounded-full
            bg-primary
@@ -2066,75 +1925,71 @@ Tools
            hover:scale-110
            transition">
 
-    ↑
+        ↑
 
-</button>
-
-
+    </button>
 
 
-<script src="assets/components/typing.js"></script>
-<script src="assets/components/progressBar.js"></script>
-<script src="assets/components/reveal.js"></script>
-<script src="assets/components/counter.js"></script>
-<script src="assets/components/activeNav.js"></script>
-<script src="assets/components/smoothScroll.js"></script>
-<script src="assets/components/cursorGlow.js"></script>
-<script src="assets/components/navBar.js"></script>
-<script src="assets/components/year.js"></script>
-<script src="assets/components/loader.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-
-<script src="assets/alpine/portfolio.js"></script>
-
-<script src="assets/components/contactForm.js"></script>
 
 
-<!-- ========================================= -->
-<!-- Success Modal -->
-<!-- ========================================= -->
+    <script src="assets/components/typing.js"></script>
+    <script src="assets/components/progressBar.js"></script>
+    <script src="assets/components/reveal.js"></script>
+    <script src="assets/components/counter.js"></script>
+    <script src="assets/components/activeNav.js"></script>
+    <script src="assets/components/smoothScroll.js"></script>
+    <script src="assets/components/cursorGlow.js"></script>
+    <script src="assets/components/navBar.js"></script>
+    <script src="assets/components/year.js"></script>
+    <script src="assets/components/loader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
-<div
-    id="successModal"
-    class="fixed inset-0 bg-black/60 hidden items-center justify-center z-[99999]">
+    <script src="assets/alpine/portfolio.js"></script>
 
-    <div
-        class="bg-white dark:bg-zinc-900 rounded-3xl p-10 w-[90%] max-w-md text-center shadow-2xl">
+    <script src="assets/components/contactForm.js"></script>
 
-        <div
-            class="w-20 h-20 mx-auto rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
 
-            <span class="text-5xl text-green-500">✓</span>
+    <!-- ========================================= -->
+    <!-- Success Modal -->
+    <!-- ========================================= -->
+
+    <div id="successModal" class="fixed inset-0 bg-black/60 hidden items-center justify-center z-[99999]">
+
+        <div class="bg-white dark:bg-zinc-900 rounded-3xl p-10 w-[90%] max-w-md text-center shadow-2xl">
+
+            <div
+                class="w-20 h-20 mx-auto rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
+
+                <span class="text-5xl text-green-500">✓</span>
+
+            </div>
+
+            <h2 class="text-3xl font-bold mt-6">
+
+                Your Message Has Been Sent!
+
+            </h2>
+
+            <p class="text-gray-500 dark:text-gray-400 mt-4 leading-7">
+
+                Thank you for contacting me.
+
+                <br><br>
+
+                I have received your message successfully and will get back to you as soon as possible.
+
+            </p>
+
+            <button id="closeSuccessModal"
+                class="mt-8 bg-primary text-white px-8 py-3 rounded-full hover:scale-105 transition">
+
+                Close
+
+            </button>
 
         </div>
 
-        <h2 class="text-3xl font-bold mt-6">
-
-            Your Message Has Been Sent!
-
-        </h2>
-
-        <p class="text-gray-500 dark:text-gray-400 mt-4 leading-7">
-
-            Thank you for contacting me.
-
-            <br><br>
-
-            I have received your message successfully and will get back to you as soon as possible.
-
-        </p>
-
-        <button
-            id="closeSuccessModal"
-            class="mt-8 bg-primary text-white px-8 py-3 rounded-full hover:scale-105 transition">
-
-            Close
-
-        </button>
-
     </div>
-
-</div>
 
 </body>
 
