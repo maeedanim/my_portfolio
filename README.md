@@ -1,6 +1,6 @@
 # my_portfolio
 
-**Live Link:** https://maeedahammed.onrender.com/
+**Live Link:** https://www.maeedahammed.me/
 
 > Codebase: `c:\Users\maeed\OneDrive\Documents\Projects\my_portfolio`
 >
