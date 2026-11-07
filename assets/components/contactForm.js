@@ -50,6 +50,19 @@ if (form) {
         }
 
         // ==========================================
+        // CAPTCHA Validation
+        // ==========================================
+
+        const captchaResponse = grecaptcha.getResponse();
+
+        if (!captchaResponse) {
+
+            alert("Please complete the CAPTCHA verification.");
+            return;
+
+        }
+
+        // ==========================================
         // Button Loading State
         // ==========================================
 
@@ -109,6 +122,7 @@ if (form) {
 
             submitButton.disabled = false;
             submitButton.innerText = "Send Message";
+            grecaptcha.reset();
 
         });
 
