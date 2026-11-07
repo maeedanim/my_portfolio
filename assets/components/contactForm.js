@@ -2,7 +2,7 @@
 // EmailJS Initialization
 // ==========================================
 
-emailjs.init("DzqXIglXEC691vvKu");
+emailjs.init(EMAILJS_PUBLIC_KEY);
 
 // ==========================================
 // Contact Form
@@ -65,8 +65,8 @@ if (form) {
 
         emailjs.send(
 
-            "service_0bj7jrm",
-            "template_k2lumfb",
+            EMAILJS_SERVICE_ID,
+            EMAILJS_TEMPLATE_ID,
 
             {
                 from_name: name,

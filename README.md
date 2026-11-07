@@ -115,7 +115,7 @@ When the browser loads `index.html`, the following happens in order:
    - `navBar.js` — attaches scroll listener for header shadow
    - `year.js` — sets `#year` span content
    - `loader.js` — waits for `window load` (all assets), then fades out the spinner after 700ms
-5. **`emailjs.init("DzqXIglXEC691vvKu")`** runs from `contactForm.js` — initializes the EmailJS SDK.
+5. **`emailjs.init(EMAILJS_PUBLIC_KEY)`** runs from `contactForm.js` (globals loaded from `assets/config/emailjs.config.js`) — initializes the EmailJS SDK.
 
 ### Multiple Pages
 
@@ -206,12 +206,12 @@ The projects page uses a **client-side data-driven rendering** pattern:
 
 1. Validates all four fields (name, email, subject, message) and email format via regex
 2. Disables the submit button with "Sending..." text during flight
-3. Calls `emailjs.send("service_0bj7jrm", "template_k2lumfb", {...})` with the form data
+3. Calls `emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {...})` with the form data
 4. On success: shows the `#successModal`, resets the form
 5. On failure: `alert()` with the error message
 6. On `finally`: re-enables the submit button
 
-> **Security note**: The EmailJS public key (`DzqXIglXEC691vvKu`) and service/template IDs are **hardcoded in plain JavaScript** and visible to anyone who views the page source. This is by design for client-side EmailJS integrations (it uses public keys, not secret keys), but it means anyone can use the configured template/service by extracting these values.
+> **Security note**: EmailJS credentials are loaded from the gitignored `assets/config/emailjs.config.js` and are not committed to the repository. See `assets/config/emailjs.config.example.js` for the template.
 
 ---
 
@@ -258,9 +258,9 @@ No cookies, no IndexedDB, no session storage.
 
 - **Purpose**: Sends contact form submissions to Maeed's Gmail inbox without a backend server
 - **SDK**: `@emailjs/browser@4` loaded from CDN
-- **Public Key**: `DzqXIglXEC691vvKu` (initialized in `contactForm.js` line 5)
-- **Service ID**: `service_0bj7jrm`
-- **Template ID**: `template_k2lumfb`
+- **Public Key**: loaded from `assets/config/emailjs.config.js` (gitignored)
+- **Service ID**: loaded from `assets/config/emailjs.config.js` (gitignored)
+- **Template ID**: loaded from `assets/config/emailjs.config.js` (gitignored)
 - **Template parameters sent**: `from_name`, `from_email`, `subject`, `message`
 - **Account**: Linked to Maeed's EmailJS account, routing to his Gmail
 
@@ -305,17 +305,18 @@ This is a **zero-configuration static site**. There are no:
 
 The only things embedded as configuration values (all inside JS files, not externalized):
 
-| Value | File | Line | Description |
-|---|---|---|---|
-| EmailJS public key | `contactForm.js` | 5 | `emailjs.init("DzqXIglXEC691vvKu")` |
-| EmailJS service ID | `contactForm.js` | 68 | `"service_0bj7jrm"` |
-| EmailJS template ID | `contactForm.js` | 69 | `"template_k2lumfb"` |
-| Theme colors | `tailwind-config.js` | 11–15 | `#FF6B2B`, `#09090B`, `#71717A` |
+| Value | File | Description |
+|---|---|---|
+| EmailJS public key | `assets/config/emailjs.config.js` (gitignored) | `EMAILJS_PUBLIC_KEY` global |
+| EmailJS service ID | `assets/config/emailjs.config.js` (gitignored) | `EMAILJS_SERVICE_ID` global |
+| EmailJS template ID | `assets/config/emailjs.config.js` (gitignored) | `EMAILJS_TEMPLATE_ID` global |
+| Theme colors | `tailwind-config.js` | `#FF6B2B`, `#09090B`, `#71717A` |
 
 If you fork this project for yourself, you need to:
 1. Create your own [EmailJS account](https://www.emailjs.com/)
 2. Create a service (Gmail/SMTP) and email template
-3. Replace the three IDs in `contactForm.js`
+3. Copy `assets/config/emailjs.config.example.js` → `assets/config/emailjs.config.js`
+4. Fill in your own `EMAILJS_PUBLIC_KEY`, `EMAILJS_SERVICE_ID`, and `EMAILJS_TEMPLATE_ID` in that file
 
 ---
 
